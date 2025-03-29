@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Asistencias</title>
+    <link rel="icon" href="favicon.png" type="imagen/png">
+    <link rel="stylesheet" href="consulta de asistencia.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1 class="titulo">ATTEND.NET <a href="login.html" class="nav__link link--button"></a></h1>
+            <nav>
+                <ul>
+                    <li><a href="contato.html">Contáctanos</a></li>
+                    <li><a href="politicas_de_seguridad.html">Política de Seguridad</a></li>
+                    <li><a href="login.html">Cerrar sesión</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Consulta de asistencias</h2>
+            <p>Selecciona un grupo para consultar la información de asistencia:</p>
+
+            <label for="grupo">Grupo:</label>
+            <select id="grupo" onchange="mostrarAsistencias()">
+                <option value="todos">Todos</option>
+                <option value="Grupo A">Grupo A</option>
+                <option value="Grupo B">Grupo B</option>
+            </select>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Clase</th>
+                        <th>Grupo</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    </tr>
+                    <tr data-grupo="Grupo A">
+                        <td>Historia</td>
+                        <td>Grupo B</td>
+                        <td>Ausente</td>
+                    </tr>
+                    <tr data-grupo="Grupo B">
+                        <td>Inglés</td>
+                        <td>Grupo B</td>
+                        <td>Presente</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <p><strong>Sistema de Control de Asistencia</strong> - Versión 1.0</p>
+            <p>Proyecto desarrollado por [Daniel Gomez]</p>
+            <p>© 2025 Todos los derechos reservados</p>
+            <p>Contacto: soporte@asistencia.com</p>
+            <p>Teléfono: 604 456 0000</p>
+        </div>
+    </footer>
+</body>
+
+</html>

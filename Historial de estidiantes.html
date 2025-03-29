@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Asistencia</title>
+    <link rel="stylesheet" href="historial de estudiantes.css">
+</head>
+<body>
+
+    <header>
+        <h1>Gestión de Asistencias</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Lista de Estudiantes</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Grupo</th>
+                        <th>Asistencia</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Juan Pérez</td>
+                        <td>Grupo A</td>
+                        <td>Presente</td>
+                        <td><button onclick="abrirModal('Juan Pérez')">Editar</button></td>
+                    </tr>
+                    <tr>
+                        <td>María López</td>
+                        <td>Grupo B</td>
+                        <td>Ausente</td>
+                        <td><button onclick="abrirModal('María López')">Editar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Modal para editar asistencia -->
+    <div id="modal" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border: 1px solid black;">
+        <h2>Editar Asistencia</h2>
+        <p id="nombre-estudiante"></p>
+        <label for="nuevo-estado">Nuevo Estado:</label>
+        <select id="nuevo-estado">
+            <option value="Presente">Presente</option>
+            <option value="Ausente">Ausente</option>
+            <option value="Tarde">Tarde</option>
+        </select>
+        <button onclick="cerrarModal()">Guardar Cambios</button>
+    </div>
+
+    <script>
+        function abrirModal(nombre) {
+            document.getElementById("nombre-estudiante").innerText = "Editar asistencia para: " + nombre;
+            document.getElementById("modal").style.display = "block";
+        }
+
+        function cerrarModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

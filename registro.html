@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="registro.css">
+    <link rel="icon" href="favicon.png" type="imagen/png">
+    <title>Formulario de Registro</title>
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1 class="titulo">ATTEND.NET <a href="login.html" class="nav__link link--button"></a></h1>
+            <nav>
+                <div>
+                    <nav class="nav">
+                        <h1 class="titulo">ATTEND.NET <a href="login.html" class="nav__link link--button"></a></h1>
+                        <ul class="nav__list">
+                            <li class="nav__item">
+                                <a href="Preguntas Frecuentes.html" class="nav__link">FAQs</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="politicas_de_seguridad.html" class="nav__link">Política de Seguridad</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="contato.html" class="nav__link">Contáctanos</a>
+                            </li>                          
+                        </ul>
+                </div>
+                
+            </nav>     
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Formulario de Registro</h2>
+
+            <form  class="form">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" name="nombre" placeholder="Ingrese su nombre." required>
+
+                <label>Tipo de documento:
+                    <input list="referente" name="referente">
+                    <datalist id="referente" name="type-of-user">
+                        <option>CC</option>
+                        <option>TI</option>
+                        <option>Cedula de extranjería</option>
+                        <option>Pasaporte</option>
+                    </datalist>
+                </label>
+
+                <label for="Documento">Documento:</label>
+                <input type="text" name="Documento" placeholder="Número sin (.) ni (,)" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel"  name="telefono" placeholder="Teléfono" required>
+
+                <label for="correo">Correo:</label>
+                <input type="email"  name="correo" placeholder="Correo" required>
+
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" name="contrasena" placeholder="Contraseña" required>
+
+                <label for="confirmar_contrasena">Confirmar Contraseña:</label>
+                <input type="password"  name="confirmar_contrasena" placeholder="Confirma tu contraseña" required>
+
+                <button type="submit">Registrarse</button>
+                <button type="reset">Cancelar</button>
+                <p><a href="login.html">Volver al inicio de sesión</a></p>
+            </form>
+        </section>
+    </main><br>
+
+    <footer>
+        <div>
+            <p><strong>Sistema de Control de Asistencia</strong> - Versión 1.0</p>
+            <p>Proyecto desarrollado por [Daniel Gomez]</p>
+            <p>© 2025 Todos los derechos reservados</p>
+            <p>Contacto: soporte@asistencia.com</p>
+            <p>Teléfono: +123 456 7890</p>
+        </div>
+    </footer>
+</body>
+
+</html>

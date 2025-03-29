@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Asistencias</title>
+    <link rel="icon" href="favicon.png" type="imagen/png">
+    <link rel="stylesheet" href="pantalla_administrador.css">
+</head>
+<body>
+    <header>
+        <div>
+            <nav class="nav">
+                <h1 class="titulo">ATTEND.NET <a href="login.html" class="nav__link link--button"></a></h1>
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="Preguntas Frecuentes.html" class="nav__link">FAQs</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="politicas_de_seguridad.html" class="nav__link">Política de Seguridad</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="contato.html" class="nav__link">Contáctanos</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="login.html" class="nav__link link--button">Cerrar Sesion</a>
+                    </li>
+                </ul>
+        </div>
+    </header>
+
+    <main>
+        <h2>Gestión de Asistencias</h2>
+        <section class="filtros">
+            
+            <form>
+                <label for="grupo">Seleccionar Grupo:</label>
+                <select  name="grupo">
+                    <option value="1A">1A</option>
+                    <option value="1B">1B</option>
+                    <option value="2A">2A</option>
+                    <option value="2B">2B</option>
+                </select>
+
+                <label for="fecha">Seleccionar Fecha:</label>
+                <input type="date" name="fecha">
+            </form>
+        </section>
+
+        <section class="listado">
+            <h2>Listado de Estudiantes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Asistencia</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Manuel Morales</td>
+                        <td>
+                            <select name="asistencia">
+                                <option value="presente">Presente</option>
+                                <option value="ausente">Ausente</option>
+                                <option value="tarde">Tarde</option>
+                            </select>
+                        </td>
+                        <td><button class="guardar">Guardar</button></td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Alejandro Gomez</td>
+                        <td>
+                            <select name="asistencia">
+                                <option value="presente">Presente</option>
+                                <option value="ausente">Ausente</option>
+                                <option value="tarde">Tarde</option>
+                            </select>
+                        </td>
+                        <td><button class="guardar">Guardar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <div class="acciones">
+            <button class="guardar-todo">Guardar Todo</button>
+            <button class="reset">Restablecer</button>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <p><strong>Sistema de Control de Asistencia</strong> - Versión 1.0</p>
+            <p>Proyecto desarrollado por Manuel Morales, Emanuel, Alejandro, Juan Felipe</p>
+            <p>&copy; 2025 Todos los derechos reservados</p>
+            <p>Contacto: soporte@asistencia.com</p>
+        </div>
+    </footer>
+</body>
+</html>
