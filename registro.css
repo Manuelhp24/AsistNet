@@ -108,6 +108,15 @@ main {
     border-radius: 5px;
     background: #f4f4f4;
 }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    background: #f4f4f4;
+}
+
 
 button {
     background-color: #2c3e50;
