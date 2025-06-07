@@ -1,4 +1,10 @@
-
+/* Reset de estilos */
+* /* Selecciona todos los elementos */ {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
 
 /* Estilo general del body */
 body {
