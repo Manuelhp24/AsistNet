@@ -3,63 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restablecer Contraseña</title>
+    <title>Restablecer Contraseña - AsistNet</title>
     <link rel="icon" href="img/favicon.png" type="imagen/png">
-    <link rel="stylesheet" href="css/restablecer contraseña.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-
-    <header>
-        <div>
-            <nav class="nav">
-                <a href="login.html" class="nav__link link--button"><h1 class="titulo">ATTEND.NET </h1></a>
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="Preguntas Frecuentes.html" class="nav__link">FAQs</a>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <header class="bg-primary-800 shadow-md">
+        <div class="container mx-auto px-4">
+            <nav class="flex flex-col md:flex-row justify-between items-center py-4">
+                <a href="login.html" class="text-3xl font-bold text-white mb-4 md:mb-0 hover:text-primary-200 transition-colors">
+                    <span class="text-4xl font-bold italic">A</span>sistNet
+                </a>
+                <ul class="flex flex-wrap justify-center gap-4 md:gap-6">
+                    <li>
+                        <a href="Preguntas Frecuentes.html" class="text-white hover:text-primary-200 transition-colors">FAQs</a>
                     </li>
-                    <li class="nav__item">
-                        <a href="politicas_de_seguridad.html" class="nav__link">Política de Seguridad</a>
+                    <li>
+                        <a href="politicas_de_seguridad.html" class="text-white hover:text-primary-200 transition-colors">Política de Seguridad</a>
                     </li>
-                    <li class="nav__item">
-                        <a href="contato.html" class="nav__link">Contáctanos</a>
-                    </li>           
+                    <li>
+                        <a href="contato.html" class="text-white hover:text-primary-200 transition-colors">Contáctanos</a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <h1>Restablecer Contraseña</h1>
-        <section>
-            <h2>Crea una nueva contraseña</h2>
-            <p>Ingresa una nueva contraseña segura para acceder a tu cuenta.</p>
-
-            <form 
-                <div>
-                    <label for="new-password">Nueva Contraseña</label>
-                    <input type="password"  name="new-password" placeholder="Ingrese nueva contraseña" required>
+    <main class="flex-grow flex items-center justify-center p-4">
+        <section class="w-full max-w-md">
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <div class="bg-primary-700 px-6 py-4">
+                    <h1 class="text-2xl font-bold text-white text-center">Restablecer Contraseña</h1>
                 </div>
+                
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-2 text-center">Crea una nueva contraseña</h2>
+                    <p class="text-gray-600 text-center mb-6">Ingresa una nueva contraseña segura para acceder a tu cuenta.</p>
 
-                <div>
-                    <label for="confirm-password">Confirmar Contraseña</label>
-                    <input type="password"  name="confirm-password" placeholder="Confirme su contraseña" required>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="new-password" class="block text-gray-700 font-medium mb-1">Nueva Contraseña</label>
+                            <div class="relative">
+                                <input type="password" id="new-password" name="new-password" placeholder="Ingrese nueva contraseña" 
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent" required>
+                                <button type="button" class="absolute right-3 top-2 text-gray-400 hover:text-gray-600" onclick="togglePassword('new-password')">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">Mínimo 8 caracteres, incluyendo mayúsculas, números y símbolos</p>
+                        </div>
+
+                        <div>
+                            <label for="confirm-password" class="block text-gray-700 font-medium mb-1">Confirmar Contraseña</label>
+                            <div class="relative">
+                                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirme su contraseña" 
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent" required>
+                                <button type="button" class="absolute right-3 top-2 text-gray-400 hover:text-gray-600" onclick="togglePassword('confirm-password')">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white py-2 px-4 rounded-md transition-colors font-medium">
+                                Restablecer Contraseña
+                            </button>
+                        </div>
+
+                        <div class="text-center pt-2">
+                            <a href="login.html" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                                <i class="fas fa-arrow-left mr-1"></i> Volver al inicio de sesión
+                            </a>
+                        </div>
+                    </form>
                 </div>
-
-                <button type="submit">Restablecer Contraseña</button>
-            </form>
-
-            <p><a href="login.html">Volver al inicio de sesión</a></p>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <div>
-            <p><strong>Sistema de Control de Asistencia</strong> - Versión 1.0</p>
-            <p>Proyecto desarrollado por Manuel Morales, Emanuel, Alejandro, Juan Felipe</p>
-            <p>&copy; 2025 Todos los derechos reservados</p>
-            <p>Contacto: soporte@asistencia.com</p>
+    <footer class="bg-primary-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="font-bold mb-1">Sistema de Control de Asistencia - Versión 1.0</p>
+            <p class="text-sm text-white/80 mb-1">Proyecto desarrollado por Manuel Morales, Emanuel, Alejandro, Juan Felipe</p>
+            <p class="text-sm text-white/80 mb-1">&copy; 2025 Todos los derechos reservados</p>
+            <p class="text-sm text-white/80">
+                <i class="fas fa-envelope mr-1"></i> soporte@asistencia.com
+            </p>
         </div>
     </footer>
 
+    <script>
+        function togglePassword(id) {
+            const input = document.getElementById(id);
+            const icon = input.nextElementSibling.querySelector('i');
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = "password";
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+    </script>
 </body>
 </html>

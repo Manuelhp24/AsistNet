@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AsistNet - Gestión Inteligente de Asistencias Académicas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        .logo-a {
+            color: #f59e0b;
+            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+            transition: all 0.3s ease;
+        }
+        .logo-item:hover .logo-a {
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(6, 78, 59, 0.85), rgba(6, 78, 59, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(5, 150, 105, 0.15);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        .stats-item {
+            transition: all 0.3s ease;
+        }
+        .stats-item:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+
+    <!-- Header/Navbar -->
+    <header class="sticky top-0 z-50 bg-emerald-800 shadow-lg">
+        <nav class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
+                        <span class="logo-a text-4xl font-bold italic mr-1">A</span>
+                        <span class="logo-text text-2xl">sistNet</span>
+                    </a>
+                </div>
+                
+                <!-- Menú desktop -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#features" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Funcionalidades</a>
+                    <a href="#benefits" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Beneficios</a>
+                    <a href="#testimonials" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Testimonios</a>
+                    <a href="preguntas_frecuentes.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">FAQs</a>
+                    <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-lg transition font-medium shadow-md">Iniciar Sesión</a>
+                </div>
+                
+                <!-- Menú móvil -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-button p-2 text-white focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Menú móvil desplegable -->
+            <div class="md:hidden hidden mobile-menu">
+                <div class="px-2 pt-2 pb-4 space-y-1">
+                    <a href="#features" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Funcionalidades</a>
+                    <a href="#benefits" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Beneficios</a>
+                    <a href="#testimonials" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Testimonios</a>
+                    <a href="preguntas_frecuentes.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">FAQs</a>
+                    <a href="login.html" class="block bg-amber-500 text-white text-center px-3 py-2 rounded-lg transition mt-2">Iniciar Sesión</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-24 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">Revoluciona el Control de Asistencias</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">La solución integral para instituciones educativas que optimiza el registro, seguimiento y análisis de asistencia académica.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="registro.html" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition transform hover:scale-105 shadow-lg">Registrarse Gratis</a>
+                <a href="#features" class="bg-white hover:bg-gray-100 text-emerald-800 font-bold py-3 px-8 rounded-lg text-lg transition transform hover:scale-105 shadow-lg">Ver Funcionalidades</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="stats-item p-6 bg-gray-50 rounded-xl">
+                    <div class="text-4xl font-bold text-emerald-600 mb-2">+500</div>
+                    <div class="text-gray-600">Instituciones</div>
+                </div>
+                <div class="stats-item p-6 bg-gray-50 rounded-xl">
+                    <div class="text-4xl font-bold text-emerald-600 mb-2">+75K</div>
+                    <div class="text-gray-600">Usuarios activos</div>
+                </div>
+                <div class="stats-item p-6 bg-gray-50 rounded-xl">
+                    <div class="text-4xl font-bold text-emerald-600 mb-2">99.9%</div>
+                    <div class="text-gray-600">Disponibilidad</div>
+                </div>
+                <div class="stats-item p-6 bg-gray-50 rounded-xl">
+                    <div class="text-4xl font-bold text-emerald-600 mb-2">24/7</div>
+                    <div class="text-gray-600">Soporte técnico</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-emerald-800 mb-4">Potentes Funcionalidades</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Descubre todo lo que AsistNet puede hacer por tu institución educativa</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-emerald-800 mb-3">Registro Intuitivo</h3>
+                    <p class="text-gray-600">Sistema de registro de asistencias por grupo y fecha con interfaz amigable y opción de edición inmediata.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-emerald-800 mb-3">Reportes Automáticos</h3>
+                    <p class="text-gray-600">Genera reportes detallados en PDF y Excel con filtros personalizados por periodo, grupo o estudiante.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-emerald-800 mb-3">Acceso Seguro</h3>
+                    <p class="text-gray-600">Autenticación por roles (administrador, docente, estudiante) con permisos diferenciados y encriptación de datos.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-emerald-800 mb-3">Alertas Automáticas</h3>
+                    <p class="text-gray-600">Notificaciones por correo cuando un estudiante alcanza el límite de faltas permitidas.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-emerald-800 mb-3">Acceso Móvil</h3>
+                    <p class="text-gray-600">Interfaz responsive que funciona perfectamente en cualquier dispositivo móvil o tablet.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-emerald-800 mb-3">Sincronización en Tiempo Real</h3>
+                    <p class="text-gray-600">Actualización instantánea de datos entre todos los usuarios del sistema.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 bg-emerald-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Beneficios Clave</h2>
+                <p class="text-xl max-w-3xl mx-auto">Cómo AsistNet transforma la gestión académica de tu institución</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-emerald-700 p-8 rounded-xl">
+                    <div class="text-amber-300 text-3xl mb-4">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Ahorro de Tiempo</h3>
+                    <p>Reduce en un 70% el tiempo dedicado al registro y procesamiento manual de asistencias.</p>
+                </div>
+                
+                <div class="bg-emerald-700 p-8 rounded-xl">
+                    <div class="text-amber-300 text-3xl mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Toma de Decisiones</h3>
+                    <p>Indicadores precisos para identificar patrones de asistencia y tomar acciones preventivas.</p>
+                </div>
+                
+                <div class="bg-emerald-700 p-8 rounded-xl">
+                    <div class="text-amber-300 text-3xl mb-4">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Seguridad de Datos</h3>
+                    <p>Protección avanzada de la información con copias de seguridad automáticas diarias.</p>
+                </div>
+                
+                <div class="bg-emerald-700 p-8 rounded-xl">
+                    <div class="text-amber-300 text-3xl mb-4">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Reducción de Costos</h3>
+                    <p>Elimina el gasto en papel, impresión y almacenamiento físico de registros.</p>
+                </div>
+                
+                <div class="bg-emerald-700 p-8 rounded-xl">
+                    <div class="text-amber-300 text-3xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Comunicación Efectiva</h3>
+                    <p>Envío automático de reportes a padres y acudientes según programación.</p>
+                </div>
+                
+                <div class="bg-emerald-700 p-8 rounded-xl">
+                    <div class="text-amber-300 text-3xl mb-4">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Personalización</h3>
+                    <p>Configura los parámetros de asistencia según las políticas de tu institución.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-emerald-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para transformar tu institución?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Únete a las más de 500 instituciones educativas que ya usan AsistNet para optimizar su gestión académica.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="registro.html" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition transform hover:scale-105 shadow-lg">Comenzar Ahora</a>
+                <a href="c:\Users\manue\Desktop\atteand.net\contato.html" class="bg-white hover:bg-gray-100 text-emerald-800 font-bold py-3 px-8 rounded-lg text-lg transition transform hover:scale-105 shadow-lg">Hablar con un Asesor</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-emerald-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <span class="logo-a text-3xl font-bold italic mr-1">A</span>
+                        <span class="logo-text text-xl">sistNet</span>
+                    </div>
+                    <p class="text-emerald-200">Sistema líder en gestión de asistencias académicas para instituciones educativas.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
+                        <li><a href="#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
+                        <li><a href="#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
+                        <li><a href="preguntas_frecuentes.html" class="text-emerald-200 hover:text-white transition">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="politicas_de_seguridad.html" class="text-emerald-200 hover:text-white transition">Política de Seguridad</a></li>
+                        <li><a href="terminos_condiciones.html" class="text-emerald-200 hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="privacidad.html" class="text-emerald-200 hover:text-white transition">Privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-amber-400"></i>
+                            <a href="mailto:soporte@asistencia.com" class="text-emerald-200 hover:text-white transition">soporte@asistencia.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-amber-400"></i>
+                            <span>+57 123 456 7890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-amber-400"></i>
+                            <span>Medellin, Colombia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-emerald-700 text-center text-emerald-300">
+                <p>&copy; 2025 AsistNet. Todos los derechos reservados.</p>
+                <p class="mt-2">Desarrollado por Manuel Morales & Juan Felipe Uñates</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animation on scroll
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.feature-card, .testimonial-card, .stats-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if(elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        
+        // Initialize elements with opacity 0 for animation
+        document.querySelectorAll('.feature-card, .testimonial-card, .stats-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+        });
+    </script>
+</body>
+</html>

@@ -5,100 +5,157 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Asistencias</title>
     <link rel="icon" href="img/favicon.png" type="imagen/png">
-    <link rel="stylesheet" href="css/pantalla_administrador.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <header>
-        <div>
-            <nav class="nav">
-                <h1 class="titulo">ATTEND.NET <a href="login.html" class="nav__link link--button"></a></h1>
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="Preguntas Frecuentes.html" class="nav__link">FAQs</a>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <header class="bg-primary-800 shadow-md">
+        <div class="container mx-auto px-4">
+            <nav class="flex flex-col md:flex-row justify-between items-center py-4">
+                <h1 class="text-3xl font-bold text-white mb-4 md:mb-0">
+                    ATTEND.NET
+                </h1>
+                <ul class="flex flex-wrap justify-center gap-4 md:gap-6">
+                    <li>
+                        <a href="Preguntas Frecuentes.html" class="text-white hover:text-primary-200 transition-colors">FAQs</a>
                     </li>
-                    <li class="nav__item">
-                        <a href="politicas_de_seguridad.html" class="nav__link">Política de Seguridad</a>
+                    <li>
+                        <a href="politicas_de_seguridad.html" class="text-white hover:text-primary-200 transition-colors">Política de Seguridad</a>
                     </li>
-                    <li class="nav__item">
-                        <a href="contato.html" class="nav__link">Contáctanos</a>
+                    <li>
+                        <a href="contato.html" class="text-white hover:text-primary-200 transition-colors">Contáctanos</a>
                     </li>
-                    <li class="nav__item">
-                        <a href="login.html" class="nav__link link--button">Cerrar Sesion</a>
+                    <li>
+                        <a href="login.html" class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md transition-colors font-medium">
+                            Cerrar Sesión
+                        </a>
                     </li>
                 </ul>
+            </nav>
         </div>
     </header>
 
-    <main>
-        <h2>Gestión de Asistencias</h2>
-        <section class="filtros">
-            
-            <form>
-                <label for="grupo">Seleccionar Grupo:</label>
-                <select  name="grupo">
-                    <option value="1A">1A</option>
-                    <option value="1B">1B</option>
-                    <option value="2A">2A</option>
-                    <option value="2B">2B</option>
-                </select>
-
-                <label for="fecha">Seleccionar Fecha:</label>
-                <input type="date" name="fecha">
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <h2 class="text-3xl font-bold text-primary-800 mb-8 text-center">Gestión de Asistencias</h2>
+        
+        <section class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="grupo" class="block text-gray-700 font-medium mb-2">Seleccionar Grupo:</label>
+                    <select id="grupo" name="grupo" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent">
+                        <option value="1A">1A</option>
+                        <option value="1B">1B</option>
+                        <option value="2A">2A</option>
+                        <option value="2B">2B</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="fecha" class="block text-gray-700 font-medium mb-2">Seleccionar Fecha:</label>
+                    <input type="date" id="fecha" name="fecha" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent">
+                </div>
             </form>
         </section>
 
-        <section class="listado">
-            <h2>Listado de Estudiantes</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Asistencia</th>
-                        <th>Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>001</td>
-                        <td>Manuel Morales</td>
-                        <td>
-                            <select name="asistencia">
-                                <option value="presente">Presente</option>
-                                <option value="ausente">Ausente</option>
-                                <option value="tarde">Tarde</option>
-                            </select>
-                        </td>
-                        <td><button class="guardar">Guardar</button></td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td>Alejandro Gomez</td>
-                        <td>
-                            <select name="asistencia">
-                                <option value="presente">Presente</option>
-                                <option value="ausente">Ausente</option>
-                                <option value="tarde">Tarde</option>
-                            </select>
-                        </td>
-                        <td><button class="guardar">Guardar</button></td>
-                    </tr>
-                </tbody>
-            </table>
+        <section class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+            <h2 class="text-xl font-semibold text-primary-800 bg-primary-100 px-6 py-4">Listado de Estudiantes</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Asistencia</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">001</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Manuel Morales</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <select name="asistencia" class="px-3 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent">
+                                    <option value="presente">Presente</option>
+                                    <option value="ausente">Ausente</option>
+                                    <option value="tarde">Tarde</option>
+                                </select>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <button class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md transition-colors text-sm">
+                                    Guardar
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">002</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Alejandro Gomez</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <select name="asistencia" class="px-3 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent">
+                                    <option value="presente">Presente</option>
+                                    <option value="ausente">Ausente</option>
+                                    <option value="tarde">Tarde</option>
+                                </select>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <button class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md transition-colors text-sm">
+                                    Guardar
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
-        <div class="acciones">
-            <button class="guardar-todo">Guardar Todo</button>
-            <button class="reset">Restablecer</button>
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <button class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-md transition-colors font-medium">
+                <i class="fas fa-save mr-2"></i>Guardar Todo
+            </button>
+            <button class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-md transition-colors font-medium">
+                <i class="fas fa-undo mr-2"></i>Restablecer
+            </button>
         </div>
     </main>
 
-    <footer>
-        <div>
-            <p><strong>Sistema de Control de Asistencia</strong> - Versión 1.0</p>
-            <p>Proyecto desarrollado por Manuel Morales, Emanuel, Alejandro, Juan Felipe</p>
-            <p>&copy; 2025 Todos los derechos reservados</p>
-            <p>Contacto: soporte@asistencia.com</p>
+    <footer class="bg-primary-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-center"> <!-- Cambiado a justify-center -->
+                <!-- Contenedor del GIF animado -->
+                <div class="mb-6 md:mb-0 md:mr-8"> <!-- Añadido margen derecho en desktop -->
+                    <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm border border-white/20 shadow-lg">
+                        <img src="img/checklist.gif" 
+                             alt="Animación de asistencia" 
+                             class="h-32 object-cover rounded-lg"
+                             loading="lazy">
+                    </div>
+                </div>
+                
+                <!-- Información de contacto - ahora centrada -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold mb-2">Sistema de Control de Asistencia</h3>
+                    <p class="text-sm text-white/80 mb-1">Versión 1.0</p>
+                    <p class="text-sm text-white/80 mb-1">Desarrollado por: Manuel Morales, Emanuel, Alejandro, Juan Felipe</p>
+                    <p class="text-sm text-white/80 mb-1">&copy; 2025 Todos los derechos reservados</p>
+                    <p class="text-sm text-white/80">
+                        <i class="fas fa-envelope mr-1"></i> soporte@asistencia.com
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
 </body>
