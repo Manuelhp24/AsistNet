@@ -94,35 +94,6 @@
         </div>
     </footer>
 
-    <script>
-        function togglePassword(id) {
-            const input = document.getElementById(id);
-            const icon = input.nextElementSibling.querySelector('i');
-            if (input.type === "password") {
-                input.type = "text";
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            } else {
-                input.type = "password";
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
-            }
-        }
-    </script>
-       <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            600: '#059669',
-                            700: '#047857',
-                            800: '#065f46',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="static/js/restablecer-password.js"></script>
 </body>
 </html>
