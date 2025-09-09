@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AsistNet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="icon" href="static/img/favicon.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .stat-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .stat-card:hover { transform: translateY(-5px); }
+        .chart-card { box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .notification-item { border-left: 4px solid #059669; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-primary-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold">🐘 AsistNet - Dashboard</h1>
+                <nav class="flex space-x-4">
+                    <a href="dashboard.html" class="bg-primary-600 px-3 py-2 rounded">Dashboard</a>
+                    <a href="perfil.html" class="px-3 py-2 rounded hover:bg-primary-700">Perfil</a>
+                    <a href="login.html" class="px-3 py-2 rounded hover:bg-primary-700">Cerrar Sesión</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Estadísticas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="stat-card text-white p-6 rounded-2xl shadow-xl transition duration-300">
+                <h3 class="text-lg mb-2">Total Estudiantes</h3>
+                <p class="text-3xl font-bold">248</p>
+                <p class="text-sm opacity-90">↑ 12% este mes</p>
+            </div>
+            <div class="stat-card text-white p-6 rounded-2xl shadow-xl transition duration-300">
+                <h3 class="text-lg mb-2">Asistencias Hoy</h3>
+                <p class="text-3xl font-bold">187</p>
+                <p class="text-sm opacity-90">92% de asistencia</p>
+            </div>
+            <div class="stat-card text-white p-6 rounded-2xl shadow-xl transition duration-300">
+                <h3 class="text-lg mb-2">Inasistencias</h3>
+                <p class="text-3xl font-bold">16</p>
+                <p class="text-sm opacity-90">↓ 5% esta semana</p>
+            </div>
+            <div class="stat-card text-white p-6 rounded-2xl shadow-xl transition duration-300">
+                <h3 class="text-lg mb-2">Cursos Activos</h3>
+                <p class="text-3xl font-bold">12</p>
+                <p class="text-sm opacity-90">3 nuevos este mes</p>
+            </div>
+        </div>
+
+        <!-- Gráficos -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div class="chart-card bg-white p-6 rounded-2xl">
+                <h3 class="text-lg font-semibold mb-4 text-center">Asistencia por Curso</h3>
+                <canvas id="attendanceChart"></canvas>
+            </div>
+            <div class="chart-card bg-white p-6 rounded-2xl">
+                <h3 class="text-lg font-semibold mb-4 text-center">Trend Mensual</h3>
+                <canvas id="monthlyTrendChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Notificaciones -->
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+            <h3 class="text-lg font-semibold mb-4">📋 Notificaciones Recientes</h3>
+            <div class="space-y-4">
+                <div class="notification-item bg-gray-50 p-4 rounded-lg">
+                    <p class="font-medium">⚠️ Juan Pérez tiene 3 inasistencias consecutivas</p>
+                    <p class="text-sm text-gray-600">Hace 2 horas</p>
+                </div>
+                <div class="notification-item bg-gray-50 p-4 rounded-lg">
+                    <p class="font-medium">✅ Asistencia masiva registrada correctamente</p>
+                    <p class="text-sm text-gray-600">Hace 5 horas</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Gráficos simples
+        setTimeout(() => {
+            new Chart(document.getElementById('attendanceChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Matemáticas', 'Programación', 'Inglés'],
+                    datasets: [{
+                        data: [95, 88, 92],
+                        backgroundColor: ['#059669', '#2563eb', '#f59e0b']
+                    }]
+                }
+            });
+
+            new Chart(document.getElementById('monthlyTrendChart'), {
+                type: 'line',
+                data: {
+                    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Asistencia (%)',
+                        data: [85, 88, 92, 90, 94, 96],
+                        borderColor: '#059669',
+                        fill: false
+                    }]
+                }
+            });
+        }, 100);
+    </script>
+</body>
+</html>

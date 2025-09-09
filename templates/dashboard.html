@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AsistNet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            600: "#059669",
+                            700: "#047857", 
+                            800: "#065f46"
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="static/css/dashboard.css">
+    <link rel="icon" href="static/img/favicon.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav">
+            <h1 class="titulo">🐘 AsistNet - Dashboard</h1>
+            <ul class="nav__list">
+                <li><a href="dashboard.html" class="nav__link active">Dashboard</a></li>
+                <li><a href="consulta_asistencias.html" class="nav__link">Asistencias</a></li>
+                <li><a href="historial_estudiantes.html" class="nav__link">Estudiantes</a></li>
+                <li><a href="login.html" class="nav__link link--button">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <!-- Estadísticas Rápidas -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Estudiantes</h3>
+                <p class="stat-number">248</p>
+                <span class="stat-trend">↑ 12% este mes</span>
+            </div>
+            <div class="stat-card">
+                <h3>Asistencias Hoy</h3>
+                <p class="stat-number">187</p>
+                <span class="stat-trend">92% de asistencia</span>
+            </div>
+            <div class="stat-card">
+                <h3>Inasistencias</h3>
+                <p class="stat-number">16</p>
+                <span class="stat-trend">↓ 5% esta semana</span>
+            </div>
+            <div class="stat-card">
+                <h3>Cursos Activos</h3>
+                <p class="stat-number">12</p>
+                <span class="stat-trend">3 nuevos este mes</span>
+            </div>
+        </section>
+
+        <!-- Gráficos -->
+        <section class="charts-grid">
+            <div class="chart-card">
+                <h3>Asistencia por Curso</h3>
+                <canvas id="attendanceChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Trend Mensual</h3>
+                <canvas id="monthlyTrendChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Notificaciones Recientes -->
+        <section class="notifications-section">
+            <h3>Notificaciones Recientes</h3>
+            <div class="notifications-list">
+                <div class="notification-item">
+                    <span class="notification-icon">⚠️</span>
+                    <div class="notification-content">
+                        <p>Juan Pérez tiene 3 inasistencias consecutivas</p>
+                        <small>Hace 2 horas</small>
+                    </div>
+                </div>
+                <div class="notification-item">
+                    <span class="notification-icon">✅</span>
+                    <div class="notification-content">
+                        <p>Asistencia masiva registrada correctamente</p>
+                        <small>Hace 5 horas</small>
+                    </div>
+                </div>
+                <div class="notification-item">
+                    <span class="notification-icon">🎓</span>
+                    <div class="notification-content">
+                        <p>Nuevo estudiante registrado: María García</p>
+                        <small>Ayer</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="static/js/dashboard.js"></script>
+</body>
+</html>
