@@ -1,0 +1,11 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Entornos virtuales
+venv/
+env/
+
+# Archivos de base de datos
+*.db
+*.sqlite
