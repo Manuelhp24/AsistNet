@@ -3,116 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AsistNet - Sistema de Gestión</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Dashboard - AsistNet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="icon" href="static/img/favicon.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .stat-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .stat-card:hover { transform: translateY(-5px); }
+        .chart-card { box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .notification-item { border-left: 4px solid #059669; }
+    </style>
 </head>
-<body class="font-sans bg-gray-50">
-    <!-- Header/Navbar -->
-    <header class="sticky top-0 z-50 bg-emerald-800 shadow-lg">
-        <nav class="container mx-auto px-4">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="../index.html" class="text-white text-xl font-semibold tracking-wide flex items-center">
-                        <span class="logo-a text-4xl font-bold italic mr-1">A</span>
-                        <span class="logo-text text-2xl">sistNet</span>
-                    </a>
-                </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="../index.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Inicio</a>
-                    <a href="../index.html#features" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Funcionalidades</a>
-                    <a href="preguntas_frecuentes.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">FAQs</a>
-                    <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-lg transition font-medium shadow-md">Iniciar Sesión</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-white text-2xl">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden bg-emerald-800 pb-4">
-                <a href="../index.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Inicio</a>
-                <a href="../index.html#features" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Funcionalidades</a>
-                <a href="preguntas_frecuentes.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">FAQs</a>
-                <a href="login.html" class="block bg-amber-500 text-white text-center px-3 py-2 rounded-lg transition mt-2">Iniciar Sesión</a>
-            </div>
-        </nav>
-    </header>
-    <main>
-
-    </main>
-    <!-- Footer -->
-    <footer class="bg-emerald-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <span class="logo-a text-3xl font-bold italic mr-1">A</span>
-                        <span class="logo-text text-xl">sistNet</span>
-                    </div>
-                    <p class="text-emerald-200">Sistema líder en gestión de asistencias académicas para instituciones educativas.</p>
-                </div>
-
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Enlaces Rápidos</h3>
-                    <ul class="space-y-2">
-                        <li><a href="../index.html#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
-                        <li><a href="../index.html#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
-                        <li><a href="preguntas_frecuentes.html" class="text-emerald-200 hover:text-white transition">FAQs</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Legal</h3>
-                    <ul class="space-y-2">
-                        <li><a href="politicas_de_seguridad.html" class="text-emerald-200 hover:text-white transition">Política de Seguridad</a></li>
-                        <li><a href="terminos_condiciones.html" class="text-emerald-200 hover:text-white transition">Términos y Condiciones</a></li>
-                        <li><a href="privacidad.html" class="text-emerald-200 hover:text-white transition">Privacidad</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Contacto</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-2 text-amber-400"></i>
-                            <a href="mailto:soporte@asistencia.com" class="text-emerald-200 hover:text-white transition">soporte@asistencia.com</a>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone mr-2 text-amber-400"></i>
-                            <span>+57 123 456 7890</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2 text-amber-400"></i>
-                            <span>Medellín, Colombia</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-emerald-800 pt-8 text-center">
-                <p class="text-emerald-300">&copy; 2024 AsistNet. Todos los derechos reservados.</p>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-primary-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold">🐘 AsistNet - Dashboard</h1>
+                <nav class="flex space-x-4">
+                    <a href="dashboard.html" class="bg-primary-600 px-3 py-2 rounded">Dashboard</a>
+                    <a href="perfil.html" class="px-3 py-2 rounded hover:bg-primary-700">Perfil</a>
+                    <a href="login.html" class="px-3 py-2 rounded hover:bg-primary-700">Cerrar Sesión</a>
+                </nav>
             </div>
         </div>
-    </footer>
+    </header>
 
-    <!-- JavaScript -->
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Estadísticas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="stat-card text-white p-6 rounded-2xl shadow-xl transition duration-300">
+                <h3 class="text-lg mb-2">Total Estudiantes</h3>
+                <p class="text-3xl font-bold">248</p>
+                <p class="text-sm opacity-90">↑ 12% este mes</p>
+            </div>
+            <div class="stat-card text-white p-6 rounded-2xl shadow-xl transition duration-300">
+                <h3 class="text-lg mb-2">Asistencias Hoy</h3>
+                <p class="text-3xl font-bold">187</p>
+                <p class="text-sm opacity-90">92% de asistencia</p>
+            </div>
+            <div class="stat-card text-white p-6 rounded-2xl shadow-xl transition duration-300">
+                <h3 class="text-lg mb-2">Inasistencias</h3>
+                <p class="text-3xl font-bold">16</p>
+                <p class="text-sm opacity-90">↓ 5% esta semana</p>
+            </div>
+            <div class="stat-card text-white p-6 rounded-2xl shadow-xl transition duration-300">
+                <h3 class="text-lg mb-2">Cursos Activos</h3>
+                <p class="text-3xl font-bold">12</p>
+                <p class="text-sm opacity-90">3 nuevos este mes</p>
+            </div>
+        </div>
+
+        <!-- Gráficos -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div class="chart-card bg-white p-6 rounded-2xl">
+                <h3 class="text-lg font-semibold mb-4 text-center">Asistencia por Curso</h3>
+                <canvas id="attendanceChart"></canvas>
+            </div>
+            <div class="chart-card bg-white p-6 rounded-2xl">
+                <h3 class="text-lg font-semibold mb-4 text-center">Trend Mensual</h3>
+                <canvas id="monthlyTrendChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Notificaciones -->
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+            <h3 class="text-lg font-semibold mb-4">📋 Notificaciones Recientes</h3>
+            <div class="space-y-4">
+                <div class="notification-item bg-gray-50 p-4 rounded-lg">
+                    <p class="font-medium">⚠️ Juan Pérez tiene 3 inasistencias consecutivas</p>
+                    <p class="text-sm text-gray-600">Hace 2 horas</p>
+                </div>
+                <div class="notification-item bg-gray-50 p-4 rounded-lg">
+                    <p class="font-medium">✅ Asistencia masiva registrada correctamente</p>
+                    <p class="text-sm text-gray-600">Hace 5 horas</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
     <script>
-        // Mobile Menu Toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
+        // Gráficos simples
+        setTimeout(() => {
+            new Chart(document.getElementById('attendanceChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Matemáticas', 'Programación', 'Inglés'],
+                    datasets: [{
+                        data: [95, 88, 92],
+                        backgroundColor: ['#059669', '#2563eb', '#f59e0b']
+                    }]
+                }
+            });
+
+            new Chart(document.getElementById('monthlyTrendChart'), {
+                type: 'line',
+                data: {
+                    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Asistencia (%)',
+                        data: [85, 88, 92, 90, 94, 96],
+                        borderColor: '#059669',
+                        fill: false
+                    }]
+                }
+            });
+        }, 100);
     </script>
 </body>
 </html>

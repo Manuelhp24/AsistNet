@@ -3,116 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AsistNet - Sistema de Gestión</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Formulario de Registro - AsistNet</title>
+    <link rel="icon" href="static/img/favicon.png" type="imagen/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
-<body class="font-sans bg-gray-50">
-    <!-- Header/Navbar -->
-    <header class="sticky top-0 z-50 bg-emerald-800 shadow-lg">
-        <nav class="container mx-auto px-4">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="../index.html" class="text-white text-xl font-semibold tracking-wide flex items-center">
-                        <span class="logo-a text-4xl font-bold italic mr-1">A</span>
-                        <span class="logo-text text-2xl">sistNet</span>
-                    </a>
-                </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="../index.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Inicio</a>
-                    <a href="../index.html#features" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Funcionalidades</a>
-                    <a href="preguntas_frecuentes.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">FAQs</a>
-                    <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-lg transition font-medium shadow-md">Iniciar Sesión</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-white text-2xl">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden bg-emerald-800 pb-4">
-                <a href="../index.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Inicio</a>
-                <a href="../index.html#features" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Funcionalidades</a>
-                <a href="preguntas_frecuentes.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">FAQs</a>
-                <a href="login.html" class="block bg-amber-500 text-white text-center px-3 py-2 rounded-lg transition mt-2">Iniciar Sesión</a>
-            </div>
-        </nav>
-    </header>
-    <main>
-
-    </main>
-    <!-- Footer -->
-    <footer class="bg-emerald-900 text-white py-12">
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <header class="bg-primary-800 shadow-md">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <span class="logo-a text-3xl font-bold italic mr-1">A</span>
-                        <span class="logo-text text-xl">sistNet</span>
+            <nav class="flex flex-col md:flex-row justify-between items-center py-4">
+                <a href="login.html" class="text-3xl font-bold text-white mb-4 md:mb-0 hover:text-primary-200 transition-colors">
+                    <span class="text-4xl font-bold italic">A</span>sistNet
+                </a>
+                <ul class="flex flex-wrap justify-center gap-4 md:gap-6">
+                    <li>
+                        <a href="Preguntas Frecuentes.html" class="text-white hover:text-primary-200 transition-colors">FAQs</a>
+                    </li>
+                    <li>
+                        <a href="politicas_de_seguridad.html" class="text-white hover:text-primary-200 transition-colors">Política de Seguridad</a>
+                    </li>
+                    <li>
+                        <a href="contato.html" class="text-white hover:text-primary-200 transition-colors">Contáctanos</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center p-4">
+        <section class="w-full max-w-md">
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <div class="bg-primary-700 px-6 py-4">
+                    <h2 class="text-2xl font-bold text-white text-center">Formulario de Registro</h2>
+                </div>
+                
+                <form class="px-6 py-4 space-y-4">
+                    <div>
+                        <label for="nombre" class="block text-gray-700 font-medium mb-1">Nombre Completo:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent" required>
                     </div>
-                    <p class="text-emerald-200">Sistema líder en gestión de asistencias académicas para instituciones educativas.</p>
-                </div>
 
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Enlaces Rápidos</h3>
-                    <ul class="space-y-2">
-                        <li><a href="../index.html#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
-                        <li><a href="../index.html#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
-                        <li><a href="preguntas_frecuentes.html" class="text-emerald-200 hover:text-white transition">FAQs</a></li>
-                    </ul>
-                </div>
+                    <div>
+                        <label for="select" class="block text-gray-700 font-medium mb-1">Tipo de documento:</label>
+                        <select id="select" name="select" 
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent" required>
+                            <option value="" disabled selected>Seleccione su tipo de documento</option>
+                            <option>CC</option>
+                            <option>TI</option>
+                            <option>Cédula de extranjería</option>
+                            <option>Pasaporte</option>
+                        </select>
+                    </div>
 
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Legal</h3>
-                    <ul class="space-y-2">
-                        <li><a href="politicas_de_seguridad.html" class="text-emerald-200 hover:text-white transition">Política de Seguridad</a></li>
-                        <li><a href="terminos_condiciones.html" class="text-emerald-200 hover:text-white transition">Términos y Condiciones</a></li>
-                        <li><a href="privacidad.html" class="text-emerald-200 hover:text-white transition">Privacidad</a></li>
-                    </ul>
-                </div>
+                    <div>
+                        <label for="Documento" class="block text-gray-700 font-medium mb-1">Documento:</label>
+                        <input type="text" id="Documento" name="Documento" placeholder="Número sin (.) ni (,)" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent" required>
+                    </div>
 
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Contacto</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-2 text-amber-400"></i>
-                            <a href="mailto:soporte@asistencia.com" class="text-emerald-200 hover:text-white transition">soporte@asistencia.com</a>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone mr-2 text-amber-400"></i>
-                            <span>+57 123 456 7890</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2 text-amber-400"></i>
-                            <span>Medellín, Colombia</span>
-                        </li>
-                    </ul>
-                </div>
+                    <div>
+                        <label for="telefono" class="block text-gray-700 font-medium mb-1">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent" required>
+                    </div>
+
+                    <div>
+                        <label for="correo" class="block text-gray-700 font-medium mb-1">Correo:</label>
+                        <input type="email" id="correo" name="correo" placeholder="Correo" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent" required>
+                    </div>
+
+                    <div>
+                        <label for="contrasena" class="block text-gray-700 font-medium mb-1">Contraseña:</label>
+                        <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent" required>
+                    </div>
+
+                    <div>
+                        <label for="confirmar_contrasena" class="block text-gray-700 font-medium mb-1">Confirmar Contraseña:</label>
+                        <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" placeholder="Confirma tu contraseña" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent" required>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md transition-colors font-medium flex-grow">
+                            Registrarse
+                        </button>
+                        <button type="reset" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md transition-colors font-medium flex-grow">
+                            Cancelar
+                        </button>
+                    </div>
+
+                    <div class="text-center pt-2">
+                        <a href="login.html" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                            <i class="fas fa-arrow-left mr-1"></i> Volver al inicio de sesión
+                        </a>
+                    </div>
+                </form>
             </div>
-            
-            <div class="border-t border-emerald-800 pt-8 text-center">
-                <p class="text-emerald-300">&copy; 2024 AsistNet. Todos los derechos reservados.</p>
-            </div>
+        </section>
+    </main>
+
+    <footer class="bg-primary-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="font-bold mb-1">Sistema de Control de Asistencia - Versión 1.0</p>
+            <p class="text-sm text-white/80 mb-1">Proyecto desarrollado por Daniel Gomez</p>
+            <p class="text-sm text-white/80 mb-1">© 2025 Todos los derechos reservados</p>
+            <p class="text-sm text-white/80 mb-1">
+                <i class="fas fa-envelope mr-1"></i> soporte@asistencia.com
+            </p>
+            <p class="text-sm text-white/80">
+                <i class="fas fa-phone mr-1"></i> +123 456 7890
+            </p>
         </div>
     </footer>
-
-    <!-- JavaScript -->
-    <script>
-        // Mobile Menu Toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-    </script>
 </body>
 </html>
