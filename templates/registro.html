@@ -7,21 +7,36 @@
     <link rel="icon" href="static/img/favicon.png" type="imagen/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/main.css">
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
-    <header class="bg-primary-800 shadow-md">
-        <div class="container mx-auto px-4">
-            <nav class="flex flex-col md:flex-row justify-between items-center py-4">
-                <a href="login.html" class="text-3xl font-bold text-white mb-4 md:mb-0 hover:text-primary-200 transition-colors">
-                    <span class="text-4xl font-bold italic">A</span>sistNet
-                </a>
-                <ul class="flex flex-wrap justify-center gap-4 md:gap-6">
-                    <li>
-                        <a href="Preguntas Frecuentes.html" class="text-white hover:text-primary-200 transition-colors">FAQs</a>
-                    </li>
-                    <li>
-                        <a href="politicas_de_seguridad.html" class="text-white hover:text-primary-200 transition-colors">Política de Seguridad</a>
-                    </li>
+    <header class="sticky top-0 z-50">
+        <nav class="bg-emerald-800 w-full shadow-md">
+            <ul class="grid grid-cols-2 sm:grid-cols-4 gap-px text-sm">
+                <!-- Logo -->
+                <li class="col-span-2 sm:col-span-1 bg-emerald-700 text-center py-3 nav-item">
+                    <a href="../index.html" class="nav-link text-white text-xl font-semibold tracking-wide">
+                        <span class="text-4xl font-bold italic">A</span>sistNet
+                    </a>
+                </li>
+
+                <!-- FAQs -->
+                <li class="bg-emerald-700 text-center py-3 nav-item">
+                    <a href="preguntas_frecuentes.html" class="nav-link text-white font-medium">FAQs</a>
+                </li>
+
+                <!-- Política -->
+                <li class="bg-emerald-700 text-center py-3 nav-item">
+                    <a href="politicas_de_seguridad.html" class="nav-link text-white font-medium text-sm">Política<br class="hidden sm:inline">de Seguridad</a>
+                </li>
+
+                <!-- Contáctanos -->
+                <li class="bg-emerald-700 text-center py-3 nav-item">
+                    <a href="contato.html" class="nav-link text-white font-medium">Contáctanos</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
                     <li>
                         <a href="contato.html" class="text-white hover:text-primary-200 transition-colors">Contáctanos</a>
                     </li>
@@ -105,18 +120,23 @@
         </section>
     </main>
 
-    <footer class="bg-primary-800 text-white py-6">
-        <div class="container mx-auto px-4 text-center">
-            <p class="font-bold mb-1">Sistema de Control de Asistencia - Versión 1.0</p>
-            <p class="text-sm text-white/80 mb-1">Proyecto desarrollado por Daniel Gomez</p>
-            <p class="text-sm text-white/80 mb-1">© 2025 Todos los derechos reservados</p>
-            <p class="text-sm text-white/80 mb-1">
-                <i class="fas fa-envelope mr-1"></i> soporte@asistencia.com
-            </p>
-            <p class="text-sm text-white/80">
-                <i class="fas fa-phone mr-1"></i> +123 456 7890
-            </p>
+    <footer class="bg-emerald-800 text-white py-6 mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <img src="../static/img/checklist.gif" alt="Animación" class="h-16 rounded-lg shadow-md mr-4">
+                    <div class="text-left">
+                        <p class="font-bold">Sistema de Control de Asistencia</p>
+                        <p class="text-sm">Versión 1.0</p>
+                    </div>
+                </div>
+
+                <div class="text-center md:text-right">
+                    <p class="text-sm">Desarrollado por <span class="font-semibold">Manuel Morales</span> & <span class="font-semibold">Juan Felipe Uñates</span></p>
+                    <p class="text-sm mt-1">&copy; 2025 Todos los derechos reservados</p>
+                    <p class="text-sm mt-1">Contacto: <a href="mailto:soporte@asistencia.com" class="underline hover:text-emerald-300 transition">soporte@asistencia.com</a></p>
+                </div>
+            </div>
         </div>
     </footer>
-</body>
-</html>
+</body></html>
