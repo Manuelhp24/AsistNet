@@ -4,124 +4,320 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - AsistNet</title>
-    <link rel="icon" href="static/img/favicon.png" type="imagen/png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="static/img/favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .logo-a {
+            color: #f59e0b;
+            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+            transition: all 0.3s ease;
+        }
+        .logo-item:hover .logo-a {
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
+        .btn-primary {
+            background-color: #f59e0b;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #e6900a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+        .form-input:focus {
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+        }
+        .contact-icon {
+            color: #f59e0b;
+            background-color: rgba(245, 158, 11, 0.1);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .contact-card {
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
-    <header class="bg-primary-800 shadow-md">
-        <div class="container mx-auto px-4">
-            <nav class="flex flex-col md:flex-row justify-between items-center py-4">
-                <a href="login.html" class="text-3xl font-bold text-white mb-4 md:mb-0 hover:text-primary-200 transition-colors">
-                    <span class="text-4xl font-bold italic">A</span>sistNet
-                </a>
-                <ul class="flex flex-wrap justify-center gap-4 md:gap-6">
-                    <li>
-                        <a href="Preguntas Frecuentes.html" class="text-white hover:text-primary-200 transition-colors">FAQs</a>
-                    </li>
-                    <li>
-                        <a href="politicas_de_seguridad.html" class="text-white hover:text-primary-200 transition-colors">Política de Seguridad</a>
-                    </li>
-                    <li>
-                        <a href="login.html" class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md transition-colors font-medium">
-                            Cerrar Sesión
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+    <!-- Header/Navbar -->
+    <header class="sticky top-0 z-50 bg-emerald-800 shadow-lg">
+        <nav class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
+                        <span class="logo-a text-4xl font-bold italic mr-1">A</span>
+                        <span class="logo-text text-2xl">sistNet</span>
+                    </a>
+                </div>
+                
+                <!-- Menú desktop -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="preguntas_frecuentes.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">FAQs</a>
+                    <a href="politicas_de_seguridad.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Política de Seguridad</a>
+                    <a href="contacto.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Contáctanos</a>
+                    <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-lg transition font-medium shadow-md">Cerrar Sesión</a>
+                </div>
+                
+                <!-- Menú móvil -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-button p-2 text-white focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Menú móvil desplegable -->
+            <div class="md:hidden hidden mobile-menu">
+                <div class="px-2 pt-2 pb-4 space-y-1">
+                    <a href="preguntas_frecuentes.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">FAQs</a>
+                    <a href="politicas_de_seguridad.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Política de Seguridad</a>
+                    <a href="contacto.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Contáctanos</a>
+                    <a href="login.html" class="block bg-amber-500 text-white text-center px-3 py-2 rounded-lg transition mt-2">Cerrar Sesión</a>
+                </div>
+            </div>
+        </nav>
     </header>
 
+    <!-- Contenido principal -->
     <main class="flex-grow container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold text-primary-800 mb-8 text-center">Contacto</h1>
+        <h1 class="text-3xl font-bold text-emerald-800 mb-8 text-center">Contáctanos</h1>
         
         <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <!-- Sección de Información de Contacto -->
-            <section class="bg-white rounded-lg shadow-md p-6">
-                <div class="flex items-center mb-4">
-                    <i class="fas fa-info-circle text-2xl text-primary-600 mr-3"></i>
-                    <h2 class="text-2xl font-semibold text-gray-800">Información de Contacto</h2>
+            <section class="bg-white rounded-xl shadow-lg p-6 contact-card">
+                <div class="flex items-center mb-6">
+                    <div class="contact-icon">
+                        <i class="fas fa-info-circle text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-emerald-800">Información de Contacto</h2>
                 </div>
-                <p class="text-gray-600 mb-6">Si tienes dudas o necesitas asistencia, contáctanos a través de los siguientes medios:</p>
+                <p class="text-gray-600 mb-6">Si tienes dudas o necesitas asistencia, contáctanos a través de los siguientes medios. Estamos aquí para ayudarte.</p>
                 
-                <ul class="space-y-4">
+                <ul class="space-y-5">
                     <li class="flex items-start">
-                        <i class="fas fa-envelope text-primary-600 mt-1 mr-3"></i>
-                        <span class="text-gray-700">soporte@asistencia.com</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-phone-alt text-primary-600 mt-1 mr-3"></i>
-                        <span class="text-gray-700">+57 4560000</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-clock text-primary-600 mt-1 mr-3"></i>
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
                         <div>
+                            <h3 class="font-semibold text-gray-800">Correo Electrónico</h3>
+                            <span class="text-gray-700">soporte@asistnet.com</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Teléfono</h3>
+                            <span class="text-gray-700">+57 4560000</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Horario de Atención</h3>
                             <span class="text-gray-700">Lunes a Viernes</span><br>
                             <span class="text-gray-700">8:00 AM a 6:00 PM</span>
                         </div>
                     </li>
+                    <li class="flex items-start">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Ubicación</h3>
+                            <span class="text-gray-700">Medellín, Colombia</span>
+                        </div>
+                    </li>
                 </ul>
                 
-                <div class="mt-8">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Ubicación</h3>
-                    <div class="bg-gray-200 rounded-lg h-48 flex items-center justify-center">
-                        <i class="fas fa-map-marker-alt text-3xl text-primary-600"></i>
-                        <p class="ml-2 text-gray-600">Medellín, Colombia</p>
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <h3 class="text-lg font-semibold text-emerald-800 mb-4">Soporte Técnico Prioritario</h3>
+                    <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                        <p class="text-amber-800 flex items-center">
+                            <i class="fas fa-exclamation-circle text-amber-500 mr-2"></i>
+                            <span>Para problemas urgentes, contacta al +57 310 123 4567 (24/7)</span>
+                        </p>
                     </div>
                 </div>
             </section>
 
             <!-- Sección de Formulario -->
-            <section class="bg-white rounded-lg shadow-md p-6">
-                <div class="flex items-center mb-4">
-                    <i class="fas fa-paper-plane text-2xl text-primary-600 mr-3"></i>
-                    <h2 class="text-2xl font-semibold text-gray-800">Envíanos un Mensaje</h2>
+            <section class="bg-white rounded-xl shadow-lg p-6 contact-card">
+                <div class="flex items-center mb-6">
+                    <div class="contact-icon">
+                        <i class="fas fa-paper-plane text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-emerald-800">Envíanos un Mensaje</h2>
                 </div>
                 
-                <form class="space-y-4">
+                <form class="space-y-5">
                     <div>
-                        <label for="nombre" class="block text-gray-700 font-medium mb-1">Nombre:</label>
+                        <label for="nombre" class="block text-gray-700 font-medium mb-2">
+                            <i class="fas fa-user text-emerald-600 mr-2"></i>Nombre:
+                        </label>
                         <input type="text" id="nombre" name="nombre" 
-                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent" required>
+                               class="form-input appearance-none relative block w-full px-4 py-3 border border-gray-300 
+                               placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
+                               focus:border-amber-500 focus:z-10 sm:text-sm" 
+                               placeholder="Ingresa tu nombre completo" required>
                     </div>
                     
                     <div>
-                        <label for="correo" class="block text-gray-700 font-medium mb-1">Correo Electrónico:</label>
+                        <label for="correo" class="block text-gray-700 font-medium mb-2">
+                            <i class="fas fa-envelope text-emerald-600 mr-2"></i>Correo Electrónico:
+                        </label>
                         <input type="email" id="correo" name="correo" 
-                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent" required>
+                               class="form-input appearance-none relative block w-full px-4 py-3 border border-gray-300 
+                               placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
+                               focus:border-amber-500 focus:z-10 sm:text-sm" 
+                               placeholder="tu.correo@ejemplo.com" required>
                     </div>
                     
                     <div>
-                        <label for="asunto" class="block text-gray-700 font-medium mb-1">Asunto:</label>
-                        <input type="text" id="asunto" name="asunto" 
-                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent" required>
+                        <label for="asunto" class="block text-gray-700 font-medium mb-2">
+                            <i class="fas fa-tag text-emerald-600 mr-2"></i>Asunto:
+                        </label>
+                        <select id="asunto" name="asunto" 
+                                class="form-input appearance-none relative block w-full px-4 py-3 border border-gray-300 
+                                placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
+                                focus:border-amber-500 focus:z-10 sm:text-sm" required>
+                            <option value="" disabled selected>Selecciona el asunto</option>
+                            <option>Soporte Técnico</option>
+                            <option>Consulta General</option>
+                            <option>Problema con el Sistema</option>
+                            <option>Sugerencia</option>
+                            <option>Reportar Error</option>
+                            <option>Otro</option>
+                        </select>
                     </div>
                     
                     <div>
-                        <label for="mensaje" class="block text-gray-700 font-medium mb-1">Mensaje:</label>
-                        <textarea id="mensaje" name="mensaje" rows="4"
-                                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent" required></textarea>
+                        <label for="mensaje" class="block text-gray-700 font-medium mb-2">
+                            <i class="fas fa-comment text-emerald-600 mr-2"></i>Mensaje:
+                        </label>
+                        <textarea id="mensaje" name="mensaje" rows="5"
+                                  class="form-input appearance-none relative block w-full px-4 py-3 border border-gray-300 
+                                  placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
+                                  focus:border-amber-500 focus:z-10 sm:text-sm" 
+                                  placeholder="Describe tu consulta o problema en detalle..." required></textarea>
                     </div>
                     
                     <div class="pt-2">
-                        <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white py-2 px-4 rounded-md transition-colors font-medium">
+                        <button type="submit" class="w-full btn-primary text-white py-3 px-4 rounded-md font-medium">
                             <i class="fas fa-paper-plane mr-2"></i> Enviar Mensaje
                         </button>
                     </div>
                 </form>
+
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                    <h3 class="text-lg font-semibold text-emerald-800 mb-3">Respuesta Rápida</h3>
+                    <p class="text-gray-600 text-sm">
+                        <i class="fas fa-check-circle text-emerald-500 mr-1"></i>
+                        Nos comprometemos a responder todas las consultas en un máximo de 24 horas hábiles.
+                    </p>
+                </div>
             </section>
         </div>
     </main>
 
-    <footer class="bg-primary-800 text-white py-6">
-        <div class="container mx-auto px-4 text-center">
-            <p class="font-bold mb-1">Sistema de Control de Asistencia - Versión 1.0</p>
-            <p class="text-sm text-white/80 mb-1">Proyecto desarrollado por Manuel Morales, Emanuel, Alejandro, Juan Felipe</p>
-            <p class="text-sm text-white/80 mb-1">&copy; 2025 Todos los derechos reservados</p>
-            <p class="text-sm text-white/80">
-                <i class="fas fa-envelope mr-1"></i> soporte@asistencia.com
-            </p>
+    <!-- Footer -->
+    <footer class="bg-emerald-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <span class="logo-a text-3xl font-bold italic mr-1">A</span>
+                        <span class="logo-text text-xl">sistNet</span>
+                    </div>
+                    <p class="text-emerald-200">Sistema líder en gestión de asistencias académicas para instituciones educativas.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
+                        <li><a href="index.html#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
+                        <li><a href="index.html#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
+                        <li><a href="preguntas_frecuentes.html" class="text-emerald-200 hover:text-white transition">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="politicas_de_seguridad.html" class="text-emerald-200 hover:text-white transition">Política de Seguridad</a></li>
+                        <li><a href="terminos_condiciones.html" class="text-emerald-200 hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="privacidad.html" class="text-emerald-200 hover:text-white transition">Privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-amber-400"></i>
+                            <a href="mailto:soporte@asistnet.com" class="text-emerald-200 hover:text-white transition">soporte@asistnet.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-amber-400"></i>
+                            <span>+57 4560000</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-amber-400"></i>
+                            <span>Medellin, Colombia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-emerald-700 text-center text-emerald-300">
+                <p>&copy; 2025 AsistNet. Todos los derechos reservados.</p>
+                <p class="mt-2">Desarrollado por Manuel Morales & Juan Felipe Uñates</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Script para el menú móvil
+        const btn = document.querySelector(".mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+
+        // Validación básica de formulario
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>

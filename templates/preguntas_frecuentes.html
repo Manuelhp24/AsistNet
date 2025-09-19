@@ -4,72 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preguntas Frecuentes - AsistNet</title>
-    <link rel="icon" href="static/img/favicon.png" type="imagen/png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            600: '#059669',
-                            700: '#047857',
-                            800: '#065f46',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="static/img/favicon.png" type="image/png">
     <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .logo-a {
+            color: #f59e0b;
+            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+            transition: all 0.3s ease;
+        }
+        .logo-item:hover .logo-a {
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
         .faq-item {
             transition: all 0.3s ease;
+            border-left: 4px solid transparent;
         }
         .faq-item:hover {
             transform: translateY(-2px);
+            border-left-color: #f59e0b;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .faq-icon {
+            color: #f59e0b;
+            background-color: rgba(245, 158, 11, 0.1);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
         }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
-    <header class="bg-primary-800 shadow-md">
-        <div class="container mx-auto px-4">
-            <nav class="flex flex-col md:flex-row justify-between items-center py-4">
-                <a href="login.html" class="text-3xl font-bold text-white mb-4 md:mb-0 hover:text-primary-200 transition-colors">
-                    <span class="text-4xl font-bold italic">A</span>sistNet
-                </a>
-                <ul class="flex flex-wrap justify-center gap-4 md:gap-6">
-                    <li>
-                        <a href="politicas_de_seguridad.html" class="text-white hover:text-primary-200 transition-colors">Política de Seguridad</a>
-                    </li>
-                    <li>
-                        <a href="contato.html" class="text-white hover:text-primary-200 transition-colors">Contáctanos</a>
-                    </li>
-                    <li>
-                        <a href="login.html" class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md transition-colors font-medium">
-                            Cerrar Sesión
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+    <!-- Header/Navbar -->
+    <header class="sticky top-0 z-50 bg-emerald-800 shadow-lg">
+        <nav class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
+                        <span class="logo-a text-4xl font-bold italic mr-1">A</span>
+                        <span class="logo-text text-2xl">sistNet</span>
+                    </a>
+                </div>
+                
+                <!-- Menú desktop -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="preguntas_frecuentes.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">FAQs</a>
+                    <a href="politicas_de_seguridad.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Política de Seguridad</a>
+                    <a href="contacto.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Contáctanos</a>
+                    <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-lg transition font-medium shadow-md">Cerrar Sesión</a>
+                </div>
+                
+                <!-- Menú móvil -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-button p-2 text-white focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Menú móvil desplegable -->
+            <div class="md:hidden hidden mobile-menu">
+                <div class="px-2 pt-2 pb-4 space-y-1">
+                    <a href="preguntas_frecuentes.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">FAQs</a>
+                    <a href="politicas_de_seguridad.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Política de Seguridad</a>
+                    <a href="contacto.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Contáctanos</a>
+                    <a href="login.html" class="block bg-amber-500 text-white text-center px-3 py-2 rounded-lg transition mt-2">Cerrar Sesión</a>
+                </div>
+            </div>
+        </nav>
     </header>
 
+    <!-- Contenido principal -->
     <main class="flex-grow container mx-auto px-4 py-8">
         <section class="max-w-4xl mx-auto">
-            <div class="text-center mb-10">
-                <h1 class="text-4xl font-bold text-primary-800 mb-2">Preguntas Frecuentes</h1>
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-emerald-800 mb-4">Preguntas Frecuentes</h1>
                 <p class="text-lg text-gray-600">Encuentra respuestas a las preguntas más comunes sobre AsistNet</p>
             </div>
 
             <div class="space-y-6">
                 <!-- FAQ 1 -->
-                <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
+                <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-primary-700 mb-3 flex items-center">
-                            <i class="fas fa-question-circle mr-3 text-primary-600"></i>
+                        <h3 class="text-xl font-semibold text-emerald-800 mb-3 flex items-center">
+                            <div class="faq-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
                             ¿Cómo me registro en el sistema?
                         </h3>
-                        <div class="text-gray-700 pl-9">
+                        <div class="text-gray-700 pl-16">
                             <p class="mb-3">Para registrarte, sigue estos pasos:</p>
                             <ol class="list-decimal pl-5 space-y-2">
                                 <li>Ingresa a la página principal del sistema.</li>
@@ -82,24 +120,28 @@
                 </div>
 
                 <!-- FAQ 2 -->
-                <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
+                <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-primary-700 mb-3 flex items-center">
-                            <i class="fas fa-sign-in-alt mr-3 text-primary-600"></i>
+                        <h3 class="text-xl font-semibold text-emerald-800 mb-3 flex items-center">
+                            <div class="faq-icon">
+                                <i class="fas fa-sign-in-alt"></i>
+                            </div>
                             ¿Cómo inicio sesión?
                         </h3>
-                        <p class="text-gray-700 pl-9">Dirígete a la página de inicio de sesión, ingresa tu correo y contraseña, y haz clic en "Iniciar Sesión". Si olvidaste tu contraseña, puedes recuperarla.</p>
+                        <p class="text-gray-700 pl-16">Dirígete a la página de inicio de sesión, ingresa tu correo y contraseña, y haz clic en "Iniciar Sesión". Si olvidaste tu contraseña, puedes recuperarla usando la opción "¿Olvidaste tu contraseña?"</p>
                     </div>
                 </div>
 
                 <!-- FAQ 3 -->
-                <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
+                <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-primary-700 mb-3 flex items-center">
-                            <i class="fas fa-user-check mr-3 text-primary-600"></i>
+                        <h3 class="text-xl font-semibold text-emerald-800 mb-3 flex items-center">
+                            <div class="faq-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
                             ¿Cómo puedo registrar la asistencia de un estudiante?
                         </h3>
-                        <div class="text-gray-700 pl-9">
+                        <div class="text-gray-700 pl-16">
                             <p class="mb-3">Para registrar la asistencia:</p>
                             <ul class="list-disc pl-5 space-y-2">
                                 <li>Accede al panel de administración.</li>
@@ -113,46 +155,54 @@
                 </div>
 
                 <!-- FAQ 4 -->
-                <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
+                <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-primary-700 mb-3 flex items-center">
-                            <i class="fas fa-edit mr-3 text-primary-600"></i>
+                        <h3 class="text-xl font-semibold text-emerald-800 mb-3 flex items-center">
+                            <div class="faq-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
                             ¿Puedo editar la asistencia después de haberla guardado?
                         </h3>
-                        <p class="text-gray-700 pl-9">Sí. Accede al historial del estudiante, selecciona el día correspondiente y edita el estado de asistencia.</p>
+                        <p class="text-gray-700 pl-16">Sí. Accede al historial del estudiante, selecciona el día correspondiente y edita el estado de asistencia. Los cambios quedan registrados con la fecha y hora de modificación.</p>
                     </div>
                 </div>
 
                 <!-- FAQ 5 -->
-                <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
+                <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-primary-700 mb-3 flex items-center">
-                            <i class="fas fa-file-export mr-3 text-primary-600"></i>
+                        <h3 class="text-xl font-semibold text-emerald-800 mb-3 flex items-center">
+                            <div class="faq-icon">
+                                <i class="fas fa-file-export"></i>
+                            </div>
                             ¿Cómo puedo generar un reporte de asistencias?
                         </h3>
-                        <p class="text-gray-700 pl-9">Ve a la sección de reportes, elige el grupo y el rango de fechas, y haz clic en "Generar Reporte". Puedes descargarlo en PDF o Excel.</p>
+                        <p class="text-gray-700 pl-16">Ve a la sección de reportes, elige el grupo y el rango de fechas, y haz clic en "Generar Reporte". Puedes descargarlo en formatos PDF o Excel para su análisis.</p>
                     </div>
                 </div>
 
                 <!-- FAQ 6 -->
-                <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
+                <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-primary-700 mb-3 flex items-center">
-                            <i class="fas fa-key mr-3 text-primary-600"></i>
+                        <h3 class="text-xl font-semibold text-emerald-800 mb-3 flex items-center">
+                            <div class="faq-icon">
+                                <i class="fas fa-key"></i>
+                            </div>
                             ¿Qué hago si olvidé mi contraseña?
                         </h3>
-                        <p class="text-gray-700 pl-9">Haz clic en "¿Olvidaste tu contraseña?" en la pantalla de inicio de sesión y sigue las instrucciones para restablecerla desde tu correo.</p>
+                        <p class="text-gray-700 pl-16">Haz clic en "¿Olvidaste tu contraseña?" en la pantalla de inicio de sesión y sigue las instrucciones para restablecerla desde tu correo electrónico registrado.</p>
                     </div>
                 </div>
 
                 <!-- FAQ 7 -->
-                <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
+                <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-primary-700 mb-3 flex items-center">
-                            <i class="fas fa-user-times mr-3 text-primary-600"></i>
+                        <h3 class="text-xl font-semibold text-emerald-800 mb-3 flex items-center">
+                            <div class="faq-icon">
+                                <i class="fas fa-user-times"></i>
+                            </div>
                             ¿Qué hago si un estudiante no aparece en un grupo?
                         </h3>
-                        <div class="text-gray-700 pl-9">
+                        <div class="text-gray-700 pl-16">
                             <p class="mb-3">Si un estudiante no está en su grupo:</p>
                             <ul class="list-disc pl-5 space-y-2">
                                 <li>Verifica que el estudiante está registrado en el sistema.</li>
@@ -164,34 +214,110 @@
                 </div>
 
                 <!-- FAQ 8 -->
-                <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg">
+                <div class="faq-item bg-white rounded-xl shadow-md overflow-hidden">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-primary-700 mb-3 flex items-center">
-                            <i class="fas fa-headset mr-3 text-primary-600"></i>
+                        <h3 class="text-xl font-semibold text-emerald-800 mb-3 flex items-center">
+                            <div class="faq-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
                             ¿Cómo puedo contactar con soporte técnico?
                         </h3>
-                        <div class="text-gray-700 pl-9">
+                        <div class="text-gray-700 pl-16">
                             <p class="mb-2">Puedes contactarnos por:</p>
                             <ul class="list-disc pl-5 space-y-2">
-                                <li>Correo: <a href="contato.html" class="text-primary-600 hover:text-primary-800 font-medium">Contacto</a></li>
-                                <li>Teléfono: <span class="font-medium">604 4560000</span></li>
+                                <li>Correo: <a href="contacto.html" class="text-emerald-600 hover:text-emerald-800 font-medium">soporte@asistnet.com</a></li>
+                                <li>Teléfono: <span class="font-medium">+57 604 4560000</span></li>
+                                <li>WhatsApp: <span class="font-medium">+57 310 123 4567</span></li>
                             </ul>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de ayuda adicional -->
+            <div class="mt-12 bg-amber-50 rounded-xl p-6 border border-amber-200">
+                <div class="flex items-start">
+                    <div class="faq-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-emerald-800 mb-3">¿No encontraste la respuesta que buscabas?</h3>
+                        <p class="text-gray-700 mb-4">Contáctanos directamente y nuestro equipo de soporte te ayudará con cualquier duda o problema que tengas.</p>
+                        <a href="contacto.html" class="inline-flex items-center bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-md transition-colors font-medium">
+                            <i class="fas fa-envelope mr-2"></i> Contactar Soporte
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-primary-800 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p class="font-bold mb-1">Sistema de Control de Asistencia - Versión 1.0</p>
-            <p class="text-sm text-white/80 mb-1">Proyecto desarrollado por Manuel Morales, Emanuel, Alejandro, Juan Felipe</p>
-            <p class="text-sm text-white/80 mb-1">&copy; 2025 Todos los derechos reservados</p>
-            <p class="text-sm text-white/80">
-                <i class="fas fa-envelope mr-1"></i> soporte@asistencia.com
-            </p>
+    <!-- Footer -->
+    <footer class="bg-emerald-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <span class="logo-a text-3xl font-bold italic mr-1">A</span>
+                        <span class="logo-text text-xl">sistNet</span>
+                    </div>
+                    <p class="text-emerald-200">Sistema líder en gestión de asistencias académicas para instituciones educativas.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
+                        <li><a href="index.html#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
+                        <li><a href="index.html#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
+                        <li><a href="preguntas_frecuentes.html" class="text-emerald-200 hover:text-white transition">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="politicas_de_seguridad.html" class="text-emerald-200 hover:text-white transition">Política de Seguridad</a></li>
+                        <li><a href="terminos_condiciones.html" class="text-emerald-200 hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="privacidad.html" class="text-emerald-200 hover:text-white transition">Privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-amber-400"></i>
+                            <a href="mailto:soporte@asistnet.com" class="text-emerald-200 hover:text-white transition">soporte@asistnet.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-amber-400"></i>
+                            <span>+57 604 4560000</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-amber-400"></i>
+                            <span>Medellin, Colombia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-emerald-700 text-center text-emerald-300">
+                <p>&copy; 2025 AsistNet. Todos los derechos reservados.</p>
+                <p class="mt-2">Desarrollado por Manuel Morales & Juan Felipe Uñates</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Script para el menú móvil
+        const btn = document.querySelector(".mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+    </script>
 </body>
 </html>

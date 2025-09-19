@@ -5,50 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil - AsistNet</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="static/css/perfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="static/img/favicon.png" type="image/png">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .logo-a {
+            color: #f59e0b;
+            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+            transition: all 0.3s ease;
+        }
+        .logo-item:hover .logo-a {
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
+        .btn-primary {
+            background-color: #f59e0b;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #e6900a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+        .btn-secondary {
+            background-color: #065F46;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #054c35;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(5, 95, 70, 0.3);
+        }
+        .form-input:focus {
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+        }
+        .profile-card {
+            transition: all 0.3s ease;
+        }
+        .profile-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body class="bg-gray-100 min-h-screen">
-    <!-- Header -->
-    <header class="bg-emerald-800 text-white shadow-lg">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-4">
-                    <a href="dashboard.html" class="text-white hover:text-emerald-200">
-                        <i class="fas fa-arrow-left"></i> Volver al Dashboard
+    <!-- Header/Navbar -->
+    <header class="sticky top-0 z-50 bg-emerald-800 shadow-lg">
+        <nav class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
+                        <span class="logo-a text-4xl font-bold italic mr-1">A</span>
+                        <span class="logo-text text-2xl">sistNet</span>
                     </a>
-                    <h1 class="text-2xl font-bold">👤 Mi Perfil</h1>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <span class="bg-white text-emerald-800 px-3 py-1 rounded-full text-sm font-bold">
-                        Estudiante
-                    </span>
-                    <button onclick="userPanel.toggleEditMode()" id="edit-btn" class="bg-white text-emerald-800 px-4 py-2 rounded-lg hover:bg-gray-100 transition">
-                        <i class="fas fa-edit mr-2"></i>Editar Perfil
+                
+                <!-- Menú desktop -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="dashboard.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Dashboard</a>
+                    <a href="asistencias.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Asistencias</a>
+                    <a href="cursos.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Cursos</a>
+                    <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-lg transition font-medium shadow-md">Cerrar Sesión</a>
+                </div>
+                
+                <!-- Menú móvil -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-button p-2 text-white focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
                     </button>
                 </div>
             </div>
-        </div>
+            
+            <!-- Menú móvil desplegable -->
+            <div class="md:hidden hidden mobile-menu">
+                <div class="px-2 pt-2 pb-4 space-y-1">
+                    <a href="dashboard.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Dashboard</a>
+                    <a href="asistencias.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Asistencias</a>
+                    <a href="cursos.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Cursos</a>
+                    <a href="login.html" class="block bg-amber-500 text-white text-center px-3 py-2 rounded-lg transition mt-2">Cerrar Sesión</a>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-emerald-800 flex items-center">
+                <i class="fas fa-user-circle mr-3 text-amber-500"></i>Mi Perfil
+            </h1>
+            <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-bold">
+                Estudiante
+            </span>
+        </div>
+
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <!-- Columna izquierda - Perfil -->
             <div class="lg:col-span-1">
-                <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="bg-white rounded-xl shadow-md p-6 profile-card">
                     <!-- Avatar -->
                     <div class="text-center mb-6">
                         <div class="relative inline-block">
                             <img id="user-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
-                                 alt="Avatar" class="w-32 h-32 rounded-full mx-auto border-4 border-emerald-500">
-                            <label for="avatar-upload" class="absolute bottom-0 right-0 bg-emerald-500 text-white p-2 rounded-full cursor-pointer hover:bg-emerald-600 transition">
+                                 alt="Avatar" class="w-32 h-32 rounded-full mx-auto border-4 border-amber-500">
+                            <label for="avatar-upload" class="absolute bottom-0 right-0 bg-amber-500 text-white p-2 rounded-full cursor-pointer hover:bg-amber-600 transition">
                                 <i class="fas fa-camera"></i>
                                 <input type="file" id="avatar-upload" class="hidden" accept="image/*">
                             </label>
                         </div>
-                        <h2 id="user-name" class="text-xl font-bold mt-4">Juan Pérez</h2>
+                        <h2 id="user-name" class="text-xl font-bold mt-4 text-emerald-800">Juan Pérez</h2>
                         <p id="user-email" class="text-gray-600">juan.perez@email.com</p>
                         <p id="user-id" class="text-sm text-gray-500 mt-1">ID: EST2024001</p>
                     </div>
@@ -56,27 +130,30 @@
                     <!-- Estadísticas rápidas -->
                     <div class="space-y-3">
                         <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                            <span class="text-gray-600">Asistencia Total</span>
+                            <span class="text-gray-600 flex items-center">
+                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>Asistencia Total
+                            </span>
                             <span class="bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full text-sm font-bold">92%</span>
                         </div>
                         <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                            <span class="text-gray-600">Cursos Activos</span>
+                            <span class="text-gray-600 flex items-center">
+                                <i class="fas fa-book text-blue-600 mr-2"></i>Cursos Activos
+                            </span>
                             <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm font-bold">3</span>
                         </div>
                         <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                            <span class="text-gray-600">Inasistencias</span>
+                            <span class="text-gray-600 flex items-center">
+                                <i class="fas fa-times-circle text-red-600 mr-2"></i>Inasistencias
+                            </span>
                             <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-sm font-bold">2</span>
                         </div>
                     </div>
-                </div>
 
-                <!-- QR Code de identificación -->
-                <div class="bg-white rounded-lg shadow-md p-6 mt-6">
-                    <h3 class="font-semibold mb-4">📋 Mi Identificación</h3>
-                    <div class="text-center">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=EST2024001-JuanPerez" 
-                             alt="QR Code" class="mx-auto mb-3">
-                        <p class="text-sm text-gray-600">Escanea para ver mi información</p>
+                    <!-- Botón de edición -->
+                    <div class="mt-6">
+                        <button onclick="userPanel.toggleEditMode()" id="edit-btn" class="w-full btn-primary text-white py-2 px-4 rounded-lg font-medium">
+                            <i class="fas fa-edit mr-2"></i>Editar Perfil
+                        </button>
                     </div>
                 </div>
             </div>
@@ -84,47 +161,59 @@
             <!-- Columna central - Información y Asistencias -->
             <div class="lg:col-span-2">
                 <!-- Información personal -->
-                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-                    <h3 class="font-semibold mb-4">📝 Información Personal</h3>
+                <div class="bg-white rounded-xl shadow-md p-6 mb-6 profile-card">
+                    <h3 class="font-semibold mb-4 text-emerald-800 flex items-center">
+                        <i class="fas fa-info-circle text-amber-500 mr-2"></i>Información Personal
+                    </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Nombre completo</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                <i class="fas fa-user text-emerald-600 mr-1"></i>Nombre completo
+                            </label>
                             <input type="text" id="input-name" value="Juan Pérez" 
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg" disabled>
+                                   class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg" disabled>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                <i class="fas fa-envelope text-emerald-600 mr-1"></i>Email
+                            </label>
                             <input type="email" id="input-email" value="juan.perez@email.com" 
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg" disabled>
+                                   class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg" disabled>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                <i class="fas fa-phone text-emerald-600 mr-1"></i>Teléfono
+                            </label>
                             <input type="tel" id="input-phone" value="+1 234 567 8900" 
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg" disabled>
+                                   class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg" disabled>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Fecha de nacimiento</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                <i class="fas fa-birthday-cake text-emerald-600 mr-1"></i>Fecha de nacimiento
+                            </label>
                             <input type="date" id="input-birthdate" value="2000-05-15" 
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg" disabled>
+                                   class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg" disabled>
                         </div>
                     </div>
 
                     <!-- Botones de acción -->
                     <div id="edit-actions" class="hidden mt-6 flex space-x-3">
-                        <button onclick="userPanel.saveProfile()" class="bg-emerald-500 text-white px-4 py-2 rounded-lg hover:bg-emerald-600 transition">
+                        <button onclick="userPanel.saveProfile()" class="btn-primary text-white px-4 py-2 rounded-lg font-medium">
                             <i class="fas fa-save mr-2"></i>Guardar cambios
                         </button>
-                        <button onclick="userPanel.cancelEdit()" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">
+                        <button onclick="userPanel.cancelEdit()" class="btn-secondary text-white px-4 py-2 rounded-lg font-medium">
                             <i class="fas fa-times mr-2"></i>Cancelar
                         </button>
                     </div>
                 </div>
 
                 <!-- Últimas asistencias -->
-                <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="bg-white rounded-xl shadow-md p-6 profile-card">
                     <div class="flex justify-between items-center mb-4">
-                        <h3 class="font-semibold">📅 Últimas Asistencias</h3>
-                        <a href="asistencias.html" class="text-emerald-600 hover:text-emerald-800 text-sm">
+                        <h3 class="font-semibold text-emerald-800 flex items-center">
+                            <i class="fas fa-calendar-check text-amber-500 mr-2"></i>Últimas Asistencias
+                        </h3>
+                        <a href="asistencias.html" class="text-emerald-600 hover:text-emerald-800 text-sm flex items-center">
                             Ver todas <i class="fas fa-arrow-right ml-1"></i>
                         </a>
                     </div>
@@ -157,10 +246,12 @@
                 </div>
 
                 <!-- Cursos actuales -->
-                <div class="bg-white rounded-lg shadow-md p-6 mt-6">
-                    <h3 class="font-semibold mb-4">📚 Mis Cursos</h3>
+                <div class="bg-white rounded-xl shadow-md p-6 mt-6 profile-card">
+                    <h3 class="font-semibold mb-4 text-emerald-800 flex items-center">
+                        <i class="fas fa-book text-amber-500 mr-2"></i>Mis Cursos
+                    </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="border border-gray-200 rounded-lg p-4">
+                        <div class="border border-gray-200 rounded-lg p-4 hover:border-amber-400 transition">
                             <h4 class="font-medium text-emerald-800">Matemáticas Avanzadas</h4>
                             <p class="text-sm text-gray-600">Prof. Carlos Rodríguez</p>
                             <div class="flex justify-between items-center mt-2">
@@ -168,7 +259,7 @@
                                 <span class="bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-xs">95%</span>
                             </div>
                         </div>
-                        <div class="border border-gray-200 rounded-lg p-4">
+                        <div class="border border-gray-200 rounded-lg p-4 hover:border-amber-400 transition">
                             <h4 class="font-medium text-emerald-800">Programación Web</h4>
                             <p class="text-sm text-gray-600">Prof. Ana Martínez</p>
                             <div class="flex justify-between items-center mt-2">
@@ -182,7 +273,123 @@
         </div>
     </main>
 
+    <!-- Footer -->
+    <footer class="bg-emerald-800 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <span class="logo-a text-3xl font-bold italic mr-1">A</span>
+                        <span class="logo-text text-xl">sistNet</span>
+                    </div>
+                    <p class="text-emerald-200">Sistema líder en gestión de asistencias académicas para instituciones educativas.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
+                        <li><a href="index.html#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
+                        <li><a href="index.html#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
+                        <li><a href="preguntas_frecuentes.html" class="text-emerald-200 hover:text-white transition">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="politicas_de_seguridad.html" class="text-emerald-200 hover:text-white transition">Política de Seguridad</a></li>
+                        <li><a href="terminos_condiciones.html" class="text-emerald-200 hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="privacidad.html" class="text-emerald-200 hover:text-white transition">Privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-amber-400"></i>
+                            <a href="mailto:soporte@asistnet.com" class="text-emerald-200 hover:text-white transition">soporte@asistnet.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-amber-400"></i>
+                            <span>+57 604 4560000</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-amber-400"></i>
+                            <span>Medellin, Colombia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-emerald-700 text-center text-emerald-300">
+                <p>&copy; 2025 AsistNet. Todos los derechos reservados.</p>
+                <p class="mt-2">Desarrollado por Manuel Morales & Juan Felipe Uñates</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Scripts -->
-    <script src="static/js/perfil.js"></script>
+    <script>
+        // Script para el menú móvil
+        const btn = document.querySelector(".mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+
+        // Funcionalidad para editar perfil
+        const userPanel = {
+            isEditMode: false,
+            
+            toggleEditMode: function() {
+                this.isEditMode = !this.isEditMode;
+                const inputs = document.querySelectorAll('#input-name, #input-email, #input-phone, #input-birthdate');
+                const editBtn = document.getElementById('edit-btn');
+                const editActions = document.getElementById('edit-actions');
+                
+                inputs.forEach(input => {
+                    input.disabled = !this.isEditMode;
+                });
+                
+                if (this.isEditMode) {
+                    editBtn.classList.add('hidden');
+                    editActions.classList.remove('hidden');
+                } else {
+                    editBtn.classList.remove('hidden');
+                    editActions.classList.add('hidden');
+                }
+            },
+            
+            saveProfile: function() {
+                alert('Perfil actualizado correctamente');
+                this.toggleEditMode();
+            },
+            
+            cancelEdit: function() {
+                // Restaurar valores originales (aquí podrías recuperarlos de una variable)
+                document.getElementById('input-name').value = 'Juan Pérez';
+                document.getElementById('input-email').value = 'juan.perez@email.com';
+                document.getElementById('input-phone').value = '+1 234 567 8900';
+                document.getElementById('input-birthdate').value = '2000-05-15';
+                
+                this.toggleEditMode();
+            }
+        };
+
+        // Manejo de carga de avatar
+        document.getElementById('avatar-upload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('user-avatar').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 </body>
 </html>

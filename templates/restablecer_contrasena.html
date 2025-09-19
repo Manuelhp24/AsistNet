@@ -3,97 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restablecer Contraseña - AsistNet</title>
-    <link rel="icon" href="static/img/favicon.png" type="imagen/png">
+    <title>Cambiar Contraseña - AsistNet</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
- 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="static/img/favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .logo-a {
+            color: #f59e0b;
+            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+            transition: all 0.3s ease;
+        }
+        .logo-item:hover .logo-a {
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
+        .btn-primary {
+            background-color: #f59e0b;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #e6900a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+        .btn-secondary {
+            background-color: #065F46;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #054c35;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(5, 95, 70, 0.3);
+        }
+        .form-input:focus {
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+        }
+        .password-toggle {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .password-toggle:hover {
+            color: #f59e0b;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
-    <header class="bg-primary-800 shadow-md">
-        <div class="container mx-auto px-4">
-            <nav class="flex flex-col md:flex-row justify-between items-center py-4">
-                <a href="login.html" class="text-3xl font-bold text-white mb-4 md:mb-0 hover:text-primary-200 transition-colors">
-                    <span class="text-4xl font-bold italic">A</span>sistNet
-                </a>
-                <ul class="flex flex-wrap justify-center gap-4 md:gap-6">
-                    <li>
-                        <a href="Preguntas Frecuentes.html" class="text-white hover:text-primary-200 transition-colors">FAQs</a>
-                    </li>
-                    <li>
-                        <a href="politicas_de_seguridad.html" class="text-white hover:text-primary-200 transition-colors">Política de Seguridad</a>
-                    </li>
-                    <li>
-                        <a href="contato.html" class="text-white hover:text-primary-200 transition-colors">Contáctanos</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main class="flex-grow flex items-center justify-center p-4">
-        <section class="w-full max-w-md">
-            <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <div class="bg-primary-700 px-6 py-4">
-                    <h1 class="text-2xl font-bold text-white text-center">Restablecer Contraseña</h1>
+    <!-- Header/Navbar -->
+    <header class="sticky top-0 z-50 bg-emerald-800 shadow-lg">
+        <nav class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
+                        <span class="logo-a text-4xl font-bold italic mr-1">A</span>
+                        <span class="logo-text text-2xl">sistNet</span>
+                    </a>
                 </div>
                 
-                <div class="p-6">
-                    <h2 class="text-xl font-semibold text-gray-800 mb-2 text-center">Crea una nueva contraseña</h2>
-                    <p class="text-gray-600 text-center mb-6">Ingresa una nueva contraseña segura para acceder a tu cuenta.</p>
-
-                    <form class="space-y-4">
-                        <div>
-                            <label for="new-password" class="block text-gray-700 font-medium mb-1">Nueva Contraseña</label>
-                            <div class="relative">
-                                <input type="password" id="new-password" name="new-password" placeholder="Ingrese nueva contraseña" 
-                                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent" required>
-                                <button type="button" class="absolute right-3 top-2 text-gray-400 hover:text-gray-600" onclick="togglePassword('new-password')">
-                                    <i class="far fa-eye"></i>
-                                </button>
-                            </div>
-                            <p class="text-xs text-gray-500 mt-1">Mínimo 8 caracteres, incluyendo mayúsculas, números y símbolos</p>
-                        </div>
-
-                        <div>
-                            <label for="confirm-password" class="block text-gray-700 font-medium mb-1">Confirmar Contraseña</label>
-                            <div class="relative">
-                                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirme su contraseña" 
-                                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent" required>
-                                <button type="button" class="absolute right-3 top-2 text-gray-400 hover:text-gray-600" onclick="togglePassword('confirm-password')">
-                                    <i class="far fa-eye"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="pt-2">
-                            <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white py-2 px-4 rounded-md transition-colors font-medium">
-                                Restablecer Contraseña
-                            </button>
-                        </div>
-
-                        <div class="text-center pt-2">
-                            <a href="login.html" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
-                                <i class="fas fa-arrow-left mr-1"></i> Volver al inicio de sesión
-                            </a>
-                        </div>
-                    </form>
+                <!-- Menú desktop -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="preguntas_frecuentes.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">FAQs</a>
+                    <a href="politicas_de_seguridad.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Política de Seguridad</a>
+                    <a href="contacto.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Contáctanos</a>
+                    <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-lg transition font-medium shadow-md">Iniciar Sesión</a>
+                </div>
+                
+                <!-- Menú móvil -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-button p-2 text-white focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
-        </section>
+            
+            <!-- Menú móvil desplegable -->
+            <div class="md:hidden hidden mobile-menu">
+                <div class="px-2 pt-2 pb-4 space-y-1">
+                    <a href="preguntas_frecuentes.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">FAQs</a>
+                    <a href="politicas_de_seguridad.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Política de Seguridad</a>
+                    <a href="contacto.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Contáctanos</a>
+                    <a href="login.html" class="block bg-amber-500 text-white text-center px-3 py-2 rounded-lg transition mt-2">Iniciar Sesión</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8 bg-white p-10 rounded-xl shadow-lg">
+            <div>
+                <h2 class="mt-6 text-center text-3xl font-bold text-emerald-800">
+                    Cambiar contraseña
+                </h2>
+                <p class="mt-2 text-center text-sm text-gray-600">
+                    Ingresa tu correo electrónico y establece una nueva contraseña.
+                </p>
+            </div>
+            <form class="mt-8 space-y-6" action="#" method="POST">
+                <div class="space-y-4">
+                    <!-- Campo de correo electrónico -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo electrónico</label>
+                        <div class="relative">
+                            <input id="email" name="email" type="email" autocomplete="email" required 
+                                class="appearance-none relative block w-full px-3 py-3 border border-gray-300 
+                                placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
+                                focus:border-amber-500 focus:z-10 sm:text-sm form-input" 
+                                placeholder="correo@ejemplo.com">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <i class="fas fa-envelope text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campo de contraseña actual -->
+                    <div>
+                        <label for="current-password" class="block text-sm font-medium text-gray-700 mb-1">Contraseña actual</label>
+                        <div class="relative">
+                            <input id="current-password" name="current-password" type="password" autocomplete="current-password" required 
+                                class="appearance-none relative block w-full px-3 py-3 border border-gray-300 
+                                placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
+                                focus:border-amber-500 focus:z-10 sm:text-sm form-input pr-10" 
+                                placeholder="Ingresa tu contraseña actual">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campo de nueva contraseña -->
+                    <div>
+                        <label for="new-password" class="block text-sm font-medium text-gray-700 mb-1">Nueva contraseña</label>
+                        <div class="relative">
+                            <input id="new-password" name="new-password" type="password" autocomplete="new-password" required 
+                                class="appearance-none relative block w-full px-3 py-3 border border-gray-300 
+                                placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
+                                focus:border-amber-500 focus:z-10 sm:text-sm form-input pr-10" 
+                                placeholder="Ingresa tu nueva contraseña">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <span class="password-toggle" id="toggleNewPassword">
+                                    <i class="fas fa-eye-slash text-gray-400"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <p class="mt-1 text-xs text-gray-500">Mínimo 8 caracteres, con al menos una mayúscula, un número y un carácter especial.</p>
+                    </div>
+
+                    <!-- Campo de confirmar contraseña -->
+                    <div>
+                        <label for="confirm-password" class="block text-sm font-medium text-gray-700 mb-1">Confirmar nueva contraseña</label>
+                        <div class="relative">
+                            <input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" required 
+                                class="appearance-none relative block w-full px-3 py-3 border border-gray-300 
+                                placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
+                                focus:border-amber-500 focus:z-10 sm:text-sm form-input pr-10" 
+                                placeholder="Confirma tu nueva contraseña">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <span class="password-toggle" id="toggleConfirmPassword">
+                                    <i class="fas fa-eye-slash text-gray-400"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex space-x-4">
+                    <button type="button" onclick="window.location.href='login.html'" class="flex-1 py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white btn-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        Volver al inicio
+                    </button>
+                    <button type="submit" class="flex-1 py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white btn-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        Confirmar
+                    </button>
+                </div>
+            </form>
+        </div>
     </main>
 
-    <footer class="bg-primary-800 text-white py-6">
-        <div class="container mx-auto px-4 text-center">
-            <p class="font-bold mb-1">Sistema de Control de Asistencia - Versión 1.0</p>
-            <p class="text-sm text-white/80 mb-1">Proyecto desarrollado por Manuel Morales, Emanuel, Alejandro, Juan Felipe</p>
-            <p class="text-sm text-white/80 mb-1">&copy; 2025 Todos los derechos reservados</p>
-            <p class="text-sm text-white/80">
-                <i class="fas fa-envelope mr-1"></i> soporte@asistencia.com
-            </p>
+    <!-- Footer (exactamente como lo solicitaste) -->
+    <footer class="bg-emerald-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <span class="logo-a text-3xl font-bold italic mr-1">A</span>
+                        <span class="logo-text text-xl">sistNet</span>
+                    </div>
+                    <p class="text-emerald-200">Sistema líder en gestión de asistencias académicas para instituciones educativas.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
+                        <li><a href="#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
+                        <li><a href="#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
+                        <li><a href="templates/preguntas_frecuentes.html" class="text-emerald-200 hover:text-white transition">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="templates/politicas_de_seguridad.html" class="text-emerald-200 hover:text-white transition">Política de Seguridad</a></li>
+                        <li><a href="terminos_condiciones.html" class="text-emerald-200 hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="privacidad.html" class="text-emerald-200 hover:text-white transition">Privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-amber-400"></i>
+                            <a href="mailto:soporte@asistencia.com" class="text-emerald-200 hover:text-white transition">soporte@asistencia.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-amber-400"></i>
+                            <span>+57 123 456 7890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-amber-400"></i>
+                            <span>Medellin, Colombia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-emerald-700 text-center text-emerald-300">
+                <p>&copy; 2025 AsistNet. Todos los derechos reservados.</p>
+                <p class="mt-2">Desarrollado por Manuel Morales & Juan Felipe Uñates</p>
+            </div>
         </div>
     </footer>
 
-    <script src="static/js/restablecer-password.js"></script>
+    <!-- Scripts -->
+    <script>
+        // Script para el menú móvil
+        const btn = document.querySelector(".mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+
+        // Script para mostrar/ocultar contraseña
+        document.querySelectorAll('.password-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const input = this.closest('.relative').querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                }
+            });
+        });
+
+        // Validación básica de formulario
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (newPassword !== confirmPassword) {
+                e.preventDefault();
+                alert('Las contraseñas no coinciden. Por favor, verifica.');
+            }
+        });
+    </script>
 </body>
 </html>

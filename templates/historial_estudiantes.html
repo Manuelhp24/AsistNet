@@ -4,10 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Asistencia - AsistNet</title>
-    <link rel="icon" href="static/img/favicon.png" type="imagen/png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="static/img/favicon.png" type="image/png">
     <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .logo-a {
+            color: #f59e0b;
+            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+            transition: all 0.3s ease;
+        }
+        .logo-item:hover .logo-a {
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
+        .btn-primary {
+            background-color: #f59e0b;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #e6900a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+        .btn-secondary {
+            background-color: #065F46;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #054c35;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(5, 95, 70, 0.3);
+        }
+        .form-input:focus {
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+        }
         .presente {
             color: #047857;
             font-weight: 500;
@@ -20,35 +57,101 @@
             color: #d97706;
             font-weight: 500;
         }
+        .table-row {
+            transition: all 0.3s ease;
+        }
+        .table-row:hover {
+            background-color: #f9fafb;
+            transform: translateY(-1px);
+        }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
-    <header class="bg-primary-800 shadow-md">
-        <div class="container mx-auto px-4 py-4">
-            <h1 class="text-2xl font-bold text-white text-center">
-                <span class="text-4xl font-bold italic">A</span>sistNet - Gestión de Asistencias
-            </h1>
-        </div>
+    <!-- Header/Navbar -->
+    <header class="sticky top-0 z-50 bg-emerald-800 shadow-lg">
+        <nav class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
+                        <span class="logo-a text-4xl font-bold italic mr-1">A</span>
+                        <span class="logo-text text-2xl">sistNet</span>
+                    </a>
+                </div>
+                
+                <!-- Menú desktop -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="dashboard.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Dashboard</a>
+                    <a href="asistencias.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Asistencias</a>
+                    <a href="cursos.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Cursos</a>
+                    <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-lg transition font-medium shadow-md">Cerrar Sesión</a>
+                </div>
+                
+                <!-- Menú móvil -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-button p-2 text-white focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Menú móvil desplegable -->
+            <div class="md:hidden hidden mobile-menu">
+                <div class="px-2 pt-2 pb-4 space-y-1">
+                    <a href="dashboard.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Dashboard</a>
+                    <a href="asistencias.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Asistencias</a>
+                    <a href="cursos.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Cursos</a>
+                    <a href="login.html" class="block bg-amber-500 text-white text-center px-3 py-2 rounded-lg transition mt-2">Cerrar Sesión</a>
+                </div>
+            </div>
+        </nav>
     </header>
 
+    <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
-        <section class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="px-6 py-4 bg-primary-700">
-                <h2 class="text-xl font-semibold text-white">Lista de Estudiantes</h2>
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-emerald-800 flex items-center">
+                <i class="fas fa-edit text-amber-500 mr-3"></i>Editar Asistencias
+            </h1>
+            <div class="flex items-center space-x-4">
+                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-bold">
+                    Profesor
+                </span>
+                <a href="dashboard.html" class="text-emerald-600 hover:text-emerald-800 flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i> Volver al Dashboard
+                </a>
+            </div>
+        </div>
+
+        <section class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="px-6 py-4 bg-emerald-700">
+                <h2 class="text-xl font-semibold text-white flex items-center">
+                    <i class="fas fa-users mr-2"></i>Lista de Estudiantes
+                </h2>
             </div>
             
             <div class="overflow-x-auto p-6">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Grupo</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Asistencia</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acción</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <i class="fas fa-user mr-1"></i>Nombre
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <i class="fas fa-users mr-1"></i>Grupo
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <i class="fas fa-calendar-check mr-1"></i>Asistencia
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <i class="fas fa-cog mr-1"></i>Acción
+                            </th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        <tr>
+                        <tr class="table-row">
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Juan Pérez</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grupo A</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm presente">
@@ -56,12 +159,12 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm">
                                 <button onclick="abrirModal('Juan Pérez', 'Presente')" 
-                                        class="bg-primary-600 hover:bg-primary-700 text-white px-3 py-1 rounded-md text-xs transition-colors">
-                                    Editar
+                                        class="btn-primary text-white px-3 py-1 rounded-md text-xs">
+                                    <i class="fas fa-edit mr-1"></i>Editar
                                 </button>
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="table-row">
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">María López</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grupo B</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm ausente">
@@ -69,8 +172,34 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm">
                                 <button onclick="abrirModal('María López', 'Ausente')" 
-                                        class="bg-primary-600 hover:bg-primary-700 text-white px-3 py-1 rounded-md text-xs transition-colors">
-                                    Editar
+                                        class="btn-primary text-white px-3 py-1 rounded-md text-xs">
+                                    <i class="fas fa-edit mr-1"></i>Editar
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Carlos Rodríguez</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grupo A</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm tarde">
+                                <i class="fas fa-clock mr-1"></i> Tarde
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <button onclick="abrirModal('Carlos Rodríguez', 'Tarde')" 
+                                        class="btn-primary text-white px-3 py-1 rounded-md text-xs">
+                                    <i class="fas fa-edit mr-1"></i>Editar
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Ana Martínez</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grupo B</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm presente">
+                                <i class="fas fa-check-circle mr-1"></i> Presente
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <button onclick="abrirModal('Ana Martínez', 'Presente')" 
+                                        class="btn-primary text-white px-3 py-1 rounded-md text-xs">
+                                    <i class="fas fa-edit mr-1"></i>Editar
                                 </button>
                             </td>
                         </tr>
@@ -82,18 +211,22 @@
 
     <!-- Modal para editar asistencia -->
     <div id="modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-lg shadow-xl max-w-md w-full">
-            <div class="px-6 py-4 bg-primary-700 rounded-t-lg">
-                <h2 class="text-xl font-semibold text-white">Editar Asistencia</h2>
+        <div class="bg-white rounded-xl shadow-xl max-w-md w-full">
+            <div class="px-6 py-4 bg-emerald-700 rounded-t-xl">
+                <h2 class="text-xl font-semibold text-white flex items-center">
+                    <i class="fas fa-edit mr-2"></i>Editar Asistencia
+                </h2>
             </div>
             
             <div class="p-6">
-                <p id="nombre-estudiante" class="text-gray-700 mb-4 font-medium"></p>
+                <p id="nombre-estudiante" class="text-gray-700 mb-4 font-medium text-lg"></p>
                 
                 <div class="mb-4">
-                    <label for="nuevo-estado" class="block text-gray-700 font-medium mb-2">Nuevo Estado:</label>
+                    <label for="nuevo-estado" class="block text-gray-700 font-medium mb-2">
+                        <i class="fas fa-list-alt text-emerald-600 mr-1"></i>Nuevo Estado:
+                    </label>
                     <select id="nuevo-estado" 
-                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent">
+                            class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg">
                         <option value="Presente">Presente</option>
                         <option value="Ausente">Ausente</option>
                         <option value="Tarde">Tarde</option>
@@ -102,18 +235,129 @@
                 
                 <div class="flex justify-end space-x-3">
                     <button onclick="cerrarModal()" 
-                            class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition-colors">
-                        Cancelar
+                            class="btn-secondary text-white px-4 py-2 rounded-lg font-medium">
+                        <i class="fas fa-times mr-2"></i>Cancelar
                     </button>
                     <button onclick="guardarCambios()" 
-                            class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md transition-colors">
-                        Guardar Cambios
+                            class="btn-primary text-white px-4 py-2 rounded-lg font-medium">
+                        <i class="fas fa-save mr-2"></i>Guardar Cambios
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="static/js/historial-estudiantes.js"></script>
+    <!-- Footer -->
+    <footer class="bg-emerald-800 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <span class="logo-a text-3xl font-bold italic mr-1">A</span>
+                        <span class="logo-text text-xl">sistNet</span>
+                    </div>
+                    <p class="text-emerald-200">Sistema líder en gestión de asistencias académicas para instituciones educativas.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
+                        <li><a href="index.html#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
+                        <li><a href="index.html#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
+                        <li><a href="preguntas_frecuentes.html" class="text-emerald-200 hover:text-white transition">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="politicas_de_seguridad.html" class="text-emerald-200 hover:text-white transition">Política de Seguridad</a></li>
+                        <li><a href="terminos_condiciones.html" class="text-emerald-200 hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="privacidad.html" class="text-emerald-200 hover:text-white transition">Privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-amber-400"></i>
+                            <a href="mailto:soporte@asistnet.com" class="text-emerald-200 hover:text-white transition">soporte@asistnet.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-amber-400"></i>
+                            <span>+57 604 4560000</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-amber-400"></i>
+                            <span>Medellin, Colombia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-emerald-700 text-center text-emerald-300">
+                <p>&copy; 2025 AsistNet. Todos los derechos reservados.</p>
+                <p class="mt-2">Desarrollado por Manuel Morales & Juan Felipe Uñates</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Script para el menú móvil
+        const btn = document.querySelector(".mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+
+        // Variables globales para el modal
+        let estudianteActual = '';
+        let estadoActual = '';
+
+        // Función para abrir el modal
+        function abrirModal(nombre, estado) {
+            estudianteActual = nombre;
+            estadoActual = estado;
+            
+            document.getElementById('nombre-estudiante').textContent = `Estudiante: ${nombre}`;
+            document.getElementById('nuevo-estado').value = estado;
+            
+            const modal = document.getElementById('modal');
+            modal.classList.remove('hidden');
+        }
+
+        // Función para cerrar el modal
+        function cerrarModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.add('hidden');
+        }
+
+        // Función para guardar los cambios
+        function guardarCambios() {
+            const nuevoEstado = document.getElementById('nuevo-estado').value;
+            
+            // Aquí iría la lógica para guardar en la base de datos
+            alert(`Asistencia de ${estudianteActual} actualizada a: ${nuevoEstado}`);
+            
+            // Cerrar el modal después de guardar
+            cerrarModal();
+            
+            // Recargar la página para ver los cambios (en una aplicación real, se actualizaría dinámicamente)
+            setTimeout(() => {
+                location.reload();
+            }, 1000);
+        }
+
+        // Cerrar modal al hacer clic fuera de él
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                cerrarModal();
+            }
+        });
+    </script>
 </body>
 </html>

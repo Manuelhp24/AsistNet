@@ -3,91 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Seguridad</title>
-    <link rel="icon" href="static/img/favicon.png" type="imagen/png">
+    <title>Política de Seguridad - AsistNet</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="static/img/favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .logo-a {
+            color: #f59e0b;
+            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+            transition: all 0.3s ease;
+        }
+        .logo-item:hover .logo-a {
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
+        .btn-primary {
+            background-color: #f59e0b;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #e6900a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+        .security-icon {
+            color: #f59e0b;
+            background-color: rgba(245, 158, 11, 0.1);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .policy-section {
+            transition: all 0.3s ease;
+        }
+        .policy-section:hover {
+            transform: translateX(5px);
+        }
+    </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
-    <header class="bg-primary-800 shadow-md">
-        <div class="container mx-auto px-4">
-            <nav class="flex flex-col md:flex-row justify-between items-center py-4">
-                <a href="login.html" class="text-3xl font-bold text-white mb-4 md:mb-0 hover:text-primary-200 transition-colors">
-                    <span class="text-4xl font-bold italic">A</span>sistNet
-                </a>
-                <ul class="flex flex-wrap justify-center gap-4 md:gap-6">
-                    <li>
-                        <a href="Preguntas Frecuentes.html" class="text-white hover:text-primary-200 transition-colors">FAQs</a>
-                    </li>
-                    <li>
-                        <a href="contato.html" class="text-white hover:text-primary-200 transition-colors">Contáctanos</a>
-                    </li>
-                    <li>
-                        <a href="login.html" class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md transition-colors font-medium">
-                            Log In
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+    <!-- Header/Navbar -->
+    <header class="sticky top-0 z-50 bg-emerald-800 shadow-lg">
+        <nav class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
+                        <span class="logo-a text-4xl font-bold italic mr-1">A</span>
+                        <span class="logo-text text-2xl">sistNet</span>
+                    </a>
+                </div>
+                
+                <!-- Menú desktop -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="preguntas_frecuentes.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">FAQs</a>
+                    <a href="politicas_de_seguridad.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Política de Seguridad</a>
+                    <a href="contacto.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Contáctanos</a>
+                    <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-lg transition font-medium shadow-md">Iniciar Sesión</a>
+                </div>
+                
+                <!-- Menú móvil -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-button p-2 text-white focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Menú móvil desplegable -->
+            <div class="md:hidden hidden mobile-menu">
+                <div class="px-2 pt-2 pb-4 space-y-1">
+                    <a href="preguntas_frecuentes.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">FAQs</a>
+                    <a href="politicas_de_seguridad.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Política de Seguridad</a>
+                    <a href="contacto.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Contáctanos</a>
+                    <a href="login.html" class="block bg-amber-500 text-white text-center px-3 py-2 rounded-lg transition mt-2">Iniciar Sesión</a>
+                </div>
+            </div>
+        </nav>
     </header>
-    
+
+    <!-- Contenido principal -->
     <main class="flex-grow container mx-auto px-4 py-8">
-        <article class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+        <article class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
             <!-- Encabezado principal -->
-            <div class="bg-primary-700 px-6 py-4">
-                <h1 class="text-3xl font-bold text-white text-center">POLÍTICAS DE SEGURIDAD</h1>
+            <div class="bg-emerald-700 px-6 py-6 text-center">
+                <h1 class="text-3xl font-bold text-white mb-2">POLÍTICAS DE SEGURIDAD</h1>
+                <p class="text-emerald-100">Última actualización: 15 de Enero, 2025</p>
             </div>
 
             <!-- Contenido de las políticas -->
-            <div class="p-6 space-y-8">
-                <section class="border-b border-gray-200 pb-6">
-                    <h2 class="text-2xl font-semibold text-primary-800 mb-3">1. Introducción</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        El presente documento establece las políticas de seguridad del sistema de asistencias para proteger la información y garantizar la integridad de los datos.
-                    </p>
+            <div class="p-8 space-y-10">
+                <section class="policy-section border-b border-gray-200 pb-8">
+                    <div class="flex items-start mb-4">
+                        <div class="security-icon">
+                            <i class="fas fa-shield-alt text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-semibold text-emerald-800 mb-3">1. Introducción</h2>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                El presente documento establece las políticas de seguridad del sistema de asistencias AsistNet, diseñado para proteger la información y garantizar la integridad, confidencialidad y disponibilidad de los datos de nuestros usuarios.
+                            </p>
+                            <p class="text-gray-700 leading-relaxed">
+                                Estas políticas aplican a todos los usuarios, administradores y personal con acceso al sistema, con el objetivo de mantener los más altos estándares de seguridad en la gestión de información académica.
+                            </p>
+                        </div>
+                    </div>
                 </section>
 
-                <section class="border-b border-gray-200 pb-6">
-                    <h2 class="text-2xl font-semibold text-primary-800 mb-3">2. Protección de Datos</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        Todos los datos de los usuarios y registros de asistencia se almacenan en servidores seguros con encriptación avanzada.
-                    </p>
+                <section class="policy-section border-b border-gray-200 pb-8">
+                    <div class="flex items-start mb-4">
+                        <div class="security-icon">
+                            <i class="fas fa-database text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-semibold text-emerald-800 mb-3">2. Protección de Datos</h2>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Todos los datos de los usuarios y registros de asistencia se almacenan en servidores seguros con encriptación avanzada AES-256 tanto en tránsito como en reposo.
+                            </p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+                                <li>Datos personales encriptados mediante algoritmos de última generación</li>
+                                <li>Copias de seguridad automáticas diarias con retención de 30 días</li>
+                                <li>Almacenamiento en centros de datos con certificación ISO 27001</li>
+                                <li>Monitoreo continuo de integridad de datos</li>
+                            </ul>
+                            <p class="text-gray-700 leading-relaxed">
+                                Los backups se realizan de forma automática y se almacenan en ubicaciones geográficamente distribuidas para garantizar la recuperación ante desastres.
+                            </p>
+                        </div>
+                    </div>
                 </section>
 
-                <section class="border-b border-gray-200 pb-6">
-                    <h2 class="text-2xl font-semibold text-primary-800 mb-3">3. Control de Acceso</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        Solo el personal autorizado puede acceder al sistema mediante credenciales únicas y autenticación de dos factores.
-                    </p>
+                <section class="policy-section border-b border-gray-200 pb-8">
+                    <div class="flex items-start mb-4">
+                        <div class="security-icon">
+                            <i class="fas fa-user-lock text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-semibold text-emerald-800 mb-3">3. Control de Acceso</h2>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Implementamos un estricto control de acceso basado en roles (RBAC) para garantizar que cada usuario tenga permisos adecuados a sus responsabilidades.
+                            </p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+                                <li>Autenticación de dos factores (2FA) obligatoria para administradores</li>
+                                <li>Contraseñas con requisitos de complejidad (mínimo 12 caracteres)</li>
+                                <li>Bloqueo automático tras 5 intentos fallidos de acceso</li>
+                                <li>Tokens de sesión con expiración programada</li>
+                                <li>Registro detallado de accesos y actividades (logging)</li>
+                            </ul>
+                            <p class="text-gray-700 leading-relaxed">
+                                Los permisos se revisan trimestralmente y se ajustan según el principio de mínimo privilegio.
+                            </p>
+                        </div>
+                    </div>
                 </section>
 
-                <section class="border-b border-gray-200 pb-6">
-                    <h2 class="text-2xl font-semibold text-primary-800 mb-3">4. Privacidad y Confidencialidad</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        La información registrada en el sistema es confidencial y no será compartida sin autorización expresa.
-                    </p>
+                <section class="policy-section border-b border-gray-200 pb-8">
+                    <div class="flex items-start mb-4">
+                        <div class="security-icon">
+                            <i class="fas fa-eye-slash text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-semibold text-emerald-800 mb-3">4. Privacidad y Confidencialidad</h2>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                La información registrada en el sistema es confidencial y se maneja de acuerdo con la Ley de Protección de Datos Personales (Ley 1581 de 2012) y el Reglamento General de Protección de Datos (RGPD).
+                            </p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+                                <li>Políticas claras de retención y eliminación de datos</li>
+                                <li>Acuerdos de confidencialidad con todo el personal</li>
+                                <li>Seudonimización de datos para análisis estadísticos</li>
+                                <li>Procedimientos establecidos para responder a solicitudes de acceso, rectificación y supresión</li>
+                            </ul>
+                            <p class="text-gray-700 leading-relaxed">
+                                Los datos no serán compartidos con terceros sin autorización expresa, excepto cuando sea requerido por ley.
+                            </p>
+                        </div>
+                    </div>
                 </section>
 
-                <section>
-                    <h2 class="text-2xl font-semibold text-primary-800 mb-3">5. Actualizaciones y Seguridad</h2>
-                    <p class="text-gray-700 leading-relaxed">
-                        Se implementarán actualizaciones periódicas para garantizar la protección ante vulnerabilidades.
-                    </p>
+                <section class="policy-section border-b border-gray-200 pb-8">
+                    <div class="flex items-start mb-4">
+                        <div class="security-icon">
+                            <i class="fas fa-sync-alt text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-semibold text-emerald-800 mb-3">5. Actualizaciones y Mantenimiento</h2>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Implementamos un programa continuo de actualizaciones para garantizar la protección ante vulnerabilidades emergentes.
+                            </p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+                                <li>Parches de seguridad aplicados en un máximo de 72 horas tras su lanzamiento</li>
+                                <li>Escaneo automático de vulnerabilidades diario</li>
+                                <li>Auditorías de seguridad trimestrales por terceros especializados</li>
+                                <li>Plan de respuesta a incidentes documentado y probado regularmente</li>
+                            </ul>
+                            <p class="text-gray-700 leading-relaxed">
+                                El sistema se mantiene en un entorno aislado para pruebas antes de implementar cambios en producción.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="policy-section border-b border-gray-200 pb-8">
+                    <div class="flex items-start mb-4">
+                        <div class="security-icon">
+                            <i class="fas fa-file-alt text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-semibold text-emerald-800 mb-3">6. Cumplimiento Normativo</h2>
+                            <p class="text-gray-700 leading-relaxed">
+                                AsistNet cumple con los estándares internacionales de seguridad de la información, incluyendo ISO 27001, y se adhiere a las regulaciones locales e internacionales aplicables a la protección de datos en entornos educativos.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="policy-section">
+                    <div class="flex items-start mb-4">
+                        <div class="security-icon">
+                            <i class="fas fa-headset text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-semibold text-emerald-800 mb-3">7. Contacto y Soporte</h2>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Para reportar vulnerabilidades de seguridad o realizar consultas sobre estas políticas, contacte a nuestro equipo de seguridad:
+                            </p>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="text-gray-700"><i class="fas fa-envelope text-amber-500 mr-2"></i> <strong>Email:</strong> seguridad@asistnet.com</p>
+                                <p class="text-gray-700 mt-2"><i class="fas fa-clock text-amber-500 mr-2"></i> <strong>Respuesta:</strong> Máximo 48 horas para reportes de seguridad</p>
+                                <p class="text-gray-700 mt-2"><i class="fas fa-shield-alt text-amber-500 mr-2"></i> <strong>Programa de recompensas:</strong> Ofrecemos recompensas por reportar vulnerabilidades críticas</p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </div>
         </article>
     </main>
 
-    <footer class="bg-primary-800 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p class="font-bold mb-1">Sistema de Control de Asistencia - Versión 1.0</p>
-            <p class="text-sm text-white/80 mb-1">Proyecto desarrollado por Manuel Morales, Emanuel, Alejandro, Juan Felipe</p>
-            <p class="text-sm text-white/80 mb-1">&copy; 2025 Todos los derechos reservados</p>
-            <p class="text-sm text-white/80">
-                <i class="fas fa-envelope mr-1"></i> soporte@asistencia.com
-            </p>
+    <!-- Footer -->
+    <footer class="bg-emerald-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <span class="logo-a text-3xl font-bold italic mr-1">A</span>
+                        <span class="logo-text text-xl">sistNet</span>
+                    </div>
+                    <p class="text-emerald-200">Sistema líder en gestión de asistencias académicas para instituciones educativas.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
+                        <li><a href="#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
+                        <li><a href="#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
+                        <li><a href="preguntas_frecuentes.html" class="text-emerald-200 hover:text-white transition">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="politicas_de_seguridad.html" class="text-emerald-200 hover:text-white transition">Política de Seguridad</a></li>
+                        <li><a href="terminos_condiciones.html" class="text-emerald-200 hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="privacidad.html" class="text-emerald-200 hover:text-white transition">Privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-amber-400"></i>
+                            <a href="mailto:soporte@asistencia.com" class="text-emerald-200 hover:text-white transition">soporte@asistencia.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-amber-400"></i>
+                            <span>+57 123 456 7890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-amber-400"></i>
+                            <span>Medellin, Colombia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-emerald-700 text-center text-emerald-300">
+                <p>&copy; 2025 AsistNet. Todos los derechos reservados.</p>
+                <p class="mt-2">Desarrollado por Manuel Morales & Juan Felipe Uñates</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Script para el menú móvil
+        const btn = document.querySelector(".mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+    </script>
 </body>
 </html>

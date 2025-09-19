@@ -5,107 +5,343 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - AsistNet</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            600: "#059669",
-                            700: "#047857", 
-                            800: "#065f46"
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="static/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="static/img/favicon.png" type="image/png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .logo-a {
+            color: #f59e0b;
+            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+            transition: all 0.3s ease;
+        }
+        .logo-item:hover .logo-a {
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        }
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .chart-card {
+            transition: all 0.3s ease;
+        }
+        .chart-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        .notification-item {
+            transition: all 0.3s ease;
+        }
+        .notification-item:hover {
+            transform: translateX(5px);
+            background-color: #f9fafb;
+        }
+    </style>
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="nav">
-            <h1 class="titulo">🐘 AsistNet - Dashboard</h1>
-            <ul class="nav__list">
-                <li><a href="dashboard.html" class="nav__link active">Dashboard</a></li>
-                <li><a href="consulta_asistencias.html" class="nav__link">Asistencias</a></li>
-                <li><a href="historial_estudiantes.html" class="nav__link">Estudiantes</a></li>
-                <li><a href="login.html" class="nav__link link--button">Cerrar Sesión</a></li>
-            </ul>
-        </div>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header/Navbar -->
+    <header class="sticky top-0 z-50 bg-emerald-800 shadow-lg">
+        <nav class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
+                        <span class="logo-a text-4xl font-bold italic mr-1">A</span>
+                        <span class="logo-text text-2xl">sistNet</span>
+                    </a>
+                </div>
+                
+                <!-- Menú desktop -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="dashboard.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium border-b-2 border-amber-400">Dashboard</a>
+                    <a href="consulta_asistencias.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Asistencias</a>
+                    <a href="historial_estudiantes.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Estudiantes</a>
+                    <a href="cursos.html" class="text-white hover:text-amber-300 px-3 py-2 transition font-medium">Cursos</a>
+                    <a href="login.html" class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-lg transition font-medium shadow-md">Cerrar Sesión</a>
+                </div>
+                
+                <!-- Menú móvil -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-button p-2 text-white focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Menú móvil desplegable -->
+            <div class="md:hidden hidden mobile-menu">
+                <div class="px-2 pt-2 pb-4 space-y-1">
+                    <a href="dashboard.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition bg-emerald-700">Dashboard</a>
+                    <a href="consulta_asistencias.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Asistencias</a>
+                    <a href="historial_estudiantes.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Estudiantes</a>
+                    <a href="cursos.html" class="block text-white hover:bg-emerald-700 px-3 py-2 rounded transition">Cursos</a>
+                    <a href="login.html" class="block bg-amber-500 text-white text-center px-3 py-2 rounded-lg transition mt-2">Cerrar Sesión</a>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <!-- Main Content -->
-    <main class="dashboard-main">
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-emerald-800 mb-8 flex items-center">
+            <i class="fas fa-chart-line text-amber-500 mr-3"></i>Dashboard
+        </h1>
+
         <!-- Estadísticas Rápidas -->
-        <section class="stats-grid">
-            <div class="stat-card">
-                <h3>Total Estudiantes</h3>
-                <p class="stat-number">248</p>
-                <span class="stat-trend">↑ 12% este mes</span>
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="stat-card bg-white rounded-xl shadow-md p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-gray-600 font-medium">
+                        <i class="fas fa-users text-emerald-600 mr-2"></i>Total Estudiantes
+                    </h3>
+                    <i class="fas fa-user-graduate text-emerald-200 text-xl"></i>
+                </div>
+                <p class="text-3xl font-bold text-emerald-800">248</p>
+                <span class="text-sm text-emerald-600 font-medium">
+                    <i class="fas fa-arrow-up mr-1"></i>12% este mes
+                </span>
             </div>
-            <div class="stat-card">
-                <h3>Asistencias Hoy</h3>
-                <p class="stat-number">187</p>
-                <span class="stat-trend">92% de asistencia</span>
+            
+            <div class="stat-card bg-white rounded-xl shadow-md p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-gray-600 font-medium">
+                        <i class="fas fa-calendar-check text-blue-600 mr-2"></i>Asistencias Hoy
+                    </h3>
+                    <i class="fas fa-check-circle text-blue-200 text-xl"></i>
+                </div>
+                <p class="text-3xl font-bold text-blue-800">187</p>
+                <span class="text-sm text-blue-600 font-medium">92% de asistencia</span>
             </div>
-            <div class="stat-card">
-                <h3>Inasistencias</h3>
-                <p class="stat-number">16</p>
-                <span class="stat-trend">↓ 5% esta semana</span>
+            
+            <div class="stat-card bg-white rounded-xl shadow-md p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-gray-600 font-medium">
+                        <i class="fas fa-user-times text-red-600 mr-2"></i>Inasistencias
+                    </h3>
+                    <i class="fas fa-times-circle text-red-200 text-xl"></i>
+                </div>
+                <p class="text-3xl font-bold text-red-800">16</p>
+                <span class="text-sm text-red-600 font-medium">
+                    <i class="fas fa-arrow-down mr-1"></i>5% esta semana
+                </span>
             </div>
-            <div class="stat-card">
-                <h3>Cursos Activos</h3>
-                <p class="stat-number">12</p>
-                <span class="stat-trend">3 nuevos este mes</span>
+            
+            <div class="stat-card bg-white rounded-xl shadow-md p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-gray-600 font-medium">
+                        <i class="fas fa-book text-amber-600 mr-2"></i>Cursos Activos
+                    </h3>
+                    <i class="fas fa-book-open text-amber-200 text-xl"></i>
+                </div>
+                <p class="text-3xl font-bold text-amber-800">12</p>
+                <span class="text-sm text-amber-600 font-medium">3 nuevos este mes</span>
             </div>
         </section>
 
         <!-- Gráficos -->
-        <section class="charts-grid">
-            <div class="chart-card">
-                <h3>Asistencia por Curso</h3>
-                <canvas id="attendanceChart"></canvas>
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div class="chart-card bg-white rounded-xl shadow-md p-6">
+                <h3 class="text-xl font-semibold text-emerald-800 mb-4 flex items-center">
+                    <i class="fas fa-chart-pie text-amber-500 mr-2"></i>Asistencia por Curso
+                </h3>
+                <canvas id="attendanceChart" height="250"></canvas>
             </div>
-            <div class="chart-card">
-                <h3>Trend Mensual</h3>
-                <canvas id="monthlyTrendChart"></canvas>
+            
+            <div class="chart-card bg-white rounded-xl shadow-md p-6">
+                <h3 class="text-xl font-semibold text-emerald-800 mb-4 flex items-center">
+                    <i class="fas fa-chart-line text-amber-500 mr-2"></i>Trend Mensual
+                </h3>
+                <canvas id="monthlyTrendChart" height="250"></canvas>
             </div>
         </section>
 
         <!-- Notificaciones Recientes -->
-        <section class="notifications-section">
-            <h3>Notificaciones Recientes</h3>
-            <div class="notifications-list">
-                <div class="notification-item">
-                    <span class="notification-icon">⚠️</span>
-                    <div class="notification-content">
-                        <p>Juan Pérez tiene 3 inasistencias consecutivas</p>
-                        <small>Hace 2 horas</small>
+        <section class="bg-white rounded-xl shadow-md p-6">
+            <h3 class="text-xl font-semibold text-emerald-800 mb-4 flex items-center">
+                <i class="fas fa-bell text-amber-500 mr-2"></i>Notificaciones Recientes
+            </h3>
+            
+            <div class="space-y-4">
+                <div class="notification-item flex items-start p-4 border border-gray-200 rounded-lg">
+                    <div class="bg-red-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-exclamation-triangle text-red-600"></i>
                     </div>
-                </div>
-                <div class="notification-item">
-                    <span class="notification-icon">✅</span>
-                    <div class="notification-content">
-                        <p>Asistencia masiva registrada correctamente</p>
-                        <small>Hace 5 horas</small>
+                    <div class="flex-1">
+                        <p class="font-medium text-gray-800">Juan Pérez tiene 3 inasistencias consecutivas</p>
+                        <small class="text-gray-500">Hace 2 horas</small>
                     </div>
+                    <button class="text-emerald-600 hover:text-emerald-800">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
-                <div class="notification-item">
-                    <span class="notification-icon">🎓</span>
-                    <div class="notification-content">
-                        <p>Nuevo estudiante registrado: María García</p>
-                        <small>Ayer</small>
+                
+                <div class="notification-item flex items-start p-4 border border-gray-200 rounded-lg">
+                    <div class="bg-green-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-check-circle text-green-600"></i>
                     </div>
+                    <div class="flex-1">
+                        <p class="font-medium text-gray-800">Asistencia masiva registrada correctamente</p>
+                        <small class="text-gray-500">Hace 5 horas</small>
+                    </div>
+                    <button class="text-emerald-600 hover:text-emerald-800">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
+                
+                <div class="notification-item flex items-start p-4 border border-gray-200 rounded-lg">
+                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-user-plus text-blue-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-medium text-gray-800">Nuevo estudiante registrado: María García</p>
+                        <small class="text-gray-500">Ayer</small>
+                    </div>
+                    <button class="text-emerald-600 hover:text-emerald-800">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mt-4 text-center">
+                <a href="#" class="text-emerald-600 hover:text-emerald-800 font-medium">
+                    Ver todas las notificaciones <i class="fas fa-arrow-right ml-1"></i>
+                </a>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
+    <footer class="bg-emerald-800 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <span class="logo-a text-3xl font-bold italic mr-1">A</span>
+                        <span class="logo-text text-xl">sistNet</span>
+                    </div>
+                    <p class="text-emerald-200">Sistema líder en gestión de asistencias académicas para instituciones educativas.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
+                        <li><a href="index.html#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
+                        <li><a href="index.html#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
+                        <li><a href="preguntas_frecuentes.html" class="text-emerald-200 hover:text-white transition">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="politicas_de_seguridad.html" class="text-emerald-200 hover:text-white transition">Política de Seguridad</a></li>
+                        <li><a href="terminos_condiciones.html" class="text-emerald-200 hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="privacidad.html" class="text-emerald-200 hover:text-white transition">Privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-amber-400"></i>
+                            <a href="mailto:soporte@asistnet.com" class="text-emerald-200 hover:text-white transition">soporte@asistnet.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-amber-400"></i>
+                            <span>+57 604 4560000</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-amber-400"></i>
+                            <span>Medellin, Colombia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-emerald-700 text-center text-emerald-300">
+                <p>&copy; 2025 AsistNet. Todos los derechos reservados.</p>
+                <p class="mt-2">Desarrollado por Manuel Morales & Juan Felipe Uñates</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Scripts -->
-    <script src="static/js/dashboard.js"></script>
+    <script>
+        // Script para el menú móvil
+        const btn = document.querySelector(".mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+
+        // Inicializar gráficos
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gráfico de Asistencia por Curso
+            const attendanceCtx = document.getElementById('attendanceChart').getContext('2d');
+            new Chart(attendanceCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Matemáticas', 'Programación', 'Inglés', 'Ciencias', 'Historia'],
+                    datasets: [{
+                        data: [95, 88, 92, 85, 78],
+                        backgroundColor: [
+                            '#059669', '#f59e0b', '#3b82f6', '#ef4444', '#8b5cf6'
+                        ],
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // Gráfico de Trend Mensual
+            const trendCtx = document.getElementById('monthlyTrendChart').getContext('2d');
+            new Chart(trendCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep'],
+                    datasets: [{
+                        label: 'Porcentaje de Asistencia',
+                        data: [85, 88, 90, 87, 91, 93, 89, 92, 95],
+                        borderColor: '#059669',
+                        backgroundColor: 'rgba(5, 150, 105, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 75,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
