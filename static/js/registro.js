@@ -1,4 +1,4 @@
-// JavaScript para la página de Iniciar Sesión - AsistNet
+// JavaScript para la página de Registro - AsistNet
 
 // Configuración de Tailwind CSS
 function configurarTailwind() {
@@ -50,90 +50,118 @@ function inicializarMenuMovil() {
     }
 }
 
-// Validación del formulario de login
-function inicializarValidacionLogin() {
+// Mostrar/ocultar contraseña
+function inicializarTogglePassword() {
+    document.querySelectorAll('.password-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const input = this.closest('.relative').querySelector('input');
+            const icon = this.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            }
+        });
+    });
+}
+
+// Validación de fortaleza de contraseña
+function validarFortalezaContrasena(contrasena) {
+    let fortaleza = 0;
+    const regex = {
+        minuscula: /[a-z]/,
+        mayuscula: /[A-Z]/,
+        numero: /[0-9]/,
+        especial: /[!@#$%^&*(),.?":{}|<>]/
+    };
+
+    if (contrasena.length >= 8) fortaleza += 25;
+    if (regex.minuscula.test(contrasena)) fortaleza += 25;
+    if (regex.mayuscula.test(contrasena)) fortaleza += 25;
+    if (regex.numero.test(contrasena)) fortaleza += 15;
+    if (regex.especial.test(contrasena)) fortaleza += 10;
+
+    return Math.min(fortaleza, 100);
+}
+
+// Validación del formulario
+function inicializarValidacionFormulario() {
     const formulario = document.querySelector('form');
-    const usuarioInput = document.getElementById('usuario');
-    const passwordInput = document.getElementById('password');
-    const recordarCheckbox = document.querySelector('input[type="checkbox"]');
     
     if (formulario) {
         formulario.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const usuario = usuarioInput.value.trim();
-            const password = passwordInput.value.trim();
+            const nombre = document.getElementById('nombre')?.value;
+            const tipoDocumento = document.getElementById('select')?.value;
+            const documento = document.getElementById('Documento')?.value;
+            const telefono = document.getElementById('telefono')?.value;
+            const correo = document.getElementById('correo')?.value;
+            const contrasena = document.getElementById('contrasena')?.value;
+            const confirmarContrasena = document.getElementById('confirmar_contrasena')?.value;
             
             // Validaciones
             let errores = [];
             
-            if (!usuario) {
-                errores.push('El campo usuario es obligatorio');
-                usuarioInput.style.borderColor = '#ef4444';
-            } else {
-                usuarioInput.style.borderColor = '#10b981';
+            if (!nombre) {
+                errores.push('El nombre completo es obligatorio');
             }
             
-            if (!password) {
-                errores.push('El campo contraseña es obligatorio');
-                passwordInput.style.borderColor = '#ef4444';
-            } else {
-                passwordInput.style.borderColor = '#10b981';
+            if (!tipoDocumento) {
+                errores.push('El tipo de documento es obligatorio');
+            }
+            
+            if (!documento) {
+                errores.push('El número de documento es obligatorio');
+            }
+            
+            if (!telefono) {
+                errores.push('El teléfono es obligatorio');
+            }
+            
+            if (!correo) {
+                errores.push('El correo electrónico es obligatorio');
+            } else if (!validarEmail(correo)) {
+                errores.push('El correo electrónico no es válido');
+            }
+            
+            if (contrasena !== confirmarContrasena) {
+                errores.push('Las contraseñas no coinciden');
+            }
+            
+            if (contrasena && contrasena.length < 8) {
+                errores.push('La contraseña debe tener al menos 8 caracteres');
+            }
+            
+            if (contrasena) {
+                const fortaleza = validarFortalezaContrasena(contrasena);
+                if (fortaleza < 50) {
+                    errores.push('La contraseña es demasiado débil. Debe incluir mayúsculas, números y caracteres especiales');
+                }
             }
             
             if (errores.length > 0) {
                 mostrarMensaje(errores.join('<br>'), 'error');
-                return;
+            } else {
+                // Simular registro exitoso
+                mostrarMensaje('¡Registro exitoso! Redirigiendo al login...', 'success');
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 2000);
             }
-            
-            // Simular proceso de login
-            simularLogin(usuario, password, recordarCheckbox.checked);
         });
     }
 }
 
-// Simular proceso de login
-function simularLogin(usuario, password, recordar) {
-    // Mostrar loading
-    const botonLogin = document.querySelector('.btn-primary');
-    const textoOriginal = botonLogin.innerHTML;
-    botonLogin.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Verificando...';
-    botonLogin.disabled = true;
-    
-    // Simular delay de red
-    setTimeout(() => {
-        // Aquí iría la lógica real de autenticación
-        const credencialesValidas = validarCredenciales(usuario, password);
-        
-        if (credencialesValidas) {
-            // Guardar en localStorage si se marcó "Recordar usuario"
-            if (recordar) {
-                localStorage.setItem('usuarioRecordado', usuario);
-            } else {
-                localStorage.removeItem('usuarioRecordado');
-            }
-            
-            mostrarMensaje('¡Inicio de sesión exitoso! Redirigiendo...', 'success');
-            
-            // Redirección después de éxito
-            setTimeout(() => {
-                window.location.href = 'pantalla_administrador.html';
-            }, 1500);
-        } else {
-            mostrarMensaje('Usuario o contraseña incorrectos. Por favor, verifique sus credenciales.', 'error');
-            botonLogin.innerHTML = textoOriginal;
-            botonLogin.disabled = false;
-        }
-    }, 1500);
-}
-
-// Validar credenciales (simulación)
-function validarCredenciales(usuario, password) {
-    // En una implementación real, esto haría una petición al servidor
-    const usuariosValidos = ['admin', 'usuario', 'docente', 'estudiante'];
-    const passwordValido = 'password123'; // Solo para demostración
-    
-    return usuariosValidos.includes(usuario.toLowerCase()) && password === passwordValido;
+// Validar email
+function validarEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
 }
 
 // Mostrar mensajes al usuario
@@ -159,18 +187,6 @@ function mostrarMensaje(mensaje, tipo = 'info') {
             mensajeDiv.parentNode.removeChild(mensajeDiv);
         }
     }, 5000);
-}
-
-// Cargar usuario recordado
-function cargarUsuarioRecordado() {
-    const usuarioRecordado = localStorage.getItem('usuarioRecordado');
-    const usuarioInput = document.getElementById('usuario');
-    const recordarCheckbox = document.querySelector('input[type="checkbox"]');
-    
-    if (usuarioRecordado) {
-        usuarioInput.value = usuarioRecordado;
-        recordarCheckbox.checked = true;
-    }
 }
 
 // Cerrar menú móvil al hacer clic en un enlace
@@ -205,10 +221,10 @@ function inicializarCierreExternoMenu() {
 document.addEventListener('DOMContentLoaded', function() {
     configurarTailwind();
     inicializarMenuMovil();
-    inicializarValidacionLogin();
-    cargarUsuarioRecordado();
+    inicializarTogglePassword();
+    inicializarValidacionFormulario();
     inicializarCierreMenuMovil();
     inicializarCierreExternoMenu();
     
-    console.log('AsistNet - Login cargado correctamente');
+    console.log('AsistNet - Registro cargado correctamente');
 });

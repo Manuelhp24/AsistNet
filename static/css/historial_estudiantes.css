@@ -1,4 +1,4 @@
-/* Estilos para la página de Contacto - AsistNet */
+/* Estilos para la página Historial de Estudiantes - AsistNet */
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -27,33 +27,47 @@ body {
     box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
 }
 
+.btn-secondary {
+    background-color: #065F46;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #054c35;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(5, 95, 70, 0.3);
+}
+
 /* Campos de formulario */
 .form-input:focus {
     border-color: #f59e0b;
     box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
 }
 
-/* Iconos de contacto */
-.contact-icon {
-    color: #f59e0b;
-    background-color: rgba(245, 158, 11, 0.1);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-    flex-shrink: 0;
+/* Estados de asistencia */
+.presente {
+    color: #047857;
+    font-weight: 500;
 }
 
-.contact-card {
+.ausente {
+    color: #dc2626;
+    font-weight: 500;
+}
+
+.tarde {
+    color: #d97706;
+    font-weight: 500;
+}
+
+/* Efectos de tabla */
+.table-row {
     transition: all 0.3s ease;
 }
 
-.contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+.table-row:hover {
+    background-color: #f9fafb;
+    transform: translateY(-1px);
 }
 
 /* Estilos generales */
@@ -65,14 +79,19 @@ body {
     background-color: white;
 }
 
+.bg-emerald-700 {
+    background-color: #047857;
+}
+
 .bg-emerald-800 {
     background-color: #065f46;
 }
 
-.bg-amber-50 {
-    background-color: #fffbeb;
+.bg-amber-100 {
+    background-color: #fef3c7;
 }
 
+/* Text colors */
 .text-white {
     color: white;
 }
@@ -81,20 +100,20 @@ body {
     color: #065f46;
 }
 
-.text-gray-600 {
-    color: #6b7280;
+.text-amber-800 {
+    color: #92400e;
 }
 
 .text-gray-700 {
     color: #374151;
 }
 
-.text-gray-800 {
-    color: #1f2937;
+.text-gray-900 {
+    color: #111827;
 }
 
-.text-amber-800 {
-    color: #92400e;
+.text-gray-500 {
+    color: #6b7280;
 }
 
 .text-emerald-200 {
@@ -108,18 +127,6 @@ body {
 /* Espaciado y layout */
 .min-h-screen {
     min-height: 100vh;
-}
-
-.flex {
-    display: flex;
-}
-
-.flex-col {
-    flex-direction: column;
-}
-
-.flex-grow {
-    flex-grow: 1;
 }
 
 .container {
@@ -143,18 +150,14 @@ body {
     padding-bottom: 2rem;
 }
 
-.py-12 {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+.px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
-.p-6 {
-    padding: 1.5rem;
-}
-
-.px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem;
+.py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .py-3 {
@@ -162,36 +165,20 @@ body {
     padding-bottom: 0.75rem;
 }
 
-.p-4 {
-    padding: 1rem;
-}
-
-.mb-4 {
-    margin-bottom: 1rem;
+.p-6 {
+    padding: 1.5rem;
 }
 
 .mb-6 {
     margin-bottom: 1.5rem;
 }
 
-.mb-8 {
-    margin-bottom: 2rem;
+.mb-4 {
+    margin-bottom: 1rem;
 }
 
-.mb-3 {
-    margin-bottom: 0.75rem;
-}
-
-.mt-2 {
-    margin-top: 0.5rem;
-}
-
-.mt-6 {
-    margin-top: 1.5rem;
-}
-
-.mt-8 {
-    margin-top: 2rem;
+.mt-12 {
+    margin-top: 3rem;
 }
 
 .mr-1 {
@@ -210,13 +197,30 @@ body {
     margin-left: 0.25rem;
 }
 
+/* Flexbox */
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.flex-shrink-0 {
+    flex-shrink: 0;
+}
+
 /* Grid */
 .grid {
     display: grid;
-}
-
-.md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .md\:grid-cols-4 {
@@ -227,19 +231,23 @@ body {
     gap: 2rem;
 }
 
-.space-y-5 > * + * {
-    margin-top: 1.25rem;
+.space-x-3 > * + * {
+    margin-left: 0.75rem;
+}
+
+.space-x-4 > * + * {
+    margin-left: 1rem;
 }
 
 .space-y-2 > * + * {
     margin-top: 0.5rem;
 }
 
-.space-x-6 > * + * {
-    margin-left: 1.5rem;
+/* Tamaños de texto */
+.text-xs {
+    font-size: 0.75rem;
 }
 
-/* Tamaños de texto */
 .text-sm {
     font-size: 0.875rem;
 }
@@ -290,20 +298,17 @@ body {
     border-radius: 9999px;
 }
 
+.rounded-t-xl {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+}
+
 .border-t {
     border-top-width: 1px;
 }
 
-.border-gray-200 {
-    border-color: #e5e7eb;
-}
-
 .border-gray-300 {
     border-color: #d1d5db;
-}
-
-.border-amber-200 {
-    border-color: #fde68a;
 }
 
 .border-emerald-700 {
@@ -315,6 +320,14 @@ body {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
+.shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
 /* Position */
 .sticky {
     position: sticky;
@@ -324,8 +337,23 @@ body {
     top: 0;
 }
 
+.fixed {
+    position: fixed;
+}
+
+.inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
 .relative {
     position: relative;
+}
+
+.absolute {
+    position: absolute;
 }
 
 /* Z-index */
@@ -342,76 +370,72 @@ body {
     height: 5rem;
 }
 
-.max-w-6xl {
-    max-width: 72rem;
+.min-w-full {
+    min-width: 100%;
 }
 
-/* Alineación de texto */
-.text-center {
-    text-align: center;
+.max-w-md {
+    max-width: 28rem;
+}
+
+/* Overflow */
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.overflow-x-auto {
+    overflow-x: auto;
+}
+
+/* Tabla */
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+    border-top-width: 1px;
+}
+
+.divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+    border-color: #e5e7eb;
+}
+
+/* Table cells */
+.px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .text-left {
     text-align: left;
 }
 
-/* Flexbox utilities */
-.items-center {
-    align-items: center;
+.whitespace-nowrap {
+    white-space: nowrap;
 }
 
-.justify-center {
-    justify-content: center;
+.uppercase {
+    text-transform: uppercase;
 }
 
-.justify-between {
-    justify-content: space-between;
+.tracking-wider {
+    letter-spacing: 0.05em;
 }
 
-.items-start {
-    align-items: flex-start;
+/* Modal */
+.bg-opacity-50 {
+    --tw-bg-opacity: 0.5;
 }
 
-.flex-shrink-0 {
-    flex-shrink: 0;
-}
-
-/* Listas */
-.space-y-5 > * + * {
-    margin-top: 1.25rem;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-/* Focus */
-.focus\:outline-none:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-}
-
-.focus\:ring-amber-500:focus {
-    --tw-ring-color: #f59e0b;
-}
-
-.focus\:border-amber-500:focus {
-    border-color: #f59e0b;
-}
-
-.focus\:z-10:focus {
-    z-index: 10;
-}
-
-/* Placeholder */
-.placeholder-gray-500::placeholder {
-    color: #6b7280;
-}
-
-/* Appearance */
-.appearance-none {
-    appearance: none;
+/* Hidden */
+.hidden {
+    display: none;
 }
 
 /* Hover effects */
@@ -427,6 +451,17 @@ ul {
     color: white;
 }
 
+.hover\:text-emerald-800:hover {
+    color: #065f46;
+}
+
+/* Transition */
+.transition {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
 /* Responsive */
 @media (min-width: 768px) {
     .md\:flex {
@@ -438,24 +473,13 @@ ul {
     }
 }
 
-/* Transition */
-.transition {
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
+/* Focus */
+.focus\:outline-none:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
 }
 
 /* Cursor */
 .cursor-pointer {
     cursor: pointer;
-}
-
-/* Hidden */
-.hidden {
-    display: none;
-}
-
-/* Block */
-.block {
-    display: block;
 }

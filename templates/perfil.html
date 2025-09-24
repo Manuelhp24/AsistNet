@@ -4,55 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil - AsistNet</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Iconos de Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="static/img/favicon.png" type="image/png">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .logo-a {
-            color: #f59e0b;
-            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
-            transition: all 0.3s ease;
-        }
-        .logo-item:hover .logo-a {
-            transform: scale(1.1);
-            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        .btn-primary {
-            background-color: #f59e0b;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #e6900a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-        }
-        .btn-secondary {
-            background-color: #065F46;
-            transition: all 0.3s ease;
-        }
-        .btn-secondary:hover {
-            background-color: #054c35;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(5, 95, 70, 0.3);
-        }
-        .form-input:focus {
-            border-color: #f59e0b;
-            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
-        }
-        .profile-card {
-            transition: all 0.3s ease;
-        }
-        .profile-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../static/img/favicon.png" type="image/png">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="../static/css/perfil.css">
 </head>
 <body class="bg-gray-100 min-h-screen">
     <!-- Header/Navbar -->
@@ -61,7 +29,7 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
+                    <a href="../index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
                         <span class="logo-a text-4xl font-bold italic mr-1">A</span>
                         <span class="logo-text text-2xl">sistNet</span>
                     </a>
@@ -151,7 +119,7 @@
 
                     <!-- Botón de edición -->
                     <div class="mt-6">
-                        <button onclick="userPanel.toggleEditMode()" id="edit-btn" class="w-full btn-primary text-white py-2 px-4 rounded-lg font-medium">
+                        <button onclick="userPanel.toggleEditMode()" id="edit-btn" class="btn-primary">
                             <i class="fas fa-edit mr-2"></i>Editar Perfil
                         </button>
                     </div>
@@ -171,37 +139,37 @@
                                 <i class="fas fa-user text-emerald-600 mr-1"></i>Nombre completo
                             </label>
                             <input type="text" id="input-name" value="Juan Pérez" 
-                                   class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg" disabled>
+                                   class="form-input" disabled>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">
                                 <i class="fas fa-envelope text-emerald-600 mr-1"></i>Email
                             </label>
                             <input type="email" id="input-email" value="juan.perez@email.com" 
-                                   class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg" disabled>
+                                   class="form-input" disabled>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">
                                 <i class="fas fa-phone text-emerald-600 mr-1"></i>Teléfono
                             </label>
                             <input type="tel" id="input-phone" value="+1 234 567 8900" 
-                                   class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg" disabled>
+                                   class="form-input" disabled>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">
                                 <i class="fas fa-birthday-cake text-emerald-600 mr-1"></i>Fecha de nacimiento
                             </label>
                             <input type="date" id="input-birthdate" value="2000-05-15" 
-                                   class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg" disabled>
+                                   class="form-input" disabled>
                         </div>
                     </div>
 
                     <!-- Botones de acción -->
                     <div id="edit-actions" class="hidden mt-6 flex space-x-3">
-                        <button onclick="userPanel.saveProfile()" class="btn-primary text-white px-4 py-2 rounded-lg font-medium">
+                        <button onclick="userPanel.saveProfile()" class="btn-primary">
                             <i class="fas fa-save mr-2"></i>Guardar cambios
                         </button>
-                        <button onclick="userPanel.cancelEdit()" class="btn-secondary text-white px-4 py-2 rounded-lg font-medium">
+                        <button onclick="userPanel.cancelEdit()" class="btn-secondary">
                             <i class="fas fa-times mr-2"></i>Cancelar
                         </button>
                     </div>
@@ -229,167 +197,4 @@
                         
                         <div class="flex items-center justify-between p-3 bg-yellow-50 border-l-4 border-yellow-500 rounded">
                             <div>
-                                <span class="font-medium">Programación</span>
-                                <p class="text-sm text-gray-600">09:30 - 11:30 • 09/09/2024</p>
-                            </div>
-                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-sm">Tarde</span>
-                        </div>
-                        
-                        <div class="flex items-center justify-between p-3 bg-red-50 border-l-4 border-red-500 rounded">
-                            <div>
-                                <span class="font-medium">Inglés</span>
-                                <p class="text-sm text-gray-600">10:00 - 12:00 • 08/09/2024</p>
-                            </div>
-                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-sm">Ausente</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cursos actuales -->
-                <div class="bg-white rounded-xl shadow-md p-6 mt-6 profile-card">
-                    <h3 class="font-semibold mb-4 text-emerald-800 flex items-center">
-                        <i class="fas fa-book text-amber-500 mr-2"></i>Mis Cursos
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="border border-gray-200 rounded-lg p-4 hover:border-amber-400 transition">
-                            <h4 class="font-medium text-emerald-800">Matemáticas Avanzadas</h4>
-                            <p class="text-sm text-gray-600">Prof. Carlos Rodríguez</p>
-                            <div class="flex justify-between items-center mt-2">
-                                <span class="text-xs text-gray-500">Lun y Mié • 08:00-10:00</span>
-                                <span class="bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-xs">95%</span>
-                            </div>
-                        </div>
-                        <div class="border border-gray-200 rounded-lg p-4 hover:border-amber-400 transition">
-                            <h4 class="font-medium text-emerald-800">Programación Web</h4>
-                            <p class="text-sm text-gray-600">Prof. Ana Martínez</p>
-                            <div class="flex justify-between items-center mt-2">
-                                <span class="text-xs text-gray-500">Mar y Jue • 09:30-11:30</span>
-                                <span class="bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-xs">88%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-emerald-800 text-white py-12 mt-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <span class="logo-a text-3xl font-bold italic mr-1">A</span>
-                        <span class="logo-text text-xl">sistNet</span>
-                    </div>
-                    <p class="text-emerald-200">Sistema líder en gestión de asistencias académicas para instituciones educativas.</p>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Enlaces Rápidos</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
-                        <li><a href="index.html#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
-                        <li><a href="index.html#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
-                        <li><a href="preguntas_frecuentes.html" class="text-emerald-200 hover:text-white transition">FAQs</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Legal</h3>
-                    <ul class="space-y-2">
-                        <li><a href="politicas_de_seguridad.html" class="text-emerald-200 hover:text-white transition">Política de Seguridad</a></li>
-                        <li><a href="terminos_condiciones.html" class="text-emerald-200 hover:text-white transition">Términos y Condiciones</a></li>
-                        <li><a href="privacidad.html" class="text-emerald-200 hover:text-white transition">Privacidad</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Contacto</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-2 text-amber-400"></i>
-                            <a href="mailto:soporte@asistnet.com" class="text-emerald-200 hover:text-white transition">soporte@asistnet.com</a>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone mr-2 text-amber-400"></i>
-                            <span>+57 604 4560000</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2 text-amber-400"></i>
-                            <span>Medellin, Colombia</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="pt-8 border-t border-emerald-700 text-center text-emerald-300">
-                <p>&copy; 2025 AsistNet. Todos los derechos reservados.</p>
-                <p class="mt-2">Desarrollado por Manuel Morales & Juan Felipe Uñates</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-        // Script para el menú móvil
-        const btn = document.querySelector(".mobile-menu-button");
-        const menu = document.querySelector(".mobile-menu");
-
-        btn.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
-        });
-
-        // Funcionalidad para editar perfil
-        const userPanel = {
-            isEditMode: false,
-            
-            toggleEditMode: function() {
-                this.isEditMode = !this.isEditMode;
-                const inputs = document.querySelectorAll('#input-name, #input-email, #input-phone, #input-birthdate');
-                const editBtn = document.getElementById('edit-btn');
-                const editActions = document.getElementById('edit-actions');
-                
-                inputs.forEach(input => {
-                    input.disabled = !this.isEditMode;
-                });
-                
-                if (this.isEditMode) {
-                    editBtn.classList.add('hidden');
-                    editActions.classList.remove('hidden');
-                } else {
-                    editBtn.classList.remove('hidden');
-                    editActions.classList.add('hidden');
-                }
-            },
-            
-            saveProfile: function() {
-                alert('Perfil actualizado correctamente');
-                this.toggleEditMode();
-            },
-            
-            cancelEdit: function() {
-                // Restaurar valores originales (aquí podrías recuperarlos de una variable)
-                document.getElementById('input-name').value = 'Juan Pérez';
-                document.getElementById('input-email').value = 'juan.perez@email.com';
-                document.getElementById('input-phone').value = '+1 234 567 8900';
-                document.getElementById('input-birthdate').value = '2000-05-15';
-                
-                this.toggleEditMode();
-            }
-        };
-
-        // Manejo de carga de avatar
-        document.getElementById('avatar-upload').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('user-avatar').src = e.target.result;
-                }
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
-</body>
-</html>
+                               

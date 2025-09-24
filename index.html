@@ -4,51 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AsistNet - Gestión Inteligente de Asistencias Académicas</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Iconos de Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
     <link rel="icon" href="favicon.png" type="image/png">
-    <style>
-        .logo-a {
-            color: #f59e0b;
-            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
-            transition: all 0.3s ease;
-        }
-        .logo-item:hover .logo-a {
-            transform: scale(1.1);
-            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        .hero-bg {
-            background: linear-gradient(rgba(6, 78, 59, 0.85), rgba(6, 78, 59, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(5, 150, 105, 0.15);
-        }
-        .testimonial-card {
-            transition: all 0.3s ease;
-        }
-        .testimonial-card:hover {
-            transform: scale(1.03);
-        }
-        .stats-item {
-            transition: all 0.3s ease;
-        }
-        .stats-item:hover {
-            transform: scale(1.05);
-        }
-    </style>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">	
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="static/css/index.css">
+    
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="font-sans bg-gray-50">
+<body class="font-sans bg-gray-50" style="font-family: 'Poppins', sans-serif;">
 
     <!-- Header/Navbar -->
     <header class="sticky top-0 z-50 bg-emerald-800 shadow-lg">
@@ -95,7 +69,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-bg text-white py-24 md:py-32">
+    <section class="hero-bg text-white py-24 md:py-32 hero-section">
         <div class="container mx-auto px-4 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">Revoluciona el Control de Asistencias</h1>
             <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">La solución integral para instituciones educativas que optimiza el registro, seguimiento y análisis de asistencia académica.</p>
@@ -140,7 +114,7 @@
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
-                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition">
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md">
                     <div class="text-amber-500 text-4xl mb-4">
                         <i class="fas fa-user-check"></i>
                     </div>
@@ -149,7 +123,7 @@
                 </div>
                 
                 <!-- Feature 2 -->
-                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition">
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md">
                     <div class="text-amber-500 text-4xl mb-4">
                         <i class="fas fa-chart-bar"></i>
                     </div>
@@ -158,7 +132,7 @@
                 </div>
                 
                 <!-- Feature 3 -->
-                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition">
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md">
                     <div class="text-amber-500 text-4xl mb-4">
                         <i class="fas fa-shield-alt"></i>
                     </div>
@@ -167,7 +141,7 @@
                 </div>
                 
                 <!-- Feature 4 -->
-                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition">
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md">
                     <div class="text-amber-500 text-4xl mb-4">
                         <i class="fas fa-bell"></i>
                     </div>
@@ -176,7 +150,7 @@
                 </div>
                 
                 <!-- Feature 5 -->
-                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition">
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md">
                     <div class="text-amber-500 text-4xl mb-4">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
@@ -185,7 +159,7 @@
                 </div>
                 
                 <!-- Feature 6 -->
-                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition">
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md">
                     <div class="text-amber-500 text-4xl mb-4">
                         <i class="fas fa-sync-alt"></i>
                     </div>
@@ -256,7 +230,59 @@
         </div>
     </section>
 
-    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-emerald-800 mb-4">Lo que Dicen Nuestros Usuarios</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Instituciones educativas que han transformado su gestión con AsistNet</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <div class="text-amber-400 text-2xl mb-4">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"AsistNet ha revolucionado nuestro control de asistencias. El ahorro de tiempo es increíble."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-emerald-600 font-bold">MR</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-emerald-800">María Rodríguez</h4>
+                            <p class="text-sm text-gray-500">Directora - Colegio La Esperanza</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="text-amber-400 text-2xl mb-4">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"La facilidad de uso y los reportes automáticos han mejorado nuestra eficiencia en un 80%."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-emerald-600 font-bold">CP</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-emerald-800">Carlos Pérez</h4>
+                            <p class="text-sm text-gray-500">Coordinador - Instituto Tecnológico</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="text-amber-400 text-2xl mb-4">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"El soporte técnico es excepcional. Siempre están disponibles cuando los necesitamos."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-emerald-600 font-bold">AG</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-emerald-800">Ana Gómez</h4>
+                            <p class="text-sm text-gray-500">Rectora - Universidad Moderna</p>
                         </div>
                     </div>
                 </div>
@@ -271,7 +297,7 @@
             <p class="text-xl mb-8 max-w-3xl mx-auto">Únete a las más de 500 instituciones educativas que ya usan AsistNet para optimizar su gestión académica.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="templates/registro.html" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition transform hover:scale-105 shadow-lg">Comenzar Ahora</a>
-                <a href="c:\Users\manue\Desktop\atteand.net\contato.html" class="bg-white hover:bg-gray-100 text-emerald-800 font-bold py-3 px-8 rounded-lg text-lg transition transform hover:scale-105 shadow-lg">Hablar con un Asesor</a>
+                <a href="templates/contacto.html" class="bg-white hover:bg-gray-100 text-emerald-800 font-bold py-3 px-8 rounded-lg text-lg transition transform hover:scale-105 shadow-lg">Hablar con un Asesor</a>
             </div>
         </div>
     </section>
@@ -302,8 +328,8 @@
                     <h3 class="text-lg font-bold mb-4">Legal</h3>
                     <ul class="space-y-2">
                         <li><a href="templates/politicas_de_seguridad.html" class="text-emerald-200 hover:text-white transition">Política de Seguridad</a></li>
-                        <li><a href="terminos_condiciones.html" class="text-emerald-200 hover:text-white transition">Términos y Condiciones</a></li>
-                        <li><a href="privacidad.html" class="text-emerald-200 hover:text-white transition">Privacidad</a></li>
+                        <li><a href="templates/terminos_condiciones.html" class="text-emerald-200 hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="templates/privacidad.html" class="text-emerald-200 hover:text-white transition">Privacidad</a></li>
                     </ul>
                 </div>
                 
@@ -333,47 +359,7 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.querySelector('.mobile-menu-button');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Animation on scroll
-        window.addEventListener('scroll', function() {
-            const elements = document.querySelectorAll('.feature-card, .testimonial-card, .stats-item');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-                
-                if(elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        });
-        
-        // Initialize elements with opacity 0 for animation
-        document.querySelectorAll('.feature-card, .testimonial-card, .stats-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease';
-        });
-    </script>
+    <!-- JavaScript externo -->
+    <script src="static/js/app.js"></script>
 </body>
 </html>

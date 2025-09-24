@@ -3,56 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cambiar Contraseña - AsistNet</title>
+    <title>Restablecer Contraseña - AsistNet</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Iconos de Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="static/img/favicon.png" type="image/png">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .logo-a {
-            color: #f59e0b;
-            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
-            transition: all 0.3s ease;
-        }
-        .logo-item:hover .logo-a {
-            transform: scale(1.1);
-            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        .btn-primary {
-            background-color: #f59e0b;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #e6900a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-        }
-        .btn-secondary {
-            background-color: #065F46;
-            transition: all 0.3s ease;
-        }
-        .btn-secondary:hover {
-            background-color: #054c35;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(5, 95, 70, 0.3);
-        }
-        .form-input:focus {
-            border-color: #f59e0b;
-            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
-        }
-        .password-toggle {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .password-toggle:hover {
-            color: #f59e0b;
-        }
-    </style>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../static/img/favicon.png" type="image/png">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="../static/css/restablecer_contrasena.css">
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
     <!-- Header/Navbar -->
@@ -61,7 +29,7 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
+                    <a href="../index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
                         <span class="logo-a text-4xl font-bold italic mr-1">A</span>
                         <span class="logo-text text-2xl">sistNet</span>
                     </a>
@@ -99,10 +67,10 @@
 
     <!-- Contenido principal -->
     <main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-md w-full space-y-8 bg-white p-10 rounded-xl shadow-lg">
+        <div class="max-w-md w-full space-y-8 password-form">
             <div>
                 <h2 class="mt-6 text-center text-3xl font-bold text-emerald-800">
-                    Cambiar contraseña
+                    Restablecer contraseña
                 </h2>
                 <p class="mt-2 text-center text-sm text-gray-600">
                     Ingresa tu correo electrónico y establece una nueva contraseña.
@@ -115,9 +83,7 @@
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo electrónico</label>
                         <div class="relative">
                             <input id="email" name="email" type="email" autocomplete="email" required 
-                                class="appearance-none relative block w-full px-3 py-3 border border-gray-300 
-                                placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
-                                focus:border-amber-500 focus:z-10 sm:text-sm form-input" 
+                                class="form-input" 
                                 placeholder="correo@ejemplo.com">
                             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
                                 <i class="fas fa-envelope text-gray-400"></i>
@@ -130,9 +96,7 @@
                         <label for="current-password" class="block text-sm font-medium text-gray-700 mb-1">Contraseña actual</label>
                         <div class="relative">
                             <input id="current-password" name="current-password" type="password" autocomplete="current-password" required 
-                                class="appearance-none relative block w-full px-3 py-3 border border-gray-300 
-                                placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
-                                focus:border-amber-500 focus:z-10 sm:text-sm form-input pr-10" 
+                                class="form-input pr-10" 
                                 placeholder="Ingresa tu contraseña actual">
                             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
                                 <i class="fas fa-lock text-gray-400"></i>
@@ -145,9 +109,7 @@
                         <label for="new-password" class="block text-sm font-medium text-gray-700 mb-1">Nueva contraseña</label>
                         <div class="relative">
                             <input id="new-password" name="new-password" type="password" autocomplete="new-password" required 
-                                class="appearance-none relative block w-full px-3 py-3 border border-gray-300 
-                                placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
-                                focus:border-amber-500 focus:z-10 sm:text-sm form-input pr-10" 
+                                class="form-input pr-10" 
                                 placeholder="Ingresa tu nueva contraseña">
                             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
                                 <span class="password-toggle" id="toggleNewPassword">
@@ -163,9 +125,7 @@
                         <label for="confirm-password" class="block text-sm font-medium text-gray-700 mb-1">Confirmar nueva contraseña</label>
                         <div class="relative">
                             <input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" required 
-                                class="appearance-none relative block w-full px-3 py-3 border border-gray-300 
-                                placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
-                                focus:border-amber-500 focus:z-10 sm:text-sm form-input pr-10" 
+                                class="form-input pr-10" 
                                 placeholder="Confirma tu nueva contraseña">
                             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
                                 <span class="password-toggle" id="toggleConfirmPassword">
@@ -177,11 +137,11 @@
                 </div>
 
                 <div class="flex space-x-4">
-                    <button type="button" onclick="window.location.href='login.html'" class="flex-1 py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white btn-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500">
+                    <button type="button" onclick="window.location.href='login.html'" class="btn-secondary">
                         <i class="fas fa-arrow-left mr-2"></i>
                         Volver al inicio
                     </button>
-                    <button type="submit" class="flex-1 py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white btn-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500">
+                    <button type="submit" class="btn-primary">
                         <i class="fas fa-check-circle mr-2"></i>
                         Confirmar
                     </button>
@@ -190,7 +150,7 @@
         </div>
     </main>
 
-    <!-- Footer (exactamente como lo solicitaste) -->
+    <!-- Footer -->
     <footer class="bg-emerald-800 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
@@ -205,17 +165,17 @@
                 <div>
                     <h3 class="text-lg font-bold mb-4">Enlaces Rápidos</h3>
                     <ul class="space-y-2">
-                        <li><a href="#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
-                        <li><a href="#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
-                        <li><a href="#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
-                        <li><a href="templates/preguntas_frecuentes.html" class="text-emerald-200 hover:text-white transition">FAQs</a></li>
+                        <li><a href="../index.html#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
+                        <li><a href="../index.html#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
+                        <li><a href="../index.html#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
+                        <li><a href="preguntas_frecuentes.html" class="text-emerald-200 hover:text-white transition">FAQs</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h3 class="text-lg font-bold mb-4">Legal</h3>
                     <ul class="space-y-2">
-                        <li><a href="templates/politicas_de_seguridad.html" class="text-emerald-200 hover:text-white transition">Política de Seguridad</a></li>
+                        <li><a href="politicas_de_seguridad.html" class="text-emerald-200 hover:text-white transition">Política de Seguridad</a></li>
                         <li><a href="terminos_condiciones.html" class="text-emerald-200 hover:text-white transition">Términos y Condiciones</a></li>
                         <li><a href="privacidad.html" class="text-emerald-200 hover:text-white transition">Privacidad</a></li>
                     </ul>
@@ -247,44 +207,7 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        // Script para el menú móvil
-        const btn = document.querySelector(".mobile-menu-button");
-        const menu = document.querySelector(".mobile-menu");
-
-        btn.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
-        });
-
-        // Script para mostrar/ocultar contraseña
-        document.querySelectorAll('.password-toggle').forEach(toggle => {
-            toggle.addEventListener('click', function() {
-                const input = this.closest('.relative').querySelector('input');
-                const icon = this.querySelector('i');
-                
-                if (input.type === 'password') {
-                    input.type = 'text';
-                    icon.classList.remove('fa-eye-slash');
-                    icon.classList.add('fa-eye');
-                } else {
-                    input.type = 'password';
-                    icon.classList.remove('fa-eye');
-                    icon.classList.add('fa-eye-slash');
-                }
-            });
-        });
-
-        // Validación básica de formulario
-        document.querySelector('form').addEventListener('submit', function(e) {
-            const newPassword = document.getElementById('new-password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
-            
-            if (newPassword !== confirmPassword) {
-                e.preventDefault();
-                alert('Las contraseñas no coinciden. Por favor, verifica.');
-            }
-        });
-    </script>
+    <!-- JavaScript externo -->
+    <script src="../static/js/restablecer_contrasena.js"></script>
 </body>
 </html>

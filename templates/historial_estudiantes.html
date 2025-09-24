@@ -4,67 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Asistencia - AsistNet</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Iconos de Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
     <link rel="icon" href="static/img/favicon.png" type="image/png">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .logo-a {
-            color: #f59e0b;
-            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
-            transition: all 0.3s ease;
-        }
-        .logo-item:hover .logo-a {
-            transform: scale(1.1);
-            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        .btn-primary {
-            background-color: #f59e0b;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #e6900a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-        }
-        .btn-secondary {
-            background-color: #065F46;
-            transition: all 0.3s ease;
-        }
-        .btn-secondary:hover {
-            background-color: #054c35;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(5, 95, 70, 0.3);
-        }
-        .form-input:focus {
-            border-color: #f59e0b;
-            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
-        }
-        .presente {
-            color: #047857;
-            font-weight: 500;
-        }
-        .ausente {
-            color: #dc2626;
-            font-weight: 500;
-        }
-        .tarde {
-            color: #d97706;
-            font-weight: 500;
-        }
-        .table-row {
-            transition: all 0.3s ease;
-        }
-        .table-row:hover {
-            background-color: #f9fafb;
-            transform: translateY(-1px);
-        }
-    </style>
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="static/css/historial_estudiantes.css">
 </head>
 <body class="bg-gray-50 min-h-screen">
     <!-- Header/Navbar -->
@@ -304,60 +260,7 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        // Script para el menú móvil
-        const btn = document.querySelector(".mobile-menu-button");
-        const menu = document.querySelector(".mobile-menu");
-
-        btn.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
-        });
-
-        // Variables globales para el modal
-        let estudianteActual = '';
-        let estadoActual = '';
-
-        // Función para abrir el modal
-        function abrirModal(nombre, estado) {
-            estudianteActual = nombre;
-            estadoActual = estado;
-            
-            document.getElementById('nombre-estudiante').textContent = `Estudiante: ${nombre}`;
-            document.getElementById('nuevo-estado').value = estado;
-            
-            const modal = document.getElementById('modal');
-            modal.classList.remove('hidden');
-        }
-
-        // Función para cerrar el modal
-        function cerrarModal() {
-            const modal = document.getElementById('modal');
-            modal.classList.add('hidden');
-        }
-
-        // Función para guardar los cambios
-        function guardarCambios() {
-            const nuevoEstado = document.getElementById('nuevo-estado').value;
-            
-            // Aquí iría la lógica para guardar en la base de datos
-            alert(`Asistencia de ${estudianteActual} actualizada a: ${nuevoEstado}`);
-            
-            // Cerrar el modal después de guardar
-            cerrarModal();
-            
-            // Recargar la página para ver los cambios (en una aplicación real, se actualizaría dinámicamente)
-            setTimeout(() => {
-                location.reload();
-            }, 1000);
-        }
-
-        // Cerrar modal al hacer clic fuera de él
-        document.getElementById('modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                cerrarModal();
-            }
-        });
-    </script>
+    <!-- JavaScript personalizado -->
+    <script src="static/js/historial_estudiantes.js"></script>
 </body>
 </html>

@@ -4,47 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - AsistNet</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Iconos de Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="static/img/favicon.png" type="image/png">
+    
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .logo-a {
-            color: #f59e0b;
-            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
-            transition: all 0.3s ease;
-        }
-        .logo-item:hover .logo-a {
-            transform: scale(1.1);
-            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        .stat-card {
-            transition: all 0.3s ease;
-        }
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        .chart-card {
-            transition: all 0.3s ease;
-        }
-        .chart-card:hover {
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-        .notification-item {
-            transition: all 0.3s ease;
-        }
-        .notification-item:hover {
-            transform: translateX(5px);
-            background-color: #f9fafb;
-        }
-    </style>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="static/img/favicon.png" type="image/png">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="static/css/dashboard.css">
 </head>
 <body class="bg-gray-50 min-h-screen">
     <!-- Header/Navbar -->
@@ -277,71 +256,7 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        // Script para el menú móvil
-        const btn = document.querySelector(".mobile-menu-button");
-        const menu = document.querySelector(".mobile-menu");
-
-        btn.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
-        });
-
-        // Inicializar gráficos
-        document.addEventListener('DOMContentLoaded', function() {
-            // Gráfico de Asistencia por Curso
-            const attendanceCtx = document.getElementById('attendanceChart').getContext('2d');
-            new Chart(attendanceCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Matemáticas', 'Programación', 'Inglés', 'Ciencias', 'Historia'],
-                    datasets: [{
-                        data: [95, 88, 92, 85, 78],
-                        backgroundColor: [
-                            '#059669', '#f59e0b', '#3b82f6', '#ef4444', '#8b5cf6'
-                        ],
-                        borderWidth: 2,
-                        borderColor: '#ffffff'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
-                        }
-                    }
-                }
-            });
-
-            // Gráfico de Trend Mensual
-            const trendCtx = document.getElementById('monthlyTrendChart').getContext('2d');
-            new Chart(trendCtx, {
-                type: 'line',
-                data: {
-                    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep'],
-                    datasets: [{
-                        label: 'Porcentaje de Asistencia',
-                        data: [85, 88, 90, 87, 91, 93, 89, 92, 95],
-                        borderColor: '#059669',
-                        backgroundColor: 'rgba(5, 150, 105, 0.1)',
-                        borderWidth: 3,
-                        fill: true,
-                        tension: 0.3
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: false,
-                            min: 75,
-                            max: 100
-                        }
-                    }
-                }
-            });
-        });
-    </script>
+    <!-- JavaScript personalizado -->
+    <script src="static/js/dashboard.js"></script>
 </body>
 </html>

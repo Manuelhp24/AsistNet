@@ -1,4 +1,4 @@
-/* Estilos para la página de Registro - AsistNet */
+/* Estilos para la página Restablecer Contraseña - AsistNet */
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -15,7 +15,7 @@ body {
     text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
 }
 
-/* Botones */
+/* Botones con estilos de Tailwind */
 .btn-primary {
     background-color: #f59e0b !important;
     color: white !important;
@@ -26,13 +26,30 @@ body {
     border: none !important;
     cursor: pointer !important;
     font-size: 0.875rem !important;
-    width: 100% !important;
 }
 
 .btn-primary:hover {
     background-color: #e6900a !important;
     transform: translateY(-2px) !important;
     box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3) !important;
+}
+
+.btn-secondary {
+    background-color: #065F46 !important;
+    color: white !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 0.5rem !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-size: 0.875rem !important;
+}
+
+.btn-secondary:hover {
+    background-color: #054c35 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(5, 95, 70, 0.3) !important;
 }
 
 /* Campos de formulario */
@@ -62,7 +79,7 @@ label {
     font-size: 0.875rem !important;
     font-weight: 500 !important;
     color: #374151 !important;
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0.25rem !important;
 }
 
 /* Contenedores relativos para iconos */
@@ -87,10 +104,6 @@ label {
     padding-right: 0.75rem !important;
 }
 
-.pr-10 {
-    padding-right: 2.5rem !important;
-}
-
 .flex.items-center {
     display: flex !important;
     align-items: center !important;
@@ -107,95 +120,107 @@ label {
     color: #f59e0b !important;
 }
 
-/* Estilos específicos para el formulario de registro */
+/* Estilos específicos para el formulario */
+.password-form {
+    background: white !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    padding: 2.5rem !important;
+    max-width: 28rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Texto de ayuda */
+.text-xs {
+    font-size: 0.75rem !important;
+    color: #6b7280 !important;
+    margin-top: 0.25rem !important;
+    line-height: 1.25 !important;
+}
+
+/* Títulos */
+.text-3xl {
+    font-size: 1.875rem !important;
+    line-height: 2.25rem !important;
+    font-weight: bold !important;
+    color: #065f46 !important;
+    margin: 0 !important;
+}
+
+.text-sm {
+    font-size: 0.875rem !important;
+    color: #6b7280 !important;
+    line-height: 1.25 !important;
+    margin: 0 !important;
+}
+
+/* Espaciado */
+.space-y-4 > * + * {
+    margin-top: 1rem !important;
+}
+
+.space-y-6 > * + * {
+    margin-top: 1.5rem !important;
+}
+
+.space-y-8 > * + * {
+    margin-top: 2rem !important;
+}
+
+.mt-6 {
+    margin-top: 1.5rem !important;
+}
+
+.mt-2 {
+    margin-top: 0.5rem !important;
+}
+
+.mt-8 {
+    margin-top: 2rem !important;
+}
+
+.mb-1 {
+    margin-bottom: 0.25rem !important;
+}
+
+/* Flex para botones */
+.flex.space-x-4 {
+    display: flex !important;
+    gap: 1rem !important;
+}
+
+.flex-1 {
+    flex: 1 1 0% !important;
+}
+
+/* Asegurar que Tailwind funcione */
+.bg-gray-50 {
+    background-color: #f9fafb !important;
+}
+
 .bg-white {
     background-color: white !important;
 }
 
-.shadow-lg {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
-}
-
-.rounded-xl {
-    border-radius: 1rem !important;
-}
-
-.overflow-hidden {
-    overflow: hidden !important;
-}
-
-.bg-emerald-700 {
-    background-color: #047857 !important;
-}
-
-/* Texto y títulos */
-.text-2xl {
-    font-size: 1.5rem !important;
-    line-height: 2rem !important;
-}
-
-.font-bold {
-    font-weight: bold !important;
+.bg-emerald-800 {
+    background-color: #065f46 !important;
 }
 
 .text-white {
     color: white !important;
 }
 
-.text-center {
-    text-align: center !important;
+.text-emerald-800 {
+    color: #065f46 !important;
 }
 
-.text-gray-700 {
-    color: #374151 !important;
+.text-gray-600 {
+    color: #6b7280 !important;
 }
 
-.font-medium {
-    font-weight: 500 !important;
-}
-
-.text-emerald-600 {
-    color: #059669 !important;
-}
-
-/* Espaciado */
-.px-6 {
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
-}
-
-.py-4 {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
-}
-
-.py-6 {
-    padding-top: 1.5rem !important;
-    padding-bottom: 1.5rem !important;
-}
-
-.space-y-5 > * + * {
-    margin-top: 1.25rem !important;
-}
-
-.mb-2 {
-    margin-bottom: 0.5rem !important;
-}
-
-.mr-2 {
-    margin-right: 0.5rem !important;
-}
-
-.mr-1 {
-    margin-right: 0.25rem !important;
-}
-
-.pt-2 {
-    padding-top: 0.5rem !important;
-}
-
-.pt-4 {
-    padding-top: 1rem !important;
+.text-gray-400 {
+    color: #9ca3af !important;
 }
 
 /* Main container */
@@ -223,23 +248,23 @@ label {
     justify-content: center !important;
 }
 
-.w-full {
-    width: 100% !important;
+/* Padding y margins */
+.py-12 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+.px-4 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
 }
 
 .max-w-md {
     max-width: 28rem !important;
 }
 
-/* Padding y margins */
-.py-8 {
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
-}
-
-.px-4 {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+.w-full {
+    width: 100% !important;
 }
 
 /* Header styles */
@@ -270,39 +295,6 @@ label {
     margin-right: auto !important;
 }
 
-/* Enlaces */
-a {
-    color: #059669 !important;
-    text-decoration: none !important;
-    transition: color 0.3s ease !important;
-}
-
-a:hover {
-    color: #065f46 !important;
-}
-
-.text-sm {
-    font-size: 0.875rem !important;
-}
-
-.border-t {
-    border-top-width: 1px !important;
-}
-
-.border-gray-200 {
-    border-color: #e5e7eb !important;
-}
-
-/* Select styles */
-select.form-input {
-    appearance: none !important;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e") !important;
-    background-position: right 0.5rem center !important;
-    background-repeat: no-repeat !important;
-    background-size: 1.5em 1.5em !important;
-    padding-right: 2.5rem !important;
-}
-
 /* Responsive */
 @media (min-width: 640px) {
     .sm\:px-6 {
@@ -319,25 +311,39 @@ select.form-input {
 }
 
 @media (max-width: 640px) {
-    .max-w-md {
+    .password-form {
         margin: 1rem !important;
+        padding: 1.5rem !important;
     }
     
-    .px-6 {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+    .flex.space-x-4 {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
     }
     
-    .text-2xl {
-        font-size: 1.25rem !important;
+    .text-3xl {
+        font-size: 1.5rem !important;
     }
 }
 
 /* Mensaje de campo requerido */
-input:required:invalid, select:required:invalid {
+input:required:invalid {
     border-color: #ef4444 !important;
 }
 
-input:required:valid, select:required:valid {
+input:required:valid {
     border-color: #10b981 !important;
+}
+
+/* Focus states */
+.focus\:outline-none:focus {
+    outline: none !important;
+}
+
+.focus\:ring-2:focus {
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.5) !important;
+}
+
+.focus\:ring-amber-500:focus {
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.5) !important;
 }

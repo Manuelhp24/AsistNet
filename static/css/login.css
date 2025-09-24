@@ -1,0 +1,383 @@
+/* Estilos para la página de Iniciar Sesión - AsistNet */
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo-a {
+    color: #f59e0b;
+    text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+    transition: all 0.3s ease;
+}
+
+.logo-item:hover .logo-a {
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #f59e0b !important;
+    color: white !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 0.5rem !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-size: 0.875rem !important;
+    width: 100% !important;
+}
+
+.btn-primary:hover {
+    background-color: #e6900a !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3) !important;
+}
+
+/* Campos de formulario */
+.form-input {
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 0.5rem !important;
+    font-size: 0.875rem !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
+}
+
+.form-input:focus {
+    border-color: #f59e0b !important;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2) !important;
+    outline: none !important;
+}
+
+.form-input::placeholder {
+    color: #9ca3af !important;
+}
+
+/* Labels */
+label {
+    display: block !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    color: #374151 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.text-sm {
+    font-size: 0.875rem !important;
+}
+
+.font-bold {
+    font-weight: bold !important;
+}
+
+/* Estilos específicos para el formulario de login */
+.bg-white {
+    background-color: white !important;
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.rounded-xl {
+    border-radius: 1rem !important;
+}
+
+/* Texto y títulos */
+.text-3xl {
+    font-size: 1.875rem !important;
+    line-height: 2.25rem !important;
+    font-weight: bold !important;
+    color: #065f46 !important;
+}
+
+.text-emerald-800 {
+    color: #065f46 !important;
+}
+
+.text-emerald-600 {
+    color: #059669 !important;
+}
+
+.text-gray-700 {
+    color: #374151 !important;
+}
+
+.text-gray-600 {
+    color: #6b7280 !important;
+}
+
+.text-white {
+    color: white !important;
+}
+
+/* Espaciado */
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.mb-5 {
+    margin-bottom: 1.25rem !important;
+}
+
+.mb-6 {
+    margin-bottom: 1.5rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1rem !important;
+}
+
+.px-8 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+.pt-8 {
+    padding-top: 2rem !important;
+}
+
+.pb-8 {
+    padding-bottom: 2rem !important;
+}
+
+.p-4 {
+    padding: 1rem !important;
+}
+
+.pt-4 {
+    padding-top: 1rem !important;
+}
+
+/* Flexbox */
+.flex {
+    display: flex !important;
+}
+
+.items-center {
+    align-items: center !important;
+}
+
+.justify-center {
+    justify-content: center !important;
+}
+
+.justify-between {
+    justify-content: space-between !important;
+}
+
+.flex-col {
+    flex-direction: column !important;
+}
+
+/* Main container */
+.min-h-screen {
+    min-height: 100vh !important;
+}
+
+.flex-grow {
+    flex-grow: 1 !important;
+}
+
+.w-full {
+    width: 100% !important;
+}
+
+.max-w-md {
+    max-width: 28rem !important;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+    border-radius: 0.25rem !important;
+    border: 1px solid #d1d5db !important;
+}
+
+input[type="checkbox"]:focus {
+    ring-color: #f59e0b !important;
+    border-color: #f59e0b !important;
+}
+
+.leading-tight {
+    line-height: 1.25 !important;
+}
+
+/* Enlaces */
+a {
+    color: #059669 !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+a:hover {
+    color: #065f46 !important;
+}
+
+.hover\:text-emerald-800:hover {
+    color: #065f46 !important;
+}
+
+.transition {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke !important;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition-duration: 150ms !important;
+}
+
+/* Border */
+.border-t {
+    border-top-width: 1px !important;
+}
+
+.border-gray-200 {
+    border-color: #e5e7eb !important;
+}
+
+.border {
+    border-width: 1px !important;
+}
+
+.border-gray-300 {
+    border-color: #d1d5db !important;
+}
+
+/* Focus states */
+.focus\:outline-none:focus {
+    outline: none !important;
+}
+
+.focus\:ring-2:focus {
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.5) !important;
+}
+
+.focus\:ring-amber-500:focus {
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.5) !important;
+}
+
+.focus\:border-amber-500:focus {
+    border-color: #f59e0b !important;
+}
+
+.focus\:z-10:focus {
+    z-index: 10 !important;
+}
+
+.focus\:ring-offset-2:focus {
+    --tw-ring-offset-width: 2px !important;
+}
+
+/* Header styles */
+.sticky {
+    position: sticky !important;
+}
+
+.top-0 {
+    top: 0 !important;
+}
+
+.z-50 {
+    z-index: 50 !important;
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.h-20 {
+    height: 5rem !important;
+}
+
+.container {
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Menú desktop */
+.hidden {
+    display: none !important;
+}
+
+.md\:flex {
+    display: flex !important;
+}
+
+.space-x-6 > * + * {
+    margin-left: 1.5rem !important;
+}
+
+/* Menú móvil */
+.md\:hidden {
+    display: block !important;
+}
+
+@media (min-width: 768px) {
+    .md\:hidden {
+        display: none !important;
+    }
+    
+    .md\:flex {
+        display: flex !important;
+    }
+}
+
+/* Text alignment */
+.text-center {
+    text-align: center !important;
+}
+
+/* Font weights */
+.font-semibold {
+    font-weight: 600 !important;
+}
+
+.font-medium {
+    font-weight: 500 !important;
+}
+
+/* Margin right */
+.mr-2 {
+    margin-right: 0.5rem !important;
+}
+
+.mr-1 {
+    margin-right: 0.25rem !important;
+}
+
+/* Login button specific */
+.login-btn {
+    transition: all 0.3s ease !important;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3) !important;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .px-8 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .text-3xl {
+        font-size: 1.5rem !important;
+    }
+    
+    .flex.justify-between {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+    }
+    
+    .mb-6 {
+        margin-bottom: 1rem !important;
+    }
+}

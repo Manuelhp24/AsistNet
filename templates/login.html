@@ -4,62 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - AsistNet</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Iconos de Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="static/img/favicon.png" type="image/png">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .logo-a {
-            color: #f59e0b;
-            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
-            transition: all 0.3s ease;
-        }
-        .logo-item:hover .logo-a {
-            transform: scale(1.1);
-            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        .btn-primary {
-            background-color: #f59e0b;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #e6900a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-        }
-        .form-input:focus {
-            border-color: #f59e0b;
-            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
-        }
-        .nav-item {
-            transition: all 0.3s ease;
-        }
-        .nav-item:hover {
-            background-color: #065F46 !important;
-        }
-        .login-btn {
-            transition: all 0.3s ease;
-        }
-        .login-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
-        }
-    </style>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../static/img/favicon.png" type="image/png">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="../static/css/login.css">
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
-
     <!-- Header/Navbar -->
     <header class="sticky top-0 z-50 bg-emerald-800 shadow-lg">
         <nav class="container mx-auto px-4">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
+                    <a href="../index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
                         <span class="logo-a text-4xl font-bold italic mr-1">A</span>
                         <span class="logo-text text-2xl">sistNet</span>
                     </a>
@@ -103,20 +73,14 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="usuario">
                         <i class="fas fa-user mr-2 text-emerald-600"></i>Usuario
                     </label>
-                    <input class="form-input appearance-none relative block w-full px-4 py-3 border border-gray-300 
-                                placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
-                                focus:border-amber-500 focus:z-10 sm:text-sm" 
-                           id="usuario" type="text" placeholder="Ingrese su usuario">
+                    <input class="form-input" id="usuario" type="text" placeholder="Ingrese su usuario">
                 </div>
 
                 <div class="mb-5">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
                         <i class="fas fa-lock mr-2 text-emerald-600"></i>Contraseña
                     </label>
-                    <input class="form-input appearance-none relative block w-full px-4 py-3 border border-gray-300 
-                                placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
-                                focus:border-amber-500 focus:z-10 sm:text-sm pr-10" 
-                           id="password" type="password" placeholder="Ingrese su contraseña">
+                    <input class="form-input pr-10" id="password" type="password" placeholder="Ingrese su contraseña">
                 </div>
 
                 <div class="mb-6 flex items-center justify-between">
@@ -130,7 +94,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <button type="button" onclick="window.location.href='pantalla_administrador.html'" class="w-full py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white btn-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 login-btn">
+                    <button type="submit" class="btn-primary login-btn">
                         <i class="fas fa-sign-in-alt mr-2"></i>INGRESAR
                     </button>
                 </div>
@@ -157,9 +121,9 @@
                 <div>
                     <h3 class="text-lg font-bold mb-4">Enlaces Rápidos</h3>
                     <ul class="space-y-2">
-                        <li><a href="#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
-                        <li><a href="#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
-                        <li><a href="#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
+                        <li><a href="../index.html#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
+                        <li><a href="../index.html#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
+                        <li><a href="../index.html#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
                         <li><a href="preguntas_frecuentes.html" class="text-emerald-200 hover:text-white transition">FAQs</a></li>
                     </ul>
                 </div>
@@ -199,30 +163,7 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        // Script para el menú móvil
-        const btn = document.querySelector(".mobile-menu-button");
-        const menu = document.querySelector(".mobile-menu");
-
-        btn.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
-        });
-
-        // Validación básica de formulario
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const usuario = document.getElementById('usuario').value;
-            const password = document.getElementById('password').value;
-            
-            if (!usuario || !password) {
-                alert('Por favor, complete todos los campos.');
-                return;
-            }
-            
-            // Redirección después de validación exitosa
-            window.location.href = 'pantalla_administrador.html';
-        });
-    </script>
+    <!-- JavaScript externo -->
+    <script src="../static/js/login.js"></script>
 </body>
 </html>

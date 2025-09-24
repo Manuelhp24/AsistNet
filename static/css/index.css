@@ -1,0 +1,148 @@
+/* Estilos personalizados para AsistNet - Index */
+/* Asegurar que Tailwind funcione correctamente */
+
+/* Fondo verde oscuro sólido para el hero */
+.hero-bg {
+    background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.logo-a {
+    color: #f59e0b;
+    text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+    transition: all 0.3s ease;
+}
+
+.logo-item:hover .logo-a {
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+}
+
+.feature-card {
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(5, 150, 105, 0.15);
+}
+
+.testimonial-card {
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: scale(1.03);
+}
+
+.stats-item {
+    transition: all 0.3s ease;
+}
+
+.stats-item:hover {
+    transform: scale(1.05);
+}
+
+/* Animaciones personalizadas */
+.animate-fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* CORRECCIÓN DEL BOTÓN "VER FUNCIONALIDADES" */
+.hero-bg .bg-white {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    color: #065f46 !important;
+    border: 2px solid white;
+}
+
+.hero-bg .bg-white:hover {
+    background-color: white !important;
+    color: #065f46 !important;
+    transform: scale(1.05);
+}
+
+/* Asegurar que las secciones tengan los colores correctos */
+.bg-emerald-800 {
+    background-color: #065f46 !important;
+}
+
+.bg-emerald-700 {
+    background-color: #047857 !important;
+}
+
+.bg-amber-500 {
+    background-color: #f59e0b !important;
+}
+
+.bg-amber-500:hover {
+    background-color: #d97706 !important;
+}
+
+.text-emerald-800 {
+    color: #065f46 !important;
+}
+
+.text-white {
+    color: white !important;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Asegurar visibilidad del texto en hero section */
+.hero-bg h1,
+.hero-bg p,
+.hero-bg a {
+    color: white !important;
+}
+
+/* Estilos de respaldo para elementos críticos */
+.hero-section {
+    background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+    color: white;
+    padding: 6rem 1rem;
+}
+
+@media (min-width: 768px) {
+    .hero-section {
+        padding: 8rem 1rem;
+    }
+}
+
+/* Mejoras para la sección de testimonios */
+.testimonial-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Efectos hover mejorados */
+.feature-card, .testimonial-card, .stats-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .hero-bg h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-bg p {
+        font-size: 1.1rem;
+    }
+}

@@ -4,47 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preguntas Frecuentes - AsistNet</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Iconos de Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="static/img/favicon.png" type="image/png">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .logo-a {
-            color: #f59e0b;
-            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
-            transition: all 0.3s ease;
-        }
-        .logo-item:hover .logo-a {
-            transform: scale(1.1);
-            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        .faq-item {
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
-        }
-        .faq-item:hover {
-            transform: translateY(-2px);
-            border-left-color: #f59e0b;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        .faq-icon {
-            color: #f59e0b;
-            background-color: rgba(245, 158, 11, 0.1);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-    </style>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../static/img/favicon.png" type="image/png">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="../static/css/preguntas_frecuentes.css">
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
     <!-- Header/Navbar -->
@@ -53,7 +29,7 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
+                    <a href="../index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
                         <span class="logo-a text-4xl font-bold italic mr-1">A</span>
                         <span class="logo-text text-2xl">sistNet</span>
                     </a>
@@ -267,9 +243,9 @@
                 <div>
                     <h3 class="text-lg font-bold mb-4">Enlaces Rápidos</h3>
                     <ul class="space-y-2">
-                        <li><a href="index.html#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
-                        <li><a href="index.html#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
-                        <li><a href="index.html#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
+                        <li><a href="../index.html#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
+                        <li><a href="../index.html#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
+                        <li><a href="../index.html#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
                         <li><a href="preguntas_frecuentes.html" class="text-emerald-200 hover:text-white transition">FAQs</a></li>
                     </ul>
                 </div>
@@ -309,15 +285,7 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        // Script para el menú móvil
-        const btn = document.querySelector(".mobile-menu-button");
-        const menu = document.querySelector(".mobile-menu");
-
-        btn.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
-        });
-    </script>
+    <!-- JavaScript externo -->
+    <script src="../static/js/preguntas_frecuentes.js"></script>
 </body>
 </html>

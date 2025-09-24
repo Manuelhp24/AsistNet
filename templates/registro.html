@@ -4,46 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Registro - AsistNet</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Iconos de Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="static/img/favicon.png" type="image/png">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .logo-a {
-            color: #f59e0b;
-            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
-            transition: all 0.3s ease;
-        }
-        .logo-item:hover .logo-a {
-            transform: scale(1.1);
-            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        .btn-primary {
-            background-color: #f59e0b;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #e6900a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-        }
-        .form-input:focus {
-            border-color: #f59e0b;
-            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
-        }
-        .password-toggle {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .password-toggle:hover {
-            color: #f59e0b;
-        }
-    </style>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../static/img/favicon.png" type="image/png">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="../static/css/registro.css">
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
     <!-- Header/Navbar -->
@@ -52,7 +29,7 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
+                    <a href="../index.html" class="text-white text-xl font-semibold tracking-wide flex items-center logo-item">
                         <span class="logo-a text-4xl font-bold italic mr-1">A</span>
                         <span class="logo-text text-2xl">sistNet</span>
                     </a>
@@ -102,19 +79,14 @@
                             <i class="fas fa-user text-emerald-600 mr-2"></i>Nombre Completo:
                         </label>
                         <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" 
-                               class="form-input appearance-none relative block w-full px-4 py-3 border border-gray-300 
-                               placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
-                               focus:border-amber-500 focus:z-10 sm:text-sm" required>
+                               class="form-input" required>
                     </div>
 
                     <div>
                         <label for="select" class="block text-gray-700 font-medium mb-2">
                             <i class="fas fa-id-card text-emerald-600 mr-2"></i>Tipo de documento:
                         </label>
-                        <select id="select" name="select" 
-                                class="form-input appearance-none relative block w-full px-4 py-3 border border-gray-300 
-                                placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
-                                focus:border-amber-500 focus:z-10 sm:text-sm" required>
+                        <select id="select" name="select" class="form-input" required>
                             <option value="" disabled selected>Seleccione su tipo de documento</option>
                             <option>CC</option>
                             <option>TI</option>
@@ -128,9 +100,7 @@
                             <i class="fas fa-id-card-clip text-emerald-600 mr-2"></i>Documento:
                         </label>
                         <input type="text" id="Documento" name="Documento" placeholder="Número sin (.) ni (,)" 
-                               class="form-input appearance-none relative block w-full px-4 py-3 border border-gray-300 
-                               placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
-                               focus:border-amber-500 focus:z-10 sm:text-sm" required>
+                               class="form-input" required>
                     </div>
 
                     <div>
@@ -138,9 +108,7 @@
                             <i class="fas fa-phone text-emerald-600 mr-2"></i>Teléfono:
                         </label>
                         <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" 
-                               class="form-input appearance-none relative block w-full px-4 py-3 border border-gray-300 
-                               placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
-                               focus:border-amber-500 focus:z-10 sm:text-sm" required>
+                               class="form-input" required>
                     </div>
 
                     <div>
@@ -148,9 +116,7 @@
                             <i class="fas fa-envelope text-emerald-600 mr-2"></i>Correo:
                         </label>
                         <input type="email" id="correo" name="correo" placeholder="Correo" 
-                               class="form-input appearance-none relative block w-full px-4 py-3 border border-gray-300 
-                               placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
-                               focus:border-amber-500 focus:z-10 sm:text-sm" required>
+                               class="form-input" required>
                     </div>
 
                     <div>
@@ -159,9 +125,7 @@
                         </label>
                         <div class="relative">
                             <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" 
-                                   class="form-input appearance-none relative block w-full px-4 py-3 border border-gray-300 
-                                   placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
-                                   focus:border-amber-500 focus:z-10 sm:text-sm pr-10" required>
+                                   class="form-input pr-10" required>
                             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
                                 <span class="password-toggle" id="togglePassword">
                                     <i class="fas fa-eye-slash text-gray-400"></i>
@@ -176,9 +140,7 @@
                         </label>
                         <div class="relative">
                             <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" placeholder="Confirma tu contraseña" 
-                                   class="form-input appearance-none relative block w-full px-4 py-3 border border-gray-300 
-                                   placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-amber-500 
-                                   focus:border-amber-500 focus:z-10 sm:text-sm pr-10" required>
+                                   class="form-input pr-10" required>
                             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
                                 <span class="password-toggle" id="toggleConfirmPassword">
                                     <i class="fas fa-eye-slash text-gray-400"></i>
@@ -188,7 +150,7 @@
                     </div>
 
                     <div class="pt-2">
-                        <button type="submit" class="w-full btn-primary text-white px-4 py-3 rounded-md font-medium">
+                        <button type="submit" class="btn-primary">
                             <i class="fas fa-user-plus mr-2"></i>Registrarse
                         </button>
                     </div>
@@ -218,9 +180,9 @@
                 <div>
                     <h3 class="text-lg font-bold mb-4">Enlaces Rápidos</h3>
                     <ul class="space-y-2">
-                        <li><a href="#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
-                        <li><a href="#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
-                        <li><a href="#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
+                        <li><a href="../index.html#features" class="text-emerald-200 hover:text-white transition">Funcionalidades</a></li>
+                        <li><a href="../index.html#benefits" class="text-emerald-200 hover:text-white transition">Beneficios</a></li>
+                        <li><a href="../index.html#testimonials" class="text-emerald-200 hover:text-white transition">Testimonios</a></li>
                         <li><a href="preguntas_frecuentes.html" class="text-emerald-200 hover:text-white transition">FAQs</a></li>
                     </ul>
                 </div>
@@ -260,44 +222,7 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        // Script para el menú móvil
-        const btn = document.querySelector(".mobile-menu-button");
-        const menu = document.querySelector(".mobile-menu");
-
-        btn.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
-        });
-
-        // Script para mostrar/ocultar contraseña
-        document.querySelectorAll('.password-toggle').forEach(toggle => {
-            toggle.addEventListener('click', function() {
-                const input = this.closest('.relative').querySelector('input');
-                const icon = this.querySelector('i');
-                
-                if (input.type === 'password') {
-                    input.type = 'text';
-                    icon.classList.remove('fa-eye-slash');
-                    icon.classList.add('fa-eye');
-                } else {
-                    input.type = 'password';
-                    icon.classList.remove('fa-eye');
-                    icon.classList.add('fa-eye-slash');
-                }
-            });
-        });
-
-        // Validación básica de formulario
-        document.querySelector('form').addEventListener('submit', function(e) {
-            const password = document.getElementById('contrasena').value;
-            const confirmPassword = document.getElementById('confirmar_contrasena').value;
-            
-            if (password !== confirmPassword) {
-                e.preventDefault();
-                alert('Las contraseñas no coinciden. Por favor, verifica.');
-            }
-        });
-    </script>
+    <!-- JavaScript externo -->
+    <script src="../static/js/registro.js"></script>
 </body>
 </html>

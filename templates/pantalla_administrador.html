@@ -4,64 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administrador - AsistNet</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Iconos de Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
     <link rel="icon" href="static/img/favicon.png" type="image/png">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .logo-a {
-            color: #f59e0b;
-            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
-            transition: all 0.3s ease;
-        }
-        .logo-item:hover .logo-a {
-            transform: scale(1.1);
-            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        .btn-primary {
-            background-color: #f59e0b;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #e6900a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-        }
-        .btn-secondary {
-            background-color: #065F46;
-            transition: all 0.3s ease;
-        }
-        .btn-secondary:hover {
-            background-color: #054c35;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(5, 95, 70, 0.3);
-        }
-        .admin-card {
-            transition: all 0.3s ease;
-        }
-        .admin-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        .sidebar {
-            transition: all 0.3s ease;
-        }
-        .nav-item {
-            transition: all 0.3s ease;
-        }
-        .nav-item:hover {
-            background-color: #064e3b;
-        }
-        .active-nav {
-            background-color: #065f46;
-            border-left: 4px solid #f59e0b;
-        }
-    </style>
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="static/css/pantalla_administrador.css">
 </head>
 <body class="bg-gray-100 min-h-screen flex">
     <!-- Sidebar -->
@@ -362,27 +321,7 @@
         </footer>
     </div>
 
-    <!-- Scripts -->
-    <script>
-        // Toggle menu móvil
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.querySelector('.sidebar').classList.toggle('hidden');
-            document.querySelector('.sidebar').classList.toggle('absolute');
-            document.querySelector('.sidebar').classList.toggle('z-50');
-        });
-
-        // Cerrar menú al hacer clic fuera de él
-        document.addEventListener('click', function(event) {
-            const sidebar = document.querySelector('.sidebar');
-            const menuToggle = document.getElementById('menu-toggle');
-            
-            if (window.innerWidth < 768 && 
-                !sidebar.contains(event.target) && 
-                !menuToggle.contains(event.target) &&
-                !sidebar.classList.contains('hidden')) {
-                sidebar.classList.add('hidden');
-            }
-        });
-    </script>
+    <!-- JavaScript personalizado -->
+    <script src="static/js/pantalla_administrador.js"></script>
 </body>
 </html>

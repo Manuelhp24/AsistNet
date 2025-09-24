@@ -4,58 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta de Asistencias - AsistNet</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Iconos de Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
     <link rel="icon" href="static/img/favicon.png" type="image/png">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .logo-a {
-            color: #f59e0b;
-            text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
-            transition: all 0.3s ease;
-        }
-        .logo-item:hover .logo-a {
-            transform: scale(1.1);
-            text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
-        }
-        .btn-primary {
-            background-color: #f59e0b;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #e6900a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-        }
-        .form-input:focus {
-            border-color: #f59e0b;
-            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
-        }
-        .presente {
-            color: #047857;
-            font-weight: 500;
-        }
-        .ausente {
-            color: #dc2626;
-            font-weight: 500;
-        }
-        .tarde {
-            color: #d97706;
-            font-weight: 500;
-        }
-        .table-row {
-            transition: all 0.3s ease;
-        }
-        .table-row:hover {
-            background-color: #f9fafb;
-            transform: translateY(-1px);
-        }
-    </style>
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="static/css/consulta_asistencias.css">
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
     <!-- Header/Navbar -->
@@ -277,63 +242,7 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        // Script para el menú móvil
-        const btn = document.querySelector(".mobile-menu-button");
-        const menu = document.querySelector(".mobile-menu");
-
-        btn.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
-        });
-
-        // Función para filtrar asistencias por grupo
-        function mostrarAsistencias() {
-            const grupoSeleccionado = document.getElementById('grupo').value;
-            const filas = document.querySelectorAll('#tabla-asistencias tr');
-            
-            filas.forEach(fila => {
-                if (grupoSeleccionado === 'todos' || fila.getAttribute('data-grupo') === grupoSeleccionado) {
-                    fila.style.display = '';
-                } else {
-                    fila.style.display = 'none';
-                }
-            });
-            
-            // Actualizar estadísticas (en una aplicación real, esto vendría del backend)
-            actualizarEstadisticas(grupoSeleccionado);
-        }
-        
-        // Función para actualizar estadísticas según el grupo seleccionado
-        function actualizarEstadisticas(grupo) {
-            // En una aplicación real, estos datos vendrían del backend
-            let asistencias = 4;
-            let ausencias = 2;
-            let retardos = 1;
-            
-            if (grupo === 'Grupo A') {
-                asistencias = 1;
-                ausencias = 1;
-                retardos = 0;
-            } else if (grupo === 'Grupo B') {
-                asistencias = 2;
-                ausencias = 0;
-                retardos = 1;
-            } else if (grupo === 'Grupo C') {
-                asistencias = 1;
-                ausencias = 1;
-                retardos = 0;
-            }
-            
-            document.querySelector('.bg-emerald-50 p').textContent = asistencias;
-            document.querySelector('.bg-red-50 p').textContent = ausencias;
-            document.querySelector('.bg-amber-50 p').textContent = retardos;
-        }
-        
-        // Inicializar la tabla al cargar la página
-        document.addEventListener('DOMContentLoaded', function() {
-            mostrarAsistencias();
-        });
-    </script>
+    <!-- JavaScript personalizado -->
+    <script src="static/js/consulta_asistencias.js"></script>
 </body>
 </html>
